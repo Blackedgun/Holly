@@ -125,7 +125,7 @@ button:hover {
   display: flex;
   align-items: center;
   padding: -10px 20px;
-  background-color: pink;
+  background-color: rgba(133, 91, 3, 0.712);
   height: 70px;
   margin-top: -5px;
 }
