@@ -91,7 +91,7 @@ if (empty($_SESSION['usuario'])) {
 
       <input class="controls" type="number" step="0.01" id="precio" name="precio" value="<?php echo $precio?>" placeholder="Ingrese el precio" required><br><br>
 
-      <input style="width: 618px; height: 100px;" class="controls" type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion?>" placeholder="Ingrese una descripcion"  maxlength="30" required><br><br>
+      <input style="width: 618px; height: 100px;" class="controls" type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion?>" placeholder="Ingrese una descripcion"  maxlength="50" required><br><br>
 
       <label style="color: black;" for="categoria">Categoría: </label>
       <select id="categoria" name="categoria" required>

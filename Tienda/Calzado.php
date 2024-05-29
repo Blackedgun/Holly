@@ -90,8 +90,6 @@ include "../reg.php";
               <ol>
                 <li><?php echo $row['prod_nombre']; ?></li>
                 <br />
-                <li><?php echo $row['prod_descripcion']; ?></li>
-                <br />
                 <li>Precio: $<?php echo $row['prod_precio']; ?></li>
               </ol>
             </div>
@@ -112,8 +110,6 @@ include "../reg.php";
               <ol>
                 <li><?php echo $row['prod_nombre']; ?></li>
                 <br />
-                <li><?php echo $row['prod_descripcion']; ?></li>
-                <br />
                 <li>Precio: $<?php echo $row['prod_precio']; ?></li>
               </ol>
             </div>
@@ -133,8 +129,6 @@ include "../reg.php";
               <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li><?php echo $row['prod_nombre']; ?></li>
-                <br />
-                <li><?php echo $row['prod_descripcion']; ?></li>
                 <br />
                 <li>Precio: $<?php echo $row['prod_precio']; ?></li>
               </ol>
