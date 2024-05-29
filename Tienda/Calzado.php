@@ -1,3 +1,9 @@
+<?php
+
+include "../reg.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
