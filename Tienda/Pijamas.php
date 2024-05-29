@@ -11,8 +11,7 @@ include "../reg.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../img/LogoHolly.png" />
     <title>Holly Store</title>
-    <link rel="stylesheet" href="../css/Store.css" />
-    <link rel="stylesheet" href="../css/storeslides.css" />
+    <link rel="stylesheet" href="../css/Tiendacss/Storepijama.css" />
     <link rel="stylesheet" href="../css/storemanualslider.css" />
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,12 +42,9 @@ include "../reg.php";
     <div class="slider-frame">
       <ul>
         <li><img src="../img/Pijamas.jpg" alt="" /></li>
-        <li><img src="../img/jeanmodelres.jpg" alt="" /></li>
-        <li><img src="../img/chaquetamodelres.jpeg" alt="" /></li>
-        <li><img src="../img/crocs2res.jpeg" alt="" /></li>
       </ul>
       <div>
-        <p class="texta">Tienda Holly Dashing</p>
+        <p class="texta">Pijamas Holly Dashing</p>
       </div>
     </div>
     <div class="secondline-bottom">
@@ -59,26 +55,28 @@ include "../reg.php";
         <p>Explora</p>
         <ol>
           <br /><br />
-          <a href="Camisetas.html"><li>Camisetas</li></a
+          <a href="Camisetas.php"><li>Camisetas</li></a
           ><br /><br />
-          <a href="Calzado.html"><li>Calzado</li></a
+          <a href="Calzado.php"><li>Calzado</li></a
           ><br /><br />
-          <a href="Jeans.html"><li>Pantalones</li></a
+          <a href="Jeans.php"><li>Pantalones</li></a
           ><br /><br />
-          <a href="Chaquetas.html"><li>Chaquetas</li></a
+          <a href="Chaquetas.php"><li>Chaquetas</li></a
           ><br /><br />
-          <a href="Pijamas.html"><li>Pijamas</li></a
+          <a href="" style="color: rgb(241, 163, 248);"><li>Pijamas</li></a
           ><br /><br />
+          <a href="Tienda.php"><li>Tienda</li></a
+            ><br /><br />
         </ol>
       </div>
       <div class="container-pop-items">
         <div class="secondline">
-        <p>PRODUCTOS POPULARES</p>
+        <p>PIJAMAS</p>
       </div>
         <div class="column">
           <a href="Tienda/Jeans.html">
             <div class="picture-det">
-              <img src="img/americanino_jean.jpg" alt="img-galeria" />
+              <img src="../img/americanino_jean.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 9";
               $resulta = mysqli_query($conn, $inv);
@@ -105,7 +103,7 @@ include "../reg.php";
           </a>
           <a href="#">
             <div class="picture-det">
-              <img src="img/Loewe_clara.jpg" alt="img-galeria" />
+              <img src="../img/Loewe_clara.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 15";
               $resulta = mysqli_query($conn, $inv);
@@ -132,7 +130,7 @@ include "../reg.php";
           </a>
           <a href="#">
             <div class="picture-det">
-              <img src="img/camisa_col_dama.jpg" alt="img-galeria" />
+              <img src="../img/camisa_col_dama.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 1";
               $resulta = mysqli_query($conn, $inv);
@@ -159,7 +157,7 @@ include "../reg.php";
           </a>
           <a href="Tienda/Jeans.html">
             <div class="picture-det">
-              <img src="img/diesel_zapatilla.jpg" alt="img-galeria" />
+              <img src="../img/diesel_zapatilla.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 11";
               $resulta = mysqli_query($conn, $inv);
@@ -188,7 +186,7 @@ include "../reg.php";
         <div class="column">
           <a href="#">
             <div class="picture-det">
-              <img src="img/levis_dark_portrait.jpg" alt="img-galeria" />
+              <img src="../img/levis_dark_portrait.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 5";
               $resulta = mysqli_query($conn, $inv);
@@ -215,7 +213,7 @@ include "../reg.php";
           </a>
           <a href="#">
             <div class="picture-det">
-              <img src="img/Boss_azul_bosque.jpg" alt="img-galeria" />
+              <img src="../img/Boss_azul_bosque.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 4";
               $resulta = mysqli_query($conn, $inv);
@@ -242,7 +240,7 @@ include "../reg.php";
           </a>
           <a href="#">
             <div class="picture-det">
-              <img src="img/camisa_colombia.jpg" alt="img-galeria" />
+              <img src="../img/camisa_colombia.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 2";
               $resulta = mysqli_query($conn, $inv);
@@ -269,7 +267,7 @@ include "../reg.php";
           </a>
           <a href="Tienda/Jeans.html">
             <div class="picture-det">
-              <img src="img/babuchas_gatito.jpg" alt="img-galeria" />
+              <img src="../img/babuchas_gatito.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 12";
               $resulta = mysqli_query($conn, $inv);
@@ -298,7 +296,7 @@ include "../reg.php";
         <div class="column">
           <a href="#">
             <div class="picture-det">
-              <img src="img/levis_gloomy_portrait.jpg" alt="img-galeria" />
+              <img src="../img/levis_gloomy_portrait.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 10";
               $resulta = mysqli_query($conn, $inv);
@@ -325,7 +323,7 @@ include "../reg.php";
           </a>
           <a href="#">
             <div class="picture-det">
-              <img src="img/Tommy_oscuro_diseño.jpg" alt="img-galeria" />
+              <img src="../img/Tommy_oscuro_diseño.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 14";
               $resulta = mysqli_query($conn, $inv);
@@ -352,7 +350,7 @@ include "../reg.php";
           </a>
           <a href="Tienda/Jeans.html">
             <div class="picture-det">
-              <img src="img/camisa_negra_colombia.jpg" alt="img-galeria" />
+              <img src="../img/camisa_negra_colombia.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 6";
               $resulta = mysqli_query($conn, $inv);
@@ -379,7 +377,7 @@ include "../reg.php";
           </a>
           <a href="Tienda/Jeans.html">
             <div class="picture-det">
-              <img src="img/babuchas_vaca.jpg" alt="img-galeria" />
+              <img src="../img/babuchas_vaca.jpg" alt="img-galeria" />
               <?php
               $inv = "SELECT * FROM producto WHERE producto_id = 13";
               $resulta = mysqli_query($conn, $inv);
@@ -422,7 +420,7 @@ include "../reg.php";
     <div class="footercont">
       <nav>
         <ul>
-          <li><a href="Tienda">Inicio</a></li>
+          <li><a href="../Interface.php">Inicio</a></li>
           <li><a href="Informacion">Información</a></li>
           <li><a href="Contactos">Contactanos</a></li>
         </ul>
