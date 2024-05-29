@@ -1,7 +1,5 @@
 <?php
-
 include "../reg.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -32,11 +30,11 @@ include "../reg.php";
         <li><a href="Contactos">Contactanos</a></li>
       </ul>
     </nav>
-
     <div class="login-button">
       <a href="../login/Formulario.php"><button>Iniciar Sesión</button></a>
     </div>
   </header>
+
   <div class="slider-frame">
     <ul>
       <li><img src="../img/crocs2res.jpeg" alt="" /></li>
@@ -45,9 +43,11 @@ include "../reg.php";
       <p class="texta">Calzado Holly Dashing</p>
     </div>
   </div>
+
   <div class="secondline-bottom">
     <p>Echa un vistazo a todos nuestros descuentos</p>
   </div>
+
   <div class="main-container">
     <div class="first_container">
       <p>Explora</p>
@@ -73,350 +73,85 @@ include "../reg.php";
         </a><br /><br />
       </ol>
     </div>
+
     <div class="container-pop-items">
       <div class="secondline">
         <p>CALZADO</p>
       </div>
       <div class="column">
-        <a href="Tienda/Jeans.html">
-          <div class="picture-det">
-            <img src="img/americanino_jean.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 9";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
+        <?php
+        $inv = "SELECT * FROM producto WHERE cat_id = 3";
+        $resulta = mysqli_query($conn, $inv);
+        while ($row = mysqli_fetch_array($resulta)) {
+        ?>
+          <a href="Tienda/Jeans.html">
+            <div class="picture-det">
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
+                <li><?php echo $row['prod_nombre']; ?></li>
                 <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
+                <li><?php echo $row['prod_descripcion']; ?></li>
                 <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
+                <li>Precio: $<?php echo $row['prod_precio']; ?></li>
               </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
-        <a href="#">
-          <div class="picture-det">
-            <img src="img/Loewe_clara.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 15";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
-        <a href="#">
-          <div class="picture-det">
-            <img src="img/camisa_col_dama.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 1";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
-        <a href="Tienda/Jeans.html">
-          <div class="picture-det">
-            <img src="img/diesel_zapatilla.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 11";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
+            </div>
+          </a>
+        <?php
+        }
+        ?>
       </div>
       <div class="column">
-        <a href="#">
-          <div class="picture-det">
-            <img src="img/levis_dark_portrait.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 5";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
+        <?php
+        $inv = "SELECT * FROM producto WHERE cat_id = 3";
+        $resulta = mysqli_query($conn, $inv);
+        while ($row = mysqli_fetch_array($resulta)) {
+        ?>
+          <a href="Tienda/Jeans.html">
+            <div class="picture-det">
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
+                <li><?php echo $row['prod_nombre']; ?></li>
                 <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
+                <li><?php echo $row['prod_descripcion']; ?></li>
                 <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
+                <li>Precio: $<?php echo $row['prod_precio']; ?></li>
               </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
-        <a href="#">
-          <div class="picture-det">
-            <img src="img/Boss_azul_bosque.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 4";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
-        <a href="#">
-          <div class="picture-det">
-            <img src="img/camisa_colombia.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 2";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
-        <a href="Tienda/Jeans.html">
-          <div class="picture-det">
-            <img src="img/babuchas_gatito.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 12";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
+            </div>
+          </a>
+        <?php
+        }
+        ?>
       </div>
       <div class="column">
-        <a href="#">
-          <div class="picture-det">
-            <img src="img/levis_gloomy_portrait.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 10";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
+        <?php
+        $inv = "SELECT * FROM producto WHERE cat_id = 3";
+        $resulta = mysqli_query($conn, $inv);
+        while ($row = mysqli_fetch_array($resulta)) {
+        ?>
+          <a href="Tienda/Jeans.html">
+            <div class="picture-det">
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
+                <li><?php echo $row['prod_nombre']; ?></li>
                 <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
+                <li><?php echo $row['prod_descripcion']; ?></li>
                 <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
+                <li>Precio: $<?php echo $row['prod_precio']; ?></li>
               </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
-        <a href="#">
-          <div class="picture-det">
-            <img src="img/Tommy_oscuro_diseño.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 14";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
-        <a href="Tienda/Jeans.html">
-          <div class="picture-det">
-            <img src="img/camisa_negra_colombia.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 6";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
-        <a href="Tienda/Jeans.html">
-          <div class="picture-det">
-            <img src="img/babuchas_vaca.jpg" alt="img-galeria" />
-            <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 13";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  <?php echo $row['prod_descripcion'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
-          </div>
-        </a>
+            </div>
+          </a>
+        <?php
+        }
+        ?>
       </div>
     </div>
   </div>
 
   <div class="secondline-bottom">
-    <p>
-      Te invitamos a que cuides, respetes y mejores tu piel con la mejor
-      delicadeza.
-    </p>
+    <p>Te invitamos a que cuides, respetes y mejores tu piel con la mejor delicadeza.</p>
   </div>
 </body>
+
 <footer class="footer">
   <div class="Brand">
     <img src="../img/LogoHolly.png" alt="Holly Dashing" />
