@@ -40,7 +40,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   font-size: 30px;
   border-radius: 20px;
@@ -59,7 +59,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: pink;
+  background-color: rgba(133, 91, 3, 0.712);
   height: 135px;
 }
 
@@ -80,11 +80,11 @@ nav ul {
   list-style-type: none;
   padding: 0;
   display: flex;
-  border: 4px solid #ffffff;
+  border: 2px solid #000000;
   border-radius: 20px;
   padding: 20px;
   margin-right: 20px;
-  background-color: #ffbfe6;
+  background-color: beige;
 }
 
 nav li {
@@ -108,8 +108,8 @@ nav a:hover {
 
 .login-button button {
   padding: 15px 30px;
-  background-color: #ffffff;
-  border: 4px solid #ffffff;
+  background-color: beige;
+  border: 2px solid #000000;
   color: #000000;
   cursor: pointer;
   border-radius: 20px;
@@ -118,7 +118,7 @@ nav a:hover {
 }
 
 button:hover {
-  background-color: #ffbfe6;
+  background-color: #ffffff;
 }
 
 .secondline-bottom {
