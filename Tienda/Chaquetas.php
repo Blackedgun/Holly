@@ -140,7 +140,7 @@ include "../reg.php";
     </div>
   </div>
 
-  <div style="background-color: rgba(133, 91, 3, 0.820);" class="secondline-bottom">
+  <div class="secondline-bottom">
     <p>
       Te invitamos a que cuides, respetes y mejores tu piel con la mejor
       delicadeza.

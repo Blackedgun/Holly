@@ -37,7 +37,7 @@ include "../reg.php";
 
   <div class="slider-frame">
     <ul>
-      <li><img src="../img/crocs2res.jpeg" alt="" /></li>
+      <li><img src="../img/zapatos.jpeg" alt="" /></li>
     </ul>
     <div>
       <p class="texta">Calzado Holly Dashing</p>
