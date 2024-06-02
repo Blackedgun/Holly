@@ -70,14 +70,11 @@ if (empty($_SESSION['usuario'])) {
           <input type="text" name="busqueda">
           <br><br>
           <input type="submit" name="enviar" value="Buscar">
-          <div>
-            <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/productopdf.php">PDF</a>
+          <div class="print">
+            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../convert/pedidocsv.php">CSV</a>
           </div><br>
           <div class="print">
-            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="convert/convertocsvinv.php">CSV</a>
-          </div><br>
-          <div class="print">
-            <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/productoxml.php">XML</a><br><br>
+            <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/pedidoxml.php">XML</a><br><br>
             <div class="nextbutton">
               <a class="Fetch" href="../additem/addprod.php">Comentarios</a>
             </div>

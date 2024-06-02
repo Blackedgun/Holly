@@ -2,7 +2,7 @@
 
 include '../reg.php';
 
-$hor = "SELECT * FROM pedidos";
+$hor = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli FROM pedidos INNER JOIN cliente ON pedidos.cliente_id = cliente.cliente_id";
 
 $query = $conn->query($hor);
 
@@ -11,15 +11,13 @@ $xml = new SimpleXMLElement('<root_contact/>');
 if($query){
 
 while ($r = $query->fetch_object()) {
-    
+
         $contact = $xml->addChild('contact', '');
         $contact->addAttribute('ID', $r->pedido_id);
-        $contact->addAttribute('Fecha', $r->inv);
-        $contact->addAttribute('Total', $r->inv_precio);
-        $contact->addAttribute('Estado', $r->inv_cantidad);
-        $contact->addAttribute('Descripcion', $r->inv_descripcion);
-        $contact->addAttribute('Empleado_que_registró', $r->emp_id);
-    
+        $contact->addAttribute('Fecha', date('Y-m-d H:i:s', strtotime($r->fecha_ped)));
+        $contact->addAttribute('Total', $r->total_amount);
+        $contact->addAttribute('Estado', $r->estado);
+        $contact->addAttribute('Cliente', $r->nombre_cli); 
 
  }
 }
@@ -30,6 +28,6 @@ $dom->formatOutput = true;
 $dom->loadXML($xml->asXML());
 
 header('Content-Type: text/xml Charset="utf8"');
-header('Content-Disposition: attachment; filename="Inventario.xml";');
+header('Content-Disposition: attachment; filename="Pedidos.xml";');
 echo $dom->saveXML();
 ?>

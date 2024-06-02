@@ -79,7 +79,7 @@ if (empty($_SESSION['usuario'])) {
             <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/productopdf.php">PDF</a>
           </div><br>
           <div class="print">
-            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="convert/convertocsvinv.php">CSV</a>
+            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../convert/productocsv.php">CSV</a>
           </div>
           <br>
           <div class="print">
