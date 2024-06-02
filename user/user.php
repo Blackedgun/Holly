@@ -1,12 +1,10 @@
 <?php
-
 include "../reg.php";
 
 session_start();
 if (empty($_SESSION['usuario'])) {
   header('location: ../Interface.php');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +12,7 @@ if (empty($_SESSION['usuario'])) {
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../img/LogoHolly.png" />
   <title>Main</title>
   <link rel="stylesheet" href="../css/user-int.css" />
@@ -23,7 +21,6 @@ if (empty($_SESSION['usuario'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
-<header></header>
 
 <body style="background: url(../img/pinkdot2.jpg)">
   <div class="container">
@@ -49,7 +46,7 @@ if (empty($_SESSION['usuario'])) {
           <li>
             <a href="#">
               <i class="fas fa-cog"></i>
-              <span class="nav-item">Confuguración</span>
+              <span class="nav-item">Configuración</span>
             </a>
           </li>
           <li>
@@ -71,17 +68,14 @@ if (empty($_SESSION['usuario'])) {
       <div class="somenew">
         <form class="header__title" action="">
           <input type="text" name="busqueda">
-          <br>
-          <br>
+          <br><br>
           <input type="submit" name="enviar" value="Buscar">
-
           <div>
             <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/productopdf.php">PDF</a>
           </div><br>
           <div class="print">
             <a style="color: #707070; background-color: lawngreen;" class='print_button' href="convert/convertocsvinv.php">CSV</a>
-          </div>
-          <br>
+          </div><br>
           <div class="print">
             <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/productoxml.php">XML</a><br><br>
             <div class="nextbutton">
@@ -89,50 +83,31 @@ if (empty($_SESSION['usuario'])) {
             </div>
           </div>
         </form>
-        <div style="background: none; border: 0px;" class="someold">
-        </div>
+        <div style="background: none; border: 0px;" class="someold"></div>
       </div><br><br>
 
       <div class="table__container_two">
         <table>
           <tr>
-            <th>Id</th>
+            <th>ID</th>
             <th>Fecha</th>
             <th>Total</th>
             <th>Estado</th>
             <th>Cliente</th>
-            <th>Dirección</th>
-            <th>Barrio</th>
             <th>Opciones</th>
           </tr>
           <?php
-          $inv = "SELECT * FROM pedidos";
+          $inv = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli FROM pedidos INNER JOIN cliente ON pedidos.cliente_id = cliente.cliente_id";
           $resulta = mysqli_query($conn, $inv);
           while ($row = mysqli_fetch_array($resulta)) {
           ?>
             <tr>
-              <td>
-                <?php echo $row['pedido_id'] ?>
-              </td>
-              <td>
-                <?php echo $row['fecha_ped'] ?>
-              </td>
-              <td>
-                <?php echo $row['total_amount'] ?>
-              </td>
-              <td>
-                <?php echo $row['estado'] ?>
-              </td>
-              <td>
-                <?php echo $row['cliente_id'] ?>
-              </td>
-              <td>
-                <?php echo $row['direccion'] ?>
-              </td>
-              <td>
-                <?php echo $row['barrio'] ?>
-              </td>
-              <td><a href="../editform/forminventario.php?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Editar</a></td>
+              <td><?php echo $row['pedido_id']; ?></td>
+              <td><?php echo $row['fecha_ped']; ?></td>
+              <td><?php echo $row['total_amount']; ?></td>
+              <td><?php echo $row['estado']; ?></td>
+              <td><?php echo $row['nombre_cli']; ?></td>
+              <td><a href="../editform/forminventario.php?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Consultar</a></td>
             </tr>
           <?php
           }

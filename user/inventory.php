@@ -114,9 +114,9 @@ if (empty($_SESSION['usuario'])) {
             <th>Opciones</th>
           </tr>
           <?php
-          $inv = "SELECT * FROM producto";
-          $resulta = mysqli_query($conn, $inv);
-          while ($row = mysqli_fetch_array($resulta)) {
+          $inv = "SELECT producto.*, categoria.categoria AS categoria FROM producto LEFT JOIN categoria ON producto.cat_id = categoria.cat_id";
+          $resultado = mysqli_query($conn, $inv);
+          while ($row = mysqli_fetch_array($resultado)) {
           ?>
             <tr>
               <td>
@@ -126,7 +126,7 @@ if (empty($_SESSION['usuario'])) {
                 <?php echo $row['prod_nombre'] ?>
               </td>
               <td>
-                <?php echo $row['cat_id'] ?>
+                <?php echo $row['categoria'] ?>
               </td>
               <td>
                 <?php echo $row['prod_cantidad'] ?>

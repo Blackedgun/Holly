@@ -2,29 +2,31 @@
 
 include '../reg.php';
 
-$hor = "SELECT * FROM inventario";
+$hor = "SELECT * FROM pedidos";
 
 $query = $conn->query($hor);
 
 if($query){
-    echo  "I.D,";
-    echo  "Producto,";
-    echo  "Precio,";
-    echo  "Cantidad,";
-    echo  "Descripcion,";
-    echo  "Empleado que registró \n";
+    echo  "ID,";
+    echo  "Fecha de pedido,";
+    echo  "Total,";
+    echo  "Estado,";
+    echo  "Cliente,";
+    echo  "Dirección,";
+    echo  "Barrio \n";
 
    while($grab = $query->fetch_object()){
-         echo $grab->inv_id. ",";
-         echo $grab->inv_producto. ",";
-         echo $grab->inv_precio. ",";
-         echo $grab->inv_cantidad. ",";
-         echo $grab->inv_descripcion. ",";
-         echo $grab->emp_id. "\n";
+         echo $grab->pedido_id. ",";
+         echo $grab->fecha_ped. ",";
+         echo $grab->total_amount. ",";
+         echo $grab->estado. ",";
+         echo $grab->cliente_id. ",";
+         echo $grab->direccion. ",";
+         echo $grab->barrio. "\n";
    }
 }
 
 header('Content-Type: text/csv');
-header('Content-Disposition: attachment; filename="Inventario.csv";');
+header('Content-Disposition: attachment; filename="pedidos.csv";');
 
 ?>

@@ -2,7 +2,7 @@
 
 include '../reg.php';
 
-$hor = "SELECT * FROM inventario";
+$hor = "SELECT * FROM pedidos";
 
 $query = $conn->query($hor);
 
@@ -13,10 +13,10 @@ if($query){
 while ($r = $query->fetch_object()) {
     
         $contact = $xml->addChild('contact', '');
-        $contact->addAttribute('I.D', $r->inv_id);
-        $contact->addAttribute('Producto', $r->inv_producto);
-        $contact->addAttribute('Precio', $r->inv_precio);
-        $contact->addAttribute('Cantidad', $r->inv_cantidad);
+        $contact->addAttribute('ID', $r->pedido_id);
+        $contact->addAttribute('Fecha', $r->inv);
+        $contact->addAttribute('Total', $r->inv_precio);
+        $contact->addAttribute('Estado', $r->inv_cantidad);
         $contact->addAttribute('Descripcion', $r->inv_descripcion);
         $contact->addAttribute('Empleado_que_registró', $r->emp_id);
     
