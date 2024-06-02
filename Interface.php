@@ -480,7 +480,7 @@ include "reg.php";
   <div class="footercont">
     <nav>
       <ul>
-        <li><a href="Tienda">Tienda</a></li>
+        <li><a href="Tienda/Tienda.php">Tienda</a></li>
         <li><a href="Informacion">Información</a></li>
         <li><a href="Contactos">Contactanos</a></li>
       </ul>
