@@ -160,7 +160,7 @@ tr {
   display: flex;
   margin: auto 400px auto;
   position: absolute;
-  transform: translateY(200%);
+  transform: translate(60px, 500px);
   max-width: max-content;
 }
 

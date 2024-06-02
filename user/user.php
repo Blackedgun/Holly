@@ -67,48 +67,79 @@ if (empty($_SESSION['usuario'])) {
         </ul>
       </div>
     </nav>
-    <div class="table__container">
-      <table>
-        <tr>
-          <th>Id</th>
-          <th>Fecha</th>
-          <th>Pago Total</th>
-          <th>Estado</th>
-          <th>Cliente</th>
-          <th>Dirección</th>
-        </tr>
-        <?php
-        $inv = "SELECT * FROM pedidos";
-        $resulta = mysqli_query($conn, $inv);
-        while ($row = mysqli_fetch_array($resulta)) {
-        ?>
+    <div>
+      <div class="somenew">
+        <form class="header__title" action="">
+          <input type="text" name="busqueda">
+          <br>
+          <br>
+          <input type="submit" name="enviar" value="Buscar">
+
+          <div>
+            <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/productopdf.php">PDF</a>
+          </div><br>
+          <div class="print">
+            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="convert/convertocsvinv.php">CSV</a>
+          </div>
+          <br>
+          <div class="print">
+            <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/productoxml.php">XML</a><br><br>
+            <div class="nextbutton">
+              <a class="Fetch" href="../additem/addprod.php">Comentarios</a>
+            </div>
+          </div>
+        </form>
+        <div style="background: none; border: 0px;" class="someold">
+        </div>
+      </div><br><br>
+
+      <div class="table__container_two">
+        <table>
           <tr>
-            <td style="color: #f2f2f2">
-              <?php echo $row['pedido_id'] ?>
-            </td>
-            <td style="color: #f2f2f2">
-              <?php echo $row['fecha_ped'] ?>
-            </td>
-            <td style="color: #f2f2f2">
-              <?php echo $row['total_amount'] ?>
-            </td>
-            <td style="color: #f2f2f2">
-              <?php echo $row['estado'] ?>
-            </td>
-            <td style="color: #f2f2f2">
-              <?php echo $row['cliente_id'] ?>
-            </td>
-            <td style="color: #f2f2f2">
-              <?php echo $row['direccion'] ?>
-            </td>
-            <td>
-              <a href="deleteorder.php?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Eliminar</a>
-            </td>
+            <th>Id</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Cliente</th>
+            <th>Dirección</th>
+            <th>Barrio</th>
+            <th>Opciones</th>
           </tr>
-        <?php } ?>
-      </table>
+          <?php
+          $inv = "SELECT * FROM pedidos";
+          $resulta = mysqli_query($conn, $inv);
+          while ($row = mysqli_fetch_array($resulta)) {
+          ?>
+            <tr>
+              <td>
+                <?php echo $row['pedido_id'] ?>
+              </td>
+              <td>
+                <?php echo $row['fecha_ped'] ?>
+              </td>
+              <td>
+                <?php echo $row['total_amount'] ?>
+              </td>
+              <td>
+                <?php echo $row['estado'] ?>
+              </td>
+              <td>
+                <?php echo $row['cliente_id'] ?>
+              </td>
+              <td>
+                <?php echo $row['direccion'] ?>
+              </td>
+              <td>
+                <?php echo $row['barrio'] ?>
+              </td>
+              <td><a href="../editform/forminventario.php?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Editar</a></td>
+            </tr>
+          <?php
+          }
+          ?>
+        </table>
+      </div>
     </div>
-  </div>
 </body>
 
 </html>
