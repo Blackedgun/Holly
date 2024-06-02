@@ -19,12 +19,12 @@ function Header()
     $this->Ln(20);
 
     $this->Cell(20, 10, 'ID', 1, 0, 'C', 0);
-    $this->Cell(30, 10, 'Documento', 1, 0, 'C', 0);
-    $this->Cell(30, 10, 'Nombre', 1, 0, 'C', 0);
-    $this->Cell(30, 10,utf8_decode('Teléfono'), 1, 0, 'C', 0);
-    $this->Cell(30, 10, 'Cargo', 1, 0, 'C', 0);
-    $this->Cell(45, 10, 'Correo', 1, 0, 'C', 0);
-    $this->Cell(10, 10, 'Rol', 1, 1, 'C', 0);
+    $this->Cell(30, 10, 'Producto', 1, 0, 'C', 0);
+    $this->Cell(30, 10, 'Descripción', 1, 0, 'C', 0);
+    $this->Cell(30, 10,utf8_decode('Cantidad'), 1, 0, 'C', 0);
+    $this->Cell(30, 10, 'Precio', 1, 0, 'C', 0);
+    $this->Cell(45, 10, 'Categoría', 1, 0, 'C', 0);
+    $this->Cell(10, 10, 'Disponibilidad', 1, 1, 'C', 0);
 }
 
 // Page footer
@@ -39,9 +39,9 @@ function Footer()
 }
 }
 
-require ('reg.php');
+require ('../reg.php');
 
-$quiet = "SELECT * FROM empleado";
+$quiet = "SELECT * FROM producto";
 $query = $conn->query($quiet);
 
 $pdf = new PDF();
@@ -51,13 +51,13 @@ $pdf->SetFont('Arial','',10);
 
 
 while($r = $query->fetch_assoc()){
-    $pdf->Cell(20, 10, $r['emp_id'], 1, 0, 'C', 0);
-    $pdf->Cell(30, 10, $r['emp_cc'], 1, 0, 'C', 0);
-    $pdf->Cell(30, 10, $r['emp_nombre'], 1, 0, 'C', 0);
-    $pdf->Cell(30, 10, $r['emp_telefono'], 1, 0, 'C', 0);
-    $pdf->Cell(30, 10, $r['emp_cargo'], 1, 0, 'C', 0);
-    $pdf->Cell(50, 10, $r['emp_email'], 1, 0, 'C', 0);
-    $pdf->Cell(5, 10, $r['id_cargo'], 1, 1, 'C', 0);
+    $pdf->Cell(20, 10, $r['producto_id'], 1, 0, 'C', 0);
+    $pdf->Cell(30, 10, $r['prod_nombre'], 1, 0, 'C', 0);
+    $pdf->Cell(30, 10, $r['prod_descripcion'], 1, 0, 'C', 0);
+    $pdf->Cell(30, 10, $r['prod_cantidad'], 1, 0, 'C', 0);
+    $pdf->Cell(30, 10, $r['prod_precio'], 1, 0, 'C', 0);
+    $pdf->Cell(50, 10, $r['cat_id'], 1, 0, 'C', 0);
+    $pdf->Cell(5, 10, $r['disponibilidad'], 1, 1, 'C', 0);
 
 }
 
