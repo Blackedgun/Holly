@@ -77,7 +77,7 @@ if (empty($_SESSION['usuario'])) {
           <div class="print">
             <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/pedidoxml.php">XML</a><br><br>
             <div class="nextbutton">
-              <a class="Fetch" href="../additem/addprod.php">Comentarios</a>
+              <a class="Fetch" href="../additem/addprod.php">Facturas</a>
             </div>
           </div>
         </form>

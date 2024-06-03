@@ -26,7 +26,7 @@ include "../reg.php";
     <nav>
       <ul>
         <li><a href="../Interface.php">Inicio</a></li>
-        <li><a href="Informacion">Información</a></li>
+        <li><a href="../info/informacion.php">Información</a></li>
         <li><a href="Contactos">Contactanos</a></li>
       </ul>
     </nav>
@@ -154,7 +154,7 @@ include "../reg.php";
     <nav>
       <ul>
         <li><a href="../Interface.php">Inicio</a></li>
-        <li><a href="Informacion">Información</a></li>
+        <li><a href="../info/informacion.php">Información</a></li>
         <li><a href="Contactos">Contactanos</a></li>
       </ul>
     </nav>
