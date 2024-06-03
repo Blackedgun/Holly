@@ -1,10 +1,10 @@
 <?php
-
 include "../reg.php";
 
 session_start();
 if (empty($_SESSION['usuario'])) {
   header('location: ../Interface.php');
+  exit();
 }
 
 ?>
@@ -14,7 +14,7 @@ if (empty($_SESSION['usuario'])) {
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../img/LogoHolly.png" />
   <title>Main</title>
   <link rel="stylesheet" href="../css/user-int.css" />
@@ -23,33 +23,32 @@ if (empty($_SESSION['usuario'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
-<header></header>
 
 <body style="background: url(../img/pinkdot2.jpg)">
   <div class="container">
     <nav>
       <div class="navbar">
         <div class="logo">
-          <img src="../img/LogoHolly.png" alt="" />
+          <img src="../img/LogoHolly.png" alt="Logo" />
           <h2>Holly</h2>
         </div>
         <ul>
           <li>
-            <a href="#">
+            <a href="user.php">
               <i class="fas fa-chart-bar"></i>
-              <a href="user.php"><span class="nav-item">Pedidos</span></a>
+              <span class="nav-item">Pedidos</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="">
               <i class="fab fa-dochub"></i>
-              <a href="" style="color: beige"><span class="nav-item">Inventario</span></a>
+              <span class="nav-item" style="color: beige;">Inventario</span>
             </a>
           </li>
           <li>
             <a href="#">
               <i class="fas fa-cog"></i>
-              <span class="nav-item">Confuguración</span>
+              <span class="nav-item">Configuración</span>
             </a>
           </li>
           <li>
@@ -69,12 +68,11 @@ if (empty($_SESSION['usuario'])) {
     </nav>
     <div>
       <div class="somenew">
-        <form class="header__title" action="">
-          <input type="text" name="busqueda">
-          <br>
-          <br>
+        <form class="header__title" method="GET" action="">
+          <input type="text" name="busqueda" placeholder="Buscar...">
+          <br><br>
           <input type="submit" name="enviar" value="Buscar">
-
+          <br><br>
           <div>
             <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/productopdf.php">PDF</a>
           </div><br>
@@ -83,10 +81,11 @@ if (empty($_SESSION['usuario'])) {
           </div>
           <br>
           <div class="print">
-            <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/productoxml.php">XML</a><br><br>
-            <div class="nextbutton">
-              <a class="Fetch" href="../additem/addprod.php">Agregar</a>
-            </div>
+            <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/productoxml.php">XML</a>
+          </div>
+          <br><br>
+          <div class="nextbutton">
+            <a class="Fetch" href="../additem/addprod.php">Agregar</a>
           </div>
         </form>
         <div class="someold">
@@ -99,8 +98,8 @@ if (empty($_SESSION['usuario'])) {
             <li>5. Chaquetas</li>
           </ol>
         </div>
-      </div><br><br>
-
+      </div>
+      <br><br>
       <div class="table__container_two">
         <table>
           <tr>
@@ -115,29 +114,21 @@ if (empty($_SESSION['usuario'])) {
           </tr>
           <?php
           $inv = "SELECT producto.*, categoria.categoria AS categoria FROM producto LEFT JOIN categoria ON producto.cat_id = categoria.cat_id";
+          if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
+            $busqueda = $_GET['busqueda'];
+            $inv .= " WHERE producto_id LIKE '%$busqueda%' OR prod_nombre LIKE '%$busqueda%' OR categoria LIKE '%$busqueda%' OR prod_cantidad LIKE '%$busqueda%' OR prod_precio LIKE '%$busqueda%' OR disponibilidad LIKE '%$busqueda%'";
+          }
           $resultado = mysqli_query($conn, $inv);
           while ($row = mysqli_fetch_array($resultado)) {
           ?>
             <tr>
-              <td>
-                <?php echo $row['producto_id'] ?>
-              </td>
-              <td>
-                <?php echo $row['prod_nombre'] ?>
-              </td>
-              <td>
-                <?php echo $row['categoria'] ?>
-              </td>
-              <td>
-                <?php echo $row['prod_cantidad'] ?>
-              </td>
-              <td>
-                <?php echo $row['prod_precio'] ?>
-              </td>
-              <td>
-                <?php echo $row['disponibilidad'] ?>
-              </td>
-              <td style="color: #f2f2f2"><img height="50px" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']) ?>"></td>
+              <td><?php echo $row['producto_id']; ?></td>
+              <td><?php echo $row['prod_nombre']; ?></td>
+              <td><?php echo $row['categoria']; ?></td>
+              <td><?php echo $row['prod_cantidad']; ?></td>
+              <td><?php echo $row['prod_precio']; ?></td>
+              <td><?php echo $row['disponibilidad']; ?></td>
+              <td><img height="50px" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>"></td>
               <td><a href="../editform/forminventario.php?id=<?php echo $row['producto_id']; ?>" class="crud_button">Editar</a></td>
             </tr>
           <?php
@@ -146,6 +137,7 @@ if (empty($_SESSION['usuario'])) {
         </table>
       </div>
     </div>
+  </div>
 </body>
 
 </html>

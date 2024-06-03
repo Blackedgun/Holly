@@ -4,6 +4,7 @@ include "../reg.php";
 session_start();
 if (empty($_SESSION['usuario'])) {
   header('location: ../Interface.php');
+  exit();
 }
 ?>
 
@@ -27,20 +28,20 @@ if (empty($_SESSION['usuario'])) {
     <nav>
       <div class="navbar">
         <div class="logo">
-          <img src="../img/LogoHolly.png" alt="" />
+          <img src="../img/LogoHolly.png" alt="Logo" />
           <h2>Holly</h2>
         </div>
         <ul>
           <li>
-            <a href="#">
+            <a href="user.php">
               <i class="fas fa-chart-bar"></i>
-              <a href="" style="color: beige"><span class="nav-item">Pedidos</span></a>
+              <span class="nav-item" style="color: beige;">Pedidos</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="inventory.php">
               <i class="fab fa-dochub"></i>
-              <a href="inventory.php"><span class="nav-item">Inventario</span></a>
+              <span class="nav-item">Inventario</span>
             </a>
           </li>
           <li>
@@ -66,8 +67,8 @@ if (empty($_SESSION['usuario'])) {
     </nav>
     <div>
       <div class="somenew">
-        <form class="header__title" action="">
-          <input type="text" name="busqueda">
+        <form class="header__title" action="" method="GET">
+          <input type="text" name="busqueda" placeholder="Buscar...">
           <br><br>
           <input type="submit" name="enviar" value="Buscar">
           <div class="print">
@@ -94,9 +95,21 @@ if (empty($_SESSION['usuario'])) {
             <th>Opciones</th>
           </tr>
           <?php
-          $inv = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli FROM pedidos INNER JOIN cliente ON pedidos.cliente_id = cliente.cliente_id";
-          $resulta = mysqli_query($conn, $inv);
-          while ($row = mysqli_fetch_array($resulta)) {
+          // Consultar pedidos
+          $query = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli 
+                    FROM pedidos 
+                    LEFT JOIN cliente ON pedidos.cliente_id = cliente.cliente_id";
+
+          if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
+            $busqueda = $_GET['busqueda'];
+            $query .= " WHERE pedidos.pedido_id LIKE '%$busqueda%' 
+                        OR pedidos.fecha_ped LIKE '%$busqueda%' 
+                        OR pedidos.total_amount LIKE '%$busqueda%' 
+                        OR pedidos.estado LIKE '%$busqueda%' 
+                        OR cliente.nombre_cli LIKE '%$busqueda%'";
+          }
+          $resultado = mysqli_query($conn, $query);
+          while ($row = mysqli_fetch_array($resultado)) {
           ?>
             <tr>
               <td><?php echo $row['pedido_id']; ?></td>
