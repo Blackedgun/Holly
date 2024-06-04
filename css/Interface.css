@@ -241,3 +241,27 @@ footer .social-icon li a:hover {
   margin-top: 60px;
   margin-right: 30px;
 }
+
+.contact-form {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #5cb85c;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}

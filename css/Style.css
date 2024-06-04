@@ -155,10 +155,8 @@ footer {
 
   .register-content{
     width: auto;
-    background: pink;
     margin: auto;
     background-color: #ffffff;
-    border: solid #00000000;
-    backdrop-filter: blur(15px);
+    border: 1px solid #00000000;
     height: auto;
   }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../img/LogoHolly.png" />
-    <title>Formulario Ingreso</title>
+    <title>Información</title>
     <link rel="stylesheet" href="../css/Style.css" />
     <link rel="stylesheet" href="../css/normalize.css" />
     <style>
@@ -19,8 +19,8 @@
   </head>
 
   <body style="background: url(../img/pinkdot2.jpg)">
-    <div class="form-register">
-      <div class="register-content">
+    <div style="margin-bottom: 20px; margin-top: 20px; border-radius: 5px;" class="form-register">
+      <div style="background-color: white; padding-top: 20px;" class="register-content">
         <h4 style="text-align: center; color: black; text-shadow: none">
           Historia de Holly Dashing
         </h4>
