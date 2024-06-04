@@ -81,12 +81,12 @@ include "../reg.php";
       <div class="column">
         <a href="Tienda/Jeans.html">
           <div class="picture-det">
-            <img src="../img/americanino_jean.jpg" alt="img-galeria" />
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 9";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -104,12 +104,12 @@ include "../reg.php";
         </a>
         <a href="#">
           <div class="picture-det">
-            <img src="../img/Loewe_clara.jpg" alt="img-galeria" />
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 15";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -127,12 +127,13 @@ include "../reg.php";
         </a>
         <a href="#">
           <div class="picture-det">
-            <img src="../img/camisa_col_dama.jpg" alt="img-galeria" />
+
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 1";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -150,12 +151,13 @@ include "../reg.php";
         </a>
         <a href="Tienda/Jeans.html">
           <div class="picture-det">
-            <img src="../img/diesel_zapatilla.jpg" alt="img-galeria" />
+
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 11";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -175,12 +177,13 @@ include "../reg.php";
       <div class="column">
         <a href="#">
           <div class="picture-det">
-            <img src="../img/levis_dark_portrait.jpg" alt="img-galeria" />
+
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 5";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -198,12 +201,13 @@ include "../reg.php";
         </a>
         <a href="#">
           <div class="picture-det">
-            <img src="../img/Boss_azul_bosque.jpg" alt="img-galeria" />
+
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 4";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -221,12 +225,13 @@ include "../reg.php";
         </a>
         <a href="#">
           <div class="picture-det">
-            <img src="../img/camisa_colombia.jpg" alt="img-galeria" />
+
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 2";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -244,12 +249,13 @@ include "../reg.php";
         </a>
         <a href="Tienda/Jeans.html">
           <div class="picture-det">
-            <img src="../img/babuchas_gatito.jpg" alt="img-galeria" />
+
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 12";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -269,35 +275,35 @@ include "../reg.php";
       <div class="column">
         <a href="#">
           <div class="picture-det">
-            <img src="../img/levis_gloomy_portrait.jpg" alt="img-galeria" />
             <?php
-            $inv = "SELECT * FROM producto WHERE producto_id = 10";
-            $resulta = mysqli_query($conn, $inv);
-            if ($row = mysqli_fetch_array($resulta)) {
-            ?>
-              <ol>
-                <li>
-                  <?php echo $row['prod_nombre'] ?>
-                </li>
-                <br />
-                <li>
-                  Precio: $
-                  <?php echo $row['prod_precio'] ?>
-                </li>
-              </ol>
-            <?php
-            }
-            ?>
+              $inv = "SELECT * FROM producto WHERE producto_id = 10";
+              $resulta = mysqli_query($conn, $inv);
+              if ($row = mysqli_fetch_array($resulta)) {
+              ?> <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
+            <ol>
+              <li>
+                <?php echo $row['prod_nombre'] ?>
+              </li>
+              <br />
+              <li>
+                Precio: $
+                <?php echo $row['prod_precio'] ?>
+              </li>
+            </ol>
+          <?php
+              }
+          ?>
           </div>
         </a>
         <a href="#">
           <div class="picture-det">
-            <img src="../img/Tommy_oscuro_diseño.jpg" alt="img-galeria" />
+
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 14";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -315,12 +321,13 @@ include "../reg.php";
         </a>
         <a href="Tienda/Jeans.html">
           <div class="picture-det">
-            <img src="../img/camisa_negra_colombia.jpg" alt="img-galeria" />
+
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 6";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -338,12 +345,12 @@ include "../reg.php";
         </a>
         <a href="Tienda/Jeans.html">
           <div class="picture-det">
-            <img src="../img/babuchas_vaca.jpg" alt="img-galeria" />
             <?php
             $inv = "SELECT * FROM producto WHERE producto_id = 13";
             $resulta = mysqli_query($conn, $inv);
             if ($row = mysqli_fetch_array($resulta)) {
             ?>
+              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li>
                   <?php echo $row['prod_nombre'] ?>
@@ -362,7 +369,7 @@ include "../reg.php";
       </div>
     </div>
   </div>
-  
+
 
   <div class="secondline-bottom">
     <p>
