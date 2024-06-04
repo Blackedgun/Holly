@@ -64,7 +64,6 @@ include "reg.php";
               required
             ></textarea>
             <button type="submit">Enviar</button>
-            <input type="hidden" name="_captcha" value="false">
           </form>
         </div>
 

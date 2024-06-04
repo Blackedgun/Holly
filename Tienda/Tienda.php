@@ -276,23 +276,23 @@ include "../reg.php";
         <a href="#">
           <div class="picture-det">
             <?php
-              $inv = "SELECT * FROM producto WHERE producto_id = 10";
-              $resulta = mysqli_query($conn, $inv);
-              if ($row = mysqli_fetch_array($resulta)) {
-              ?> <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
-            <ol>
-              <li>
-                <?php echo $row['prod_nombre'] ?>
-              </li>
-              <br />
-              <li>
-                Precio: $
-                <?php echo $row['prod_precio'] ?>
-              </li>
-            </ol>
-          <?php
-              }
-          ?>
+            $inv = "SELECT * FROM producto WHERE producto_id = 10";
+            $resulta = mysqli_query($conn, $inv);
+            if ($row = mysqli_fetch_array($resulta)) {
+            ?> <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
+              <ol>
+                <li>
+                  <?php echo $row['prod_nombre'] ?>
+                </li>
+                <br />
+                <li>
+                  Precio: $
+                  <?php echo $row['prod_precio'] ?>
+                </li>
+              </ol>
+            <?php
+            }
+            ?>
           </div>
         </a>
         <a href="#">
@@ -393,19 +393,19 @@ include "../reg.php";
     <p>©2024 Holly Dashing | Todos los derechos reservados</p>
   </div>
   <ul class="social-icon">
-      <li>
-        <a href="https://x.com/blackendgun"><img src="img/x.png" alt="" /></a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/Seniorwhis"><img src="img/facebook.png" alt="" /></a>
-      </li>
-      <li>
-        <a href="https://www.instagram.com/senior_whiiss/"><img src="img/instagram.png" alt="" /></a>
-      </li>
-      <li>
-        <a href="https://wa.me/3025193306"><img src="img/whatsapp.png" alt="" /></a>
-      </li>
-    </ul>
+    <li>
+      <a href="https://x.com/blackendgun"><img src="../img/x.png" alt="" /></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/Seniorwhis"><img src="../img/facebook.png" alt="" /></a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/senior_whiiss/"><img src="../img/instagram.png" alt="" /></a>
+    </li>
+    <li>
+      <a href="https://wa.me/3025193306"><img src="../img/whatsapp.png" alt="" /></a>
+    </li>
+  </ul>
 </footer>
 
 </html>
