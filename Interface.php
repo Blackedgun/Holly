@@ -30,7 +30,7 @@ include "reg.php";
       <ul>
         <li><a href="Tienda/Tienda.php">Tienda</a></li>
         <li><a href="info/informacion.php">Información</a></li>
-        <li><a href="Contactos">Contactanos</a></li>
+        <li><a href="contact.php">Contactanos</a></li>
       </ul>
     </nav>
 
@@ -482,7 +482,7 @@ include "reg.php";
       <ul>
         <li><a href="Tienda/Tienda.php">Tienda</a></li>
         <li><a href="info/informacion.php">Información</a></li>
-        <li><a href="Contactos">Contactanos</a></li>
+        <li><a href="contact.php">Contactanos</a></li>
       </ul>
     </nav>
     <p>©2024 Holly Dashing | Todos los derechos reservados</p>

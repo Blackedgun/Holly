@@ -30,9 +30,9 @@ include "reg.php";
       </div>
       <nav>
         <ul>
-          <li><a href="Tienda/Tienda.php">Tienda</a></li>
+          <li><a href="Interface.php">Inicio</a></li>
           <li><a href="info/informacion.php">Información</a></li>
-          <li><a href="Contactos">Contactanos</a></li>
+          <li><a href="">Contactanos</a></li>
         </ul>
       </nav>
 
@@ -56,14 +56,14 @@ include "reg.php";
               placeholder="Ingresa tu correo"
               required
             />
-            <input type="text" name="subject" placeholder="Subject" required />
+            <input type="text" name="subject" placeholder="Asunto" required />
             <textarea
               name="message"
               rows="5"
-              placeholder="Your Message"
+              placeholder="Mensaje"
               required
             ></textarea>
-            <button type="submit">Send Message</button>
+            <button type="submit">Enviar</button>
           </form>
         </div>
 
@@ -118,7 +118,7 @@ include "reg.php";
     <div class="footercont">
       <nav>
         <ul>
-          <li><a href="Tienda/Tienda.php">Tienda</a></li>
+          <li><a href="interface.php">Inicio</a></li>
           <li><a href="info/informacion.php">Información</a></li>
           <li><a href="Contactos">Contactanos</a></li>
         </ul>
