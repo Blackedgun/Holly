@@ -41,7 +41,7 @@ if (empty($_SESSION['usuario'])) {
           </li>
           <li>
             <a href="">
-              <i class="fab fa-dochub"></i>
+              <i style="color: beige;" class="fab fa-dochub"></i>
               <span class="nav-item" style="color: beige;">Inventario</span>
             </a>
           </li>

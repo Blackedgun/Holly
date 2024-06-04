@@ -45,18 +45,6 @@
       <p>©2024 Holly Dashing | Todos los derechos reservados</p>
     </div>
     <ul class="social-icon">
-      <li>
-        <a href=""><img src="../../img/x.png" alt="" /></a>
-      </li>
-      <li>
-        <a href=""><img src="../../img/facebook.png" alt="" /></a>
-      </li>
-      <li>
-        <a href=""><img src="../../img/instagram.png" alt="" /></a>
-      </li>
-      <li>
-        <a href=""><img src="../../img/whatsapp.png" alt="" /></a>
-      </li>
     </ul>
   </footer>
 </html>

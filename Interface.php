@@ -489,7 +489,7 @@ include "reg.php";
   </div>
   <ul class="social-icon">
       <li>
-        <a href="https://x.com/blackendgun"><img src="img/x.png" alt="" /></a>
+        <a href="https://x.com/eldiariodedross"><img src="img/x.png" alt="" /></a>
       </li>
       <li>
         <a href="https://www.facebook.com/Seniorwhis"><img src="img/facebook.png" alt="" /></a>

@@ -34,7 +34,7 @@ if (empty($_SESSION['usuario'])) {
         <ul>
           <li>
             <a href="user.php">
-              <i class="fas fa-chart-bar"></i>
+              <i style="color: beige;" class="fas fa-chart-bar"></i>
               <span class="nav-item" style="color: beige;">Pedidos</span>
             </a>
           </li>
@@ -58,7 +58,7 @@ if (empty($_SESSION['usuario'])) {
           </li>
           <li>
             <div class="color-picker-container">
-              <label for="colorPicker">Color de interfaz:</label>
+              <label style="color: var(--text-color, black);" for="colorPicker">Color de interfaz:</label>
               <input type="color" id="colorPicker" name="colorPicker">
             </div>
           </li>
@@ -77,7 +77,7 @@ if (empty($_SESSION['usuario'])) {
           <div class="print">
             <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/pedidoxml.php">XML</a><br><br>
             <div class="nextbutton">
-              <a class="Fetch" href="../additem/addprod.php">Facturas</a>
+              <a class="Fetch" href="'checkbillsdeletequotationmarks'">Facturas</a>
             </div>
           </div>
         </form>
@@ -117,7 +117,7 @@ if (empty($_SESSION['usuario'])) {
               <td><?php echo $row['total_amount']; ?></td>
               <td><?php echo $row['estado']; ?></td>
               <td><?php echo $row['nombre_cli']; ?></td>
-              <td><a href="../editform/forminventario.php?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Consultar</a></td>
+              <td><a href="'direccionURLborrarcomillas'?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Consultar</a></td>
             </tr>
           <?php
           }

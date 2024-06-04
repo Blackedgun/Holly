@@ -26,7 +26,7 @@
       <br />
       <input class="bottom" type="submit" value="Enviar Solicitud" />
       <div class="contain">
-        <p>Ingrese su correo electrónico y el sistema verificará si está registrado en el sistema para enviar una solicitud de recuperación de contraseña a su correo.</p>
+        <p style="color: black;">Ingrese su correo electrónico y el sistema verificará si está registrado en el sistema para enviar una solicitud de recuperación de contraseña a su correo.</p>
       </div>
     </form>
   </body>
@@ -35,21 +35,8 @@
       <img src="../../img/LogoHolly.png" alt="Holly Dashing" />
     </div>
     <div class="footercont">
-      <p>©2024 Holly Dashing | Todos los derechos reservados</p>
     </div>
     <ul class="social-icon">
-      <li>
-        <a href=""><img src="../../img/x.png" alt="" /></a>
-      </li>
-      <li>
-        <a href=""><img src="../../img/facebook.png" alt="" /></a>
-      </li>
-      <li>
-        <a href=""><img src="../../img/instagram.png" alt="" /></a>
-      </li>
-      <li>
-        <a href=""><img src="../../img/whatsapp.png" alt="" /></a>
-      </li>
     </ul>
   </footer>
 </html>
