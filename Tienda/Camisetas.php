@@ -77,24 +77,24 @@ include "../reg.php";
       <div class="secondline">
         <p>CAMISETAS/BUSOS</p>
       </div>
-      <?php 
-          $sentencia = "SELECT * FROM producto WHERE cat_id = 2";
-          $listaProductos = mysqli_query($conn, $sentencia); 
+      <?php
+      $sentencia = "SELECT * FROM producto WHERE cat_id = 2";
+      $listaProductos = mysqli_query($conn, $sentencia);
       ?>
 
-      <?php foreach($listaProductos as $row){?>
-      <a href="Tienda/Jeans.html">
-            <div class="picture-det">
-              <img style="height: 140px;" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
-              <ol>
-                <li><?php echo $row['prod_nombre']; ?></li>
-                <br />
-                <li>Precio: $<?php echo $row['prod_precio']; ?></li>
-              </ol>
-            </div>
-          </a>
+      <?php foreach ($listaProductos as $row) { ?>
+        <a href="Tienda/Jeans.html">
+          <div class="picture-det">
+            <img style="height: 140px;" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
+            <ol>
+              <li><?php echo $row['prod_nombre']; ?></li>
+              <br />
+              <li>Precio: $<?php echo $row['prod_precio']; ?></li>
+            </ol>
+          </div>
+        </a>
       <?php } ?>
-      </div>
+    </div>
   </div>
 
 
@@ -121,16 +121,16 @@ include "../reg.php";
   </div>
   <ul class="social-icon">
     <li>
-      <a href=""><img src="../img/x.png" alt="" /></a>
+      <a href="https://x.com/blackendgun"><img src="img/x.png" alt="" /></a>
     </li>
     <li>
-      <a href=""><img src="../img/facebook.png" alt="" /></a>
+      <a href="https://www.facebook.com/Seniorwhis"><img src="img/facebook.png" alt="" /></a>
     </li>
     <li>
-      <a href=""><img src="../img/instagram.png" alt="" /></a>
+      <a href="https://www.instagram.com/senior_whiiss/"><img src="img/instagram.png" alt="" /></a>
     </li>
     <li>
-      <a href=""><img src="../img/whatsapp.png" alt="" /></a>
+      <a href="https://wa.me/3025193306"><img src="img/whatsapp.png" alt="" /></a>
     </li>
   </ul>
 </footer>

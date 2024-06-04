@@ -48,7 +48,7 @@ include "reg.php";
       <div class="column">
         <h4>Envianos tus comentarios</h4>
         <div class="contact-form">
-          <form action="submit_contact_form.php" method="post">
+        <form action="https://formsubmit.co/2178960ae6f5f00a1b7d22e893e69a56" method="POST">
             <input type="text" name="name" placeholder="Ingresa tu nombre" required />
             <input
               type="email"
@@ -64,6 +64,7 @@ include "reg.php";
               required
             ></textarea>
             <button type="submit">Enviar</button>
+            <input type="hidden" name="_captcha" value="false">
           </form>
         </div>
 
@@ -127,16 +128,16 @@ include "reg.php";
     </div>
     <ul class="social-icon">
       <li>
-        <a href=""><img src="img/x.png" alt="" /></a>
+        <a href="https://x.com/blackendgun"><img src="img/x.png" alt="" /></a>
       </li>
       <li>
-        <a href=""><img src="img/facebook.png" alt="" /></a>
+        <a href="https://www.facebook.com/Seniorwhis"><img src="img/facebook.png" alt="" /></a>
       </li>
       <li>
-        <a href=""><img src="img/instagram.png" alt="" /></a>
+        <a href="https://www.instagram.com/senior_whiiss/"><img src="img/instagram.png" alt="" /></a>
       </li>
       <li>
-        <a href=""><img src="img/whatsapp.png" alt="" /></a>
+        <a href="https://wa.me/3025193306"><img src="img/whatsapp.png" alt="" /></a>
       </li>
     </ul>
   </footer>

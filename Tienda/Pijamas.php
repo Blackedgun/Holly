@@ -116,16 +116,16 @@ include "../reg.php";
     </div>
     <ul class="social-icon">
       <li>
-        <a href=""><img src="../img/x.png" alt="" /></a>
+        <a href="https://x.com/blackendgun"><img src="img/x.png" alt="" /></a>
       </li>
       <li>
-        <a href=""><img src="../img/facebook.png" alt="" /></a>
+        <a href="https://www.facebook.com/Seniorwhis"><img src="img/facebook.png" alt="" /></a>
       </li>
       <li>
-        <a href=""><img src="../img/instagram.png" alt="" /></a>
+        <a href="https://www.instagram.com/senior_whiiss/"><img src="img/instagram.png" alt="" /></a>
       </li>
       <li>
-        <a href=""><img src="../img/whatsapp.png" alt="" /></a>
+        <a href="https://wa.me/3025193306"><img src="img/whatsapp.png" alt="" /></a>
       </li>
     </ul>
   </footer>
