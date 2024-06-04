@@ -12,7 +12,7 @@ if (empty($_SESSION['usuario'])) {
 
 include '../reg.php';
 
-$hor = "SELECT * FROM producto";
+$hor = "SELECT * FROM producto WHERE cat_id = 1";
 
 $query = $conn->query($hor);
 
@@ -41,6 +41,6 @@ $dom->formatOutput = true;
 $dom->loadXML($xml->asXML());
 
 header('Content-Type: text/xml Charset="utf8"');
-header('Content-Disposition: attachment; filename="Inventario.xml";');
+header('Content-Disposition: attachment; filename="Inventario_pantalones.xml";');
 echo $dom->saveXML();
 ?>

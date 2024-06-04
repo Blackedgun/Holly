@@ -24,7 +24,7 @@ function Header()
     // Move to the right
     $this->Cell(60);
     // Title
-    $this->Cell(70,10,'Lista de productos',0,0,'C');
+    $this->Cell(70,10,'Chaquetas',0,0,'C');
     // Line break
     $this->Ln(20);
 
@@ -50,7 +50,7 @@ function Footer()
 
 require ('../../reg.php');
 
-$quiet = "SELECT * FROM producto";
+$quiet = "SELECT * FROM producto WHERE cat_id = 5";
 $query = $conn->query($quiet);
 
 $pdf = new PDF();

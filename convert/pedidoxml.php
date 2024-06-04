@@ -1,4 +1,14 @@
 <?php
+include "../reg.php";
+
+session_start();
+if (empty($_SESSION['usuario'])) {
+  header('location: ../Interface.php');
+  exit();
+}
+?>
+
+<?php
 
 include '../reg.php';
 
