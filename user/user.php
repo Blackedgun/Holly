@@ -45,7 +45,7 @@ if (empty($_SESSION['usuario'])) {
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="config.php">
               <i class="fas fa-cog"></i>
               <span class="nav-item">Configuración</span>
             </a>

@@ -40,8 +40,8 @@ if (empty($_SESSION['usuario'])) {
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <i class="inventory.php"></i>
+                        <a href="inventory.php">
+                            <i class="fab fa-dochub"></i>
                             <span class="nav-item">Inventario</span>
                         </a>
                     </li>
@@ -53,7 +53,7 @@ if (empty($_SESSION['usuario'])) {
                     </li>
                     <li>
                         <a href="#">
-                            <i class=""></i>
+                            <i class="fas fa-question-circle"></i>
                             <span class="nav-item">Ayuda</span>
                         </a>
                     </li>
