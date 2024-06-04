@@ -59,7 +59,7 @@ if (empty($_SESSION['usuario'])) {
           </li>
           <li>
             <div class="color-picker-container">
-              <label for="colorPicker">Color de interfaz:</label>
+              <label style="color: var(--text-color, black);" for="colorPicker">Color de interfaz:</label>
               <input type="color" id="colorPicker" name="colorPicker">
             </div>
           </li>
@@ -88,14 +88,28 @@ if (empty($_SESSION['usuario'])) {
             <a class="Fetch" href="../additem/addprod.php">Agregar</a>
           </div>
         </form>
-        <div class="someold">
+        <div style="width: 350px;" class="someold">
           <h4>Categorías</h4>
           <ol>
-            <li>1. Pantalones</li>
-            <li>2. Camisetas</li>
-            <li>3. Calzado</li>
-            <li>4. Pijamas</li>
-            <li>5. Chaquetas</li>
+            <li>1. Pantalones
+              <a style="margin-left: 20px; color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/pantalonesxml.php">XML</a>
+              <a style="margin-left: 5px; color:#fff; height:fit-content; font-size:1.1rem; width:60px; background-color:crimson" class='footer__title' href="../convert/pdf/pantalonespdf.php">PDF</a>
+            </li>
+            <li>2. Camisetas
+              <a style="margin-left: 20px; color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/camisetasxml.php">XML</a>
+              <a style="margin-left: 5px; color:#fff; height:fit-content; font-size:1.1rem; width:60px; background-color:crimson" class='footer__title' href="../convert/pdf/camisetaspdf.php">PDF</a>
+            </li>
+            <li>3. Calzado
+              <a style="margin-left: 20px; color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/calzadoxml.php">XML</a>
+              <a style="margin-left: 5px; color:#fff; height:fit-content; font-size:1.1rem; width:60px; background-color:crimson" class='footer__title' href="../convert/pdf/calzadopdf.php">PDF</a>
+            </li>
+            <li>4. Pijamas
+              <a style="margin-left: 20px; color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/pijamasxml.php">XML</a>
+              <a style="margin-left: 5px; color:#fff; height:fit-content; font-size:1.1rem; width:60px; background-color:crimson" class='footer__title' href="../convert/pdf/pijamaspdf.php">PDF</a>
+            </li>
+            <li>5. Chaquetas<a style="margin-left: 20px; color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/chaquetasxml.php">XML</a>
+              <a style="margin-left: 5px; color:#fff; height:fit-content; font-size:1.1rem; width:60px; background-color:crimson" class='footer__title' href="../convert/pdf/chaquetaspdf.php">PDF</a>
+            </li>
           </ol>
         </div>
       </div>
