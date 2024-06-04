@@ -77,15 +77,15 @@ include "../reg.php";
       <div class="secondline">
         <p>CAMISETAS/BUSOS</p>
       </div>
-      <div class="column">
-        <?php
-        $inv = "SELECT * FROM producto WHERE cat_id = 2";
-        $resulta = mysqli_query($conn, $inv);
-        while ($row = mysqli_fetch_array($resulta)) {
-        ?>
-          <a href="Tienda/Jeans.html">
+      <?php 
+          $sentencia = "SELECT * FROM producto WHERE cat_id = 2";
+          $listaProductos = mysqli_query($conn, $sentencia); 
+      ?>
+
+      <?php foreach($listaProductos as $row){?>
+      <a href="Tienda/Jeans.html">
             <div class="picture-det">
-              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
+              <img style="height: 140px;" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
               <ol>
                 <li><?php echo $row['prod_nombre']; ?></li>
                 <br />
@@ -93,51 +93,8 @@ include "../reg.php";
               </ol>
             </div>
           </a>
-        <?php
-        }
-        ?>
+      <?php } ?>
       </div>
-      <div class="column">
-        <?php
-        $inv = "SELECT * FROM producto WHERE cat_id = 2";
-        $resulta = mysqli_query($conn, $inv);
-        while ($row = mysqli_fetch_array($resulta)) {
-        ?>
-          <a href="Tienda/Jeans.html">
-            <div class="picture-det">
-              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
-              <ol>
-                <li><?php echo $row['prod_nombre']; ?></li>
-                <br />
-                <li>Precio: $<?php echo $row['prod_precio']; ?></li>
-              </ol>
-            </div>
-          </a>
-        <?php
-        }
-        ?>
-      </div>
-      <div class="column">
-        <?php
-        $inv = "SELECT * FROM producto WHERE cat_id = 2";
-        $resulta = mysqli_query($conn, $inv);
-        while ($row = mysqli_fetch_array($resulta)) {
-        ?>
-          <a href="Tienda/Jeans.html">
-            <div class="picture-det">
-              <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
-              <ol>
-                <li><?php echo $row['prod_nombre']; ?></li>
-                <br />
-                <li>Precio: $<?php echo $row['prod_precio']; ?></li>
-              </ol>
-            </div>
-          </a>
-        <?php
-        }
-        ?>
-      </div>
-    </div>
   </div>
 
 
