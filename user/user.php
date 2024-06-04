@@ -45,12 +45,6 @@ if (empty($_SESSION['usuario'])) {
             </a>
           </li>
           <li>
-            <a href="config.php">
-              <i class="fas fa-cog"></i>
-              <span class="nav-item">Configuración</span>
-            </a>
-          </li>
-          <li>
             <a href="#">
               <i class="fas fa-question-circle"></i>
               <span class="nav-item">Ayuda</span>
@@ -61,6 +55,12 @@ if (empty($_SESSION['usuario'])) {
               <i class="fas fa-sign-out-alt"></i>
               <span class="nav-item">Cerrar Sesión</span>
             </a>
+          </li>
+          <li>
+            <div class="color-picker-container">
+              <label for="colorPicker">Color de interfaz:</label>
+              <input type="color" id="colorPicker" name="colorPicker">
+            </div>
           </li>
         </ul>
       </div>
@@ -125,6 +125,7 @@ if (empty($_SESSION['usuario'])) {
         </table>
       </div>
     </div>
+    <script src="../js/newcolor.js"></script>
 </body>
 
 </html>
