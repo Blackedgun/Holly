@@ -45,7 +45,7 @@ if (empty($_SESSION['usuario'])) {
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="../docs/Manual de Usuario Holly Dashing.pdf">
               <i class="fas fa-question-circle"></i>
               <span class="nav-item">Ayuda</span>
             </a>
