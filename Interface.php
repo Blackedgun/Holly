@@ -47,7 +47,7 @@ include "reg.php";
     </ul>
     <div>
       <p class="texta">Bienvenido a Holly Colombia</p>
-      <a class="explore" href=""><button>Catálogo</button></a>
+      <a class="explore" href="docs/Catálogo de ropa Holly Dashing.pdf"><button>Catálogo</button></a>
     </div>
   </div>
   <div class="secondline-bottom">
