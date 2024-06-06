@@ -451,20 +451,11 @@ include "reg.php";
     </nav>
     <p>©2024 Holly Dashing | Todos los derechos reservados</p>
   </div>
-  <ul class="social-icon">
-    <li>
-      <a href="https://x.com/eldiariodedross"><img src="img/x.png" alt="" /></a>
-    </li>
-    <li>
-      <a href="https://www.facebook.com/Seniorwhis"><img src="img/facebook.png" alt="" /></a>
-    </li>
-    <li>
-      <a href="https://www.instagram.com/senior_whiiss/"><img src="img/instagram.png" alt="" /></a>
-    </li>
-    <li>
-      <a href="https://wa.me/3025193306"><img src="img/whatsapp.png" alt="" /></a>
-    </li>
-  </ul>
+
+  <div style="margin-right: 40px; margin-bottom: 60px;" class="login-button">
+    <a href="registro/info.php"><button>Trabaja con nosotros</button></a>
+  </div>
+
 </footer>
 
 </html>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 // Validar si ya hay una sesión iniciada
@@ -35,6 +35,9 @@ if ($result->num_rows > 0) {
             header("location: ../user/user.php");
             exit();
         } elseif ($filadelfia['rol_id'] == 2) {
+            header("location: ../Interfazemp.php");
+            exit();
+        } elseif ($filadelfia['rol_id'] == 3) {
             session_destroy();
             header("location: ../pendiente.php");
             exit();
@@ -44,7 +47,6 @@ if ($result->num_rows > 0) {
     if (!$stmt) {
         die('Error en la consulta: ' . $conn->error);
     }
-    
 } else {
     echo '<script>
          alert("El usuario no existe, por favor verifique los datos introducidos");
@@ -55,4 +57,3 @@ if ($result->num_rows > 0) {
 
 $stmt->close();
 $conn->close();
-?>
