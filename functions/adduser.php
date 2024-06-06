@@ -5,19 +5,17 @@ $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $genero = $_POST['genero'];
 $edad = $_POST['edad'];
-$doc = $_POST['doc'];
-$docno = $_POST['doc_no'];
 $correo = $_POST['correo'];
 $direccion = $_POST['direccion'];
 $barrio = $_POST['barrio'];
 $telefono = $_POST['telefono'];
 
 // Verificar si el correo o el teléfono ya está registrado
-$verificacion_correo_telefono = mysqli_query($conn, "SELECT * FROM postulantes WHERE Correo = '$correo' OR Telefono = '$telefono' OR no_documento = '$docno'");
+$verificacion_correo_telefono = mysqli_query($conn, "SELECT * FROM postulantes WHERE Correo = '$correo' OR Telefono = '$telefono'");
 
 if (mysqli_num_rows($verificacion_correo_telefono) > 0) {
     echo '<script>
-         alert("Este correo, teléfono y/o número de documento ya ha sido registrado");
+         alert("Este correo o teléfono ya ha sido registrado");
          window.location = "../registro/postulante.php";
     </script>';
     mysqli_close($conn);
@@ -29,7 +27,7 @@ if (isset($_FILES['curriculum']) && $_FILES['curriculum']['error'] === UPLOAD_ER
     $uploadFile = $uploadDir . basename($_FILES['curriculum']['name']);
 
     if (move_uploaded_file($_FILES['curriculum']['tmp_name'], $uploadFile)) {
-        $query = "INSERT INTO postulantes (Nombres, Apellidos, Genero, Edad, tipo_documento, no_documento, Correo, Direccion, Barrio, Telefono, Curriculum) VALUES ('$nombre', '$apellido', '$genero', '$edad', '$doc', '$docno', '$correo', '$direccion', '$barrio', '$telefono', '$uploadFile')";
+        $query = "INSERT INTO postulantes (Nombres, Apellidos, Genero, Edad, Correo, Direccion, Barrio, Telefono, Curriculum) VALUES ('$nombre', '$apellido', '$genero', '$edad', '$correo', '$direccion', '$barrio', '$telefono', '$uploadFile')";
         $result = mysqli_query($conn, $query);
 
         if ($result) {

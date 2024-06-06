@@ -46,6 +46,12 @@ if (empty($_SESSION['usuario'])) {
             </a>
           </li>
           <li>
+            <a href="registros.php">
+              <i class="fas fa-user"></i>
+              <span  class="nav-item">Registros</span>
+            </a>
+          </li>
+          <li>
             <a href="../docs/Manual de Usuario Holly Dashing.pdf">
               <i class="fas fa-question-circle"></i>
               <span class="nav-item">Ayuda</span>

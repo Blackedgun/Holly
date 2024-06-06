@@ -34,24 +34,12 @@ if (empty($_SESSION['usuario'])) {
         <ul>
           <li>
             <a href="user.php">
-              <i class="fas fa-chart-bar"></i>
-              <span class="nav-item">Pedidos</span>
+              <i style="color: beige;" class="fas fa-chart-bar"></i>
+              <span class="nav-item" style="color: beige;">Pedidos</span>
             </a>
           </li>
           <li>
-            <a href="inventory.php">
-              <i class="fab fa-dochub"></i>
-              <span class="nav-item">Inventario</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i style="color: beige;" class="fas fa-user"></i>
-              <span style="color: beige;" class="nav-item">Registros</span>
-            </a>
-          </li>
-          <li>
-            <a href="../docs/Manual de Usuario Holly Dashing.pdf">
+            <a href="../docs/Funciones del empleado.pdf">
               <i class="fas fa-question-circle"></i>
               <span class="nav-item">Ayuda</span>
             </a>

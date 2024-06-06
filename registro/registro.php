@@ -23,28 +23,13 @@
   <form action="../functions/reg_postulante.php" class="form-register" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
     <h4>Envia tus datos</h4>
     <div>
-      <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese sus Nombres" required />
+      <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese los nombres del nuevo empleado" required />
     </div>
     <div>
-      <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingrese sus Apellidos" required />
+      <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingrese los apellidos del nuevo empleado" required />
     </div>
-    <label style="color: black;" for="genero">Escoja su género:</label>
-    <select id="genero" name="genero" required>
-      <option value="Hombre">Hombre</option>
-      <option value="Mujer">Mujer</option>
-      <option value="Otro">Otro</option>
-    </select><br><br>
     <div>
       <input class="controls" type="number" name="edad" id="edad" placeholder="Digite su edad" required />
-    </div>
-    <label style="color: black;" for="doc">Tipo de documento:</label>
-    <select id="doc" name="doc" required>
-      <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
-      <option value="Cédula de Extranjería">Cédula de Extranjería</option>
-      <option value="Pasaporte">Pasaporte</option>
-    </select><br><br>
-    <div>
-      <input class="controls" type="number" name="doc_no" id="doc_no" placeholder="Digite su número de documento de identidad" required />
     </div>
     <div>
       <input class="controls" type="email" name="correo" id="correo" placeholder="Digite su dirección de correo electrónico" required />
@@ -86,3 +71,16 @@
   </ul>
 </footer>
 </html>
+
+
+<label style="color: black;" for="categoria">Categoría: </label>
+        <select id="categoria" name="categoria" required>
+            <?php
+            include '../reg.php';
+            $query = "SELECT * FROM categoria";
+            $result = mysqli_query($conn, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option value="' . $row['cat_id'] . '">' . $row['categoria'] . '</option>';
+            }
+            ?>
+        </select><br><br>
