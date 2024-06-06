@@ -82,12 +82,6 @@ if (empty($_SESSION['usuario'])) {
           </div><br>
           <div class="print">
             <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/pedidoxml.php">XML</a><br><br>
-            <div class="nextbutton">
-              <a class="Fetch" href="checkbillsdeletequotationmarks">Postulaciones</a>
-            </div>
-            <div class="nextbutton">
-              <a class="Fetch" href="checkbillsdeletequotationmarks">Nuevo Registro</a>
-            </div>
           </div>
         </form>
         <div style="background: none; border: 0px;" class="someold"></div>
