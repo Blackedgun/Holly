@@ -1,9 +1,9 @@
 <?php
-include "../reg.php";
+include "../../reg.php";
 
 session_start();
 if (empty($_SESSION['usuario'])) {
-  header('location: ../Interface.php');
+  header('location: ../../Interface.php');
   exit();
 }
 ?>
@@ -14,38 +14,38 @@ if (empty($_SESSION['usuario'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="../img/LogoHolly.png" />
-  <title>Main</title>
-  <link rel="stylesheet" href="../css/user-int.css" />
+  <link rel="icon" href="../../img/LogoHolly.png" />
+  <title>Main Employee</title>
+  <link rel="stylesheet" href="../../css/user-int.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
 
-<body style="background: url(../img/pinkdot2.jpg)">
+<body style="background: url(../../img/pinkdot2.jpg)">
   <div class="container">
     <nav>
       <div class="navbar">
         <div class="logo">
-          <img src="../img/LogoHolly.png" alt="Logo" />
+          <img src="../../img/LogoHolly.png" alt="Logo" />
           <h2>Holly</h2>
         </div>
         <ul>
           <li>
-            <a href="user.php">
+            <a href="useremp.php">
               <i style="color: beige;" class="fas fa-chart-bar"></i>
               <span class="nav-item" style="color: beige;">Pedidos</span>
             </a>
           </li>
           <li>
-            <a href="../docs/Funciones del empleado.pdf">
+            <a href="../../docs/Funciones del empleado.pdf">
               <i class="fas fa-question-circle"></i>
               <span class="nav-item">Ayuda</span>
             </a>
           </li>
           <li>
-            <a href="../login/logout_usuario.php" class="logout">
+            <a href="../../login/logout_usuario.php" class="logout">
               <i class="fas fa-sign-out-alt"></i>
               <span class="nav-item">Cerrar Sesión</span>
             </a>
@@ -119,7 +119,7 @@ if (empty($_SESSION['usuario'])) {
         </table>
       </div>
     </div>
-    <script src="../js/newcolor.js"></script>
+    <script src="../../js/newcolor.js"></script>
 </body>
 
 </html>

@@ -78,15 +78,18 @@ if (empty($_SESSION['usuario'])) {
           <br><br>
           <input type="submit" name="enviar" value="Buscar">
           <div class="print">
+            <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/productopdf.php">PDF</a>
+          </div><br>
+          <div class="print">
             <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../convert/pedidocsv.php">CSV</a>
           </div><br>
           <div class="print">
             <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/pedidoxml.php">XML</a><br><br>
             <div class="nextbutton">
-              <a class="Fetch" href="checkbillsdeletequotationmarks">Postulaciones</a>
+              <a class="Fetch" href="postulados.php">Postulaciones</a>
             </div>
             <div class="nextbutton">
-              <a class="Fetch" href="checkbillsdeletequotationmarks">Nuevo Registro</a>
+              <a class="Fetch" href="../registro/registro.php">Nuevo Registro</a>
             </div>
           </div>
         </form>
@@ -108,7 +111,7 @@ if (empty($_SESSION['usuario'])) {
           </tr>
           <?php
           // Consultar usuarios
-          $query = "SELECT usuario.*, rol.interfaz AS interfaz FROM usuario LEFT JOIN rol ON usuario.rol_id = rol.rol_id";
+          $query = "SELECT usuario.*, rol.interfaz AS interfaz FROM usuario LEFT JOIN rol ON usuario.rol_id = rol.rol_id WHERE usuario.usuario_id > 5";
 
           if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];
@@ -133,7 +136,7 @@ if (empty($_SESSION['usuario'])) {
               <td><?php echo htmlspecialchars($row['email']); ?></td>
               <td><?php echo htmlspecialchars($row['telefono']); ?></td>
               <td><?php echo htmlspecialchars($row['interfaz']); ?></td>
-              <td><a href="direccionURLborrarcomillas?id=<?php echo $row['usuario_id']; ?>" class="crud_button">Consultar</a></td>
+              <td><a href="../editform/formregister.php?id=<?php echo $row['usuario_id']; ?>" class="crud_button">Editar</a></td>
             </tr>
           <?php
           }

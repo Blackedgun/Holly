@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
             header("location: ../user/user.php");
             exit();
         } elseif ($filadelfia['rol_id'] == 2) {
-            header("location: ../user/useremp.php");
+            header("location: ../user/empleado/useremp.php");
             exit();
         } elseif ($filadelfia['rol_id'] == 3) {
             session_destroy();

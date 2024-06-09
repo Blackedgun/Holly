@@ -16,7 +16,7 @@ if (empty($_SESSION['usuario'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../img/LogoHolly.png" />
   <title>Main</title>
-  <link rel="stylesheet" href="../css/user-int.css" />
+  <link rel="stylesheet" href="../css/user-int-two.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +24,7 @@ if (empty($_SESSION['usuario'])) {
 </head>
 
 <body style="background: url(../img/pinkdot2.jpg)">
-  <div class="container">
+  <div class="main-container">
     <nav>
       <div class="navbar">
         <div class="logo">
@@ -45,9 +45,9 @@ if (empty($_SESSION['usuario'])) {
             </a>
           </li>
           <li>
-            <a href="">
-              <i style="color: beige;" class="fas fa-user"></i>
-              <span style="color: beige;" class="nav-item">Registros</span>
+            <a href="registros.php">
+              <i class="fas fa-user"></i>
+              <span class="nav-item">Registros</span>
             </a>
           </li>
           <li>
@@ -71,12 +71,15 @@ if (empty($_SESSION['usuario'])) {
         </ul>
       </div>
     </nav>
-    <div>
+    <div class="content-container">
       <div class="somenew">
         <form class="header__title" action="" method="GET">
           <input type="text" name="busqueda" placeholder="Buscar...">
           <br><br>
           <input type="submit" name="enviar" value="Buscar">
+          <div class="print">
+            <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/productopdf.php">PDF</a>
+          </div><br>
           <div class="print">
             <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../convert/pedidocsv.php">CSV</a>
           </div><br>
@@ -93,41 +96,63 @@ if (empty($_SESSION['usuario'])) {
             <th>ID</th>
             <th>Nombres</th>
             <th>Apellidos</th>
+            <th>Genero</th>
+            <th>Edad</th>
             <th>Tipo de documento</th>
             <th># de documento</th>
-            <th>Email</th>
+            <th>Correo</th>
+            <th>Dirección</th>
+            <th>Barrio</th>
             <th>Teléfono</th>
-            <th>Interfaz</th>
+            <th>Curriculum</th>
             <th>Opciones</th>
           </tr>
           <?php
           // Consultar usuarios
-          $query = "SELECT usuario.*, rol.interfaz AS interfaz FROM usuario LEFT JOIN rol ON usuario.rol_id = rol.rol_id";
+          $query = "SELECT * FROM postulantes";
 
           if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];
-            $query .= " WHERE usuario.usuario_id LIKE '%$busqueda%' 
-                        OR usuario.nombre LIKE '%$busqueda%' 
-                        OR usuario.apellido LIKE '%$busqueda%' 
-                        OR usuario.tipo_documento LIKE '%$busqueda%'
-                        OR usuario.no_documento LIKE '%$busqueda%' 
-                        OR usuario.email LIKE '%$busqueda%' 
-                        OR usuario.telefono LIKE '%$busqueda%'  
-                        OR rol.interfaz LIKE '%$busqueda%'";
+            $query .= " WHERE postulantes.post_id LIKE '%$busqueda%' 
+                        OR postulantes.Nombres LIKE '%$busqueda%' 
+                        OR postulantes.Apellidos LIKE '%$busqueda%' 
+                        OR postulantes.Genero LIKE '%$busqueda%'
+                        OR postulantes.Edad LIKE '%$busqueda%' 
+                        OR postulantes.tipo_documento LIKE '%$busqueda%' 
+                        OR postulantes.no_documento LIKE '%$busqueda%'  
+                        OR postulantes.Correo LIKE '%$busqueda%'
+                        OR postulantes.Direccion LIKE '%$busqueda%' 
+                        OR postulantes.Barrio LIKE '%$busqueda%' 
+                        OR postulantes.Telefono LIKE '%$busqueda%' 
+                        OR postulantes.Curriculum LIKE '%$busqueda%'";
           }
           $resultado = mysqli_query($conn, $query);
           while ($row = mysqli_fetch_array($resultado)) {
           ?>
             <tr>
-              <td><?php echo htmlspecialchars($row['usuario_id']); ?></td>
-              <td><?php echo htmlspecialchars($row['nombre']); ?></td>
-              <td><?php echo htmlspecialchars($row['apellido']); ?></td>
+              <td><?php echo htmlspecialchars($row['post_id']); ?></td>
+              <td><?php echo htmlspecialchars($row['Nombres']); ?></td>
+              <td><?php echo htmlspecialchars($row['Apellidos']); ?></td>
+              <td><?php echo htmlspecialchars($row['Genero']); ?></td>
+              <td><?php echo htmlspecialchars($row['Edad']); ?></td>
               <td><?php echo htmlspecialchars($row['tipo_documento']); ?></td>
               <td><?php echo htmlspecialchars($row['no_documento']); ?></td>
-              <td><?php echo htmlspecialchars($row['email']); ?></td>
-              <td><?php echo htmlspecialchars($row['telefono']); ?></td>
-              <td><?php echo htmlspecialchars($row['interfaz']); ?></td>
-              <td><a href="direccionURLborrarcomillas?id=<?php echo $row['usuario_id']; ?>" class="crud_button">Consultar</a></td>
+              <td><?php echo htmlspecialchars($row['Correo']); ?></td>
+              <td><?php echo htmlspecialchars($row['Direccion']); ?></td>
+              <td><?php echo htmlspecialchars($row['Barrio']); ?></td>
+              <td><?php echo htmlspecialchars($row['Telefono']); ?></td>
+              <td>
+                <?php if (!empty($row['Curriculum'])): ?>
+                  <a href="../curriculums/<?php echo htmlspecialchars($row['Curriculum']); ?>" target="_blank">Ver Curriculum</a>
+                <?php else: ?>
+                  No disponible
+                <?php endif; ?>
+              </td>
+              <td><form action="../deleteform/deletecandidate.php" method="POST">
+                <input type="hidden" name="delete" value="<?php echo $row['post_id']; ?>">
+                <button type="submit" class="crud_button" onclick="return confirm('¿Estás seguro de que quieres eliminar este registro?')">Eliminar</button>
+              </form>
+            </td>
             </tr>
           <?php
           }
@@ -135,7 +160,8 @@ if (empty($_SESSION['usuario'])) {
         </table>
       </div>
     </div>
-    <script src="../js/newcolor.js"></script>
+  </div>
+  <script src="../js/newcolor.js"></script>
 </body>
 
 </html>

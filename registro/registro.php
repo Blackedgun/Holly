@@ -6,23 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../img/LogoHolly.png">
-    <title>Formulario de postulantes</title>
+    <title>Formulario de registro</title>
     <link rel="stylesheet" href="../css/Style.css" />
     <link rel="stylesheet" href="../css/normalize.css" />
-    <script>
-        function validateForm() {
-            var curriculum = document.getElementById("curriculum").value;
-            if (curriculum == "") {
-                alert("Por favor seleccione un documento para continuar");
-                return false;
-            }
-            return true;
-        }
-    </script>
 </head>
 
 <body style="background: url(../img/pinkdot2.jpg)">
-    <form action="../functions/reg_postulante.php" class="form-register" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form action="../functions/adduser.php" class="form-register" method="POST">
         <h4>Registrar empleado</h4>
         <div>
             <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese los nombres del nuevo empleado" required />
@@ -46,13 +36,13 @@
             <input class="controls" type="number" name="telefono" id="telefono" placeholder="Teléfono del nuevo empleado" required />
         </div>
         <div>
-            <input class="controls" type="password" name="password" id="password" placeholder="No digite nada en este campo" required minlength="4" maxlength="40" />
+            <input class="controls" type="password" name="password" id="password" placeholder="No digite nada en este campo" required minlength="4" maxlength="40" readonly/>
         </div>
-        <label style="color: black;" for="categoria">Interfaz de usuario (pendiente): </label>
-        <select id="categoria" name="categoria" required>
+        <label style="color: black;" for="rol">Interfaz de usuario (pendiente): </label>
+        <select id="rol" name="rol" required>
             <?php
             include '../reg.php';
-            $query = "SELECT * FROM rol";
+            $query = "SELECT * FROM rol WHERE rol_id != 1";
             $result = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<option value="' . $row['rol_id'] . '">' . $row['interfaz'] . '</option>';
@@ -67,27 +57,5 @@
         });
     </script>
 </body>
-<footer class="footer">
-    <div class="Brand">
-        <img src="../img/LogoHolly.png" alt="Holly Dashing" />
-    </div>
-    <div class="footercont">
-        <p>©2024 Holly Dashing | Todos los derechos reservados</p>
-    </div>
-    <ul class="social-icon">
-        <li>
-            <a href="https://x.com/eldiariodedross"><img src="../img/x.png" alt="" /></a>
-        </li>
-        <li>
-            <a href="https://www.facebook.com/Seniorwhis"><img src="../img/facebook.png" alt="" /></a>
-        </li>
-        <li>
-            <a href="https://www.instagram.com/senior_whiiss/"><img src="../img/instagram.png" alt="" /></a>
-        </li>
-        <li>
-            <a href="https://wa.me/3025193306"><img src="../img/whatsapp.png" alt="" /></a>
-        </li>
-    </ul>
-</footer>
 
 </html>
