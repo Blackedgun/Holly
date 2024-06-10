@@ -27,22 +27,20 @@ if (empty($_SESSION['usuario'])) {
 
     $id = $_POST["id"];
     $nombre = $_POST["nombre"];
-    $apellido =$_POSTs["apellido"];
+    $apellido = $_POST["apellido"];
     $doc = $_POST["doc"];
     $docno = $_POST["doc_no"];
     $correo = $_POST["correo"];
     $telefono = $_POST["telefono"];
     $rol = $_POST["rol"];
-    
 
     $qli = "UPDATE usuario SET 
-            usuario_id = '$id',
             nombre = '$nombre', 
             apellido = '$apellido', 
             tipo_documento = '$doc',
             no_documento = '$docno', 
-            email = '$correo'
-            telefono = '$telefono'
+            email = '$correo',
+            telefono = '$telefono',
             rol_id = '$rol'
             WHERE usuario_id = '$id'";
     $resultado = mysqli_query($conn, $qli);
@@ -50,12 +48,12 @@ if (empty($_SESSION['usuario'])) {
     if ($resultado) {
       echo "<script language='JavaScript'>
         alert ('Los datos se han actualizado correctamente');
-        location.assign ('../user/inventory.php');
+        location.assign ('../user/registros.php');
         </script>";
     } else {
       echo "<script language='JavaScript'>
         alert ('No se pudieron actualizar los datos');
-        location.assign ('../user/inventory.php');
+        location.assign ('../user/registros.php');
         </script>";
     }
 
@@ -82,39 +80,39 @@ if (empty($_SESSION['usuario'])) {
     <form action="<?= $_SERVER['PHP_SELF'] ?>" class="form-register" method="POST" enctype="multipart/form-data">
     <h4>Edición de usuarios</h4>
         <div>
-            <input class="controls" type="text" name="nombre" id="nombre" placeholder="Corrija los nombres del empleado" required />
+            <input class="controls" type="text" name="nombre" id="nombre" value="<?php echo htmlspecialchars($nombre); ?>" placeholder="Corrija los nombres del empleado" required />
         </div>
         <div>
-            <input class="controls" type="text" name="apellido" id="apellido" placeholder="Corrija los apellidos del empleado" required />
+            <input class="controls" type="text" name="apellido" id="apellido" value="<?php echo htmlspecialchars($apellido); ?>" placeholder="Corrija los apellidos del empleado" required />
         </div>
         <label style="color: black;" for="doc">Tipo de documento:</label>
         <select id="doc" name="doc" required>
-            <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
-            <option value="Cédula de Extranjería">Cédula de Extranjería</option>
-            <option value="Pasaporte">Pasaporte</option>
+            <option value="Cédula de Ciudadanía" <?php if($doc == "Cédula de Ciudadanía") echo 'selected'; ?>>Cédula de Ciudadanía</option>
+            <option value="Cédula de Extranjería" <?php if($doc == "Cédula de Extranjería") echo 'selected'; ?>>Cédula de Extranjería</option>
+            <option value="Pasaporte" <?php if($doc == "Pasaporte") echo 'selected'; ?>>Pasaporte</option>
         </select><br><br>
         <div>
-            <input class="controls" type="number" name="doc_no" id="doc_no" placeholder="Corrija el número de documento" required />
+            <input class="controls" type="number" name="doc_no" id="doc_no" value="<?php echo htmlspecialchars($docno); ?>" placeholder="Corrija el número de documento" required />
         </div>
         <div>
-            <input class="controls" type="text" name="correo" id="correo" placeholder="Correo actualizado del empleado" required />
+            <input class="controls" type="text" name="correo" id="correo" value="<?php echo htmlspecialchars($correo); ?>" placeholder="Correo actualizado del empleado" required />
         </div>
         <div>
-            <input class="controls" type="number" name="telefono" id="telefono" placeholder="Teléfono nuevo empleado" required />
+            <input class="controls" type="number" name="telefono" id="telefono" value="<?php echo htmlspecialchars($telefono); ?>" placeholder="Teléfono nuevo empleado" required />
         </div>
         <label style="color: black;" for="rol">Interfaz nueva de usuario </label>
         <select id="rol" name="rol" required>
             <?php
-            include '../reg.php';
             $query = "SELECT * FROM rol WHERE rol_id != 1";
             $result = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<option value="' . $row['rol_id'] . '">' . $row['interfaz'] . '</option>';
+                $selected = ($row['rol_id'] == $rol) ? 'selected' : '';
+                echo '<option value="' . $row['rol_id'] . '" ' . $selected . '>' . $row['interfaz'] . '</option>';
             }
             ?>
         </select><br><br>
 
-      <input type="hidden" name="id" value="<?php echo $id; ?>">
+      <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
       <input class="bottom" type="submit" name="enviar" value="Actualizar usuario">
     </form>
   <?php

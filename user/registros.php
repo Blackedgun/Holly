@@ -78,13 +78,13 @@ if (empty($_SESSION['usuario'])) {
           <br><br>
           <input type="submit" name="enviar" value="Buscar">
           <div class="print">
-            <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/productopdf.php">PDF</a>
+            <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/registerpdf.php">PDF</a>
           </div><br>
           <div class="print">
-            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../convert/pedidocsv.php">CSV</a>
+            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../convert/registercsv.php">CSV</a>
           </div><br>
           <div class="print">
-            <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/pedidoxml.php">XML</a><br><br>
+            <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/registerxml.php">XML</a><br><br>
             <div class="nextbutton">
               <a class="Fetch" href="postulados.php">Postulaciones</a>
             </div>
@@ -93,7 +93,14 @@ if (empty($_SESSION['usuario'])) {
             </div>
           </div>
         </form>
-        <div style="background: none; border: 0px;" class="someold"></div>
+        <div class="someold">
+          <h4>Roles</h4>
+          <ol>
+            <li>1. Administrador</li>
+            <li>2. Empleado</li>
+            <li>3. Pendiente</li>
+          </ol>
+        </div>
       </div><br><br>
 
       <div class="table__container_two">
@@ -115,17 +122,19 @@ if (empty($_SESSION['usuario'])) {
 
           if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];
-            $query .= " WHERE usuario.usuario_id LIKE '%$busqueda%' 
+            $query .= " AND (usuario.usuario_id LIKE '%$busqueda%' 
                         OR usuario.nombre LIKE '%$busqueda%' 
                         OR usuario.apellido LIKE '%$busqueda%' 
                         OR usuario.tipo_documento LIKE '%$busqueda%'
                         OR usuario.no_documento LIKE '%$busqueda%' 
                         OR usuario.email LIKE '%$busqueda%' 
                         OR usuario.telefono LIKE '%$busqueda%'  
-                        OR rol.interfaz LIKE '%$busqueda%'";
+                        OR rol.interfaz LIKE '%$busqueda%')";
           }
+
           $resultado = mysqli_query($conn, $query);
-          while ($row = mysqli_fetch_array($resultado)) {
+          if($resultado){
+            while ($row = mysqli_fetch_array($resultado)) {
           ?>
             <tr>
               <td><?php echo htmlspecialchars($row['usuario_id']); ?></td>
@@ -139,6 +148,7 @@ if (empty($_SESSION['usuario'])) {
               <td><a href="../editform/formregister.php?id=<?php echo $row['usuario_id']; ?>" class="crud_button">Editar</a></td>
             </tr>
           <?php
+            }
           }
           ?>
         </table>
