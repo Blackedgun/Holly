@@ -212,9 +212,22 @@
   
   .container-pop-items img {
     width: 100%;
-    height: auto;
+    height: 100%;
     max-width: 500px;
+    max-height: 500px;
     overflow: hidden;
+    margin-top: 50px;
+  }
+
+  .container-pop-items button {
+    padding: 15px 30px;
+    background-color: beige;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: cursive;
+    font-size: 15px;
+    margin-bottom: 10px;
   }
 
   

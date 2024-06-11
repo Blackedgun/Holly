@@ -17,7 +17,6 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +29,6 @@ if (isset($_GET['id'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet" />
 </head>
-
 <body style="background: url(../img/pinkdot2.jpg)">
   <header class="header">
     <div class="Brand">
@@ -67,9 +65,17 @@ if (isset($_GET['id'])) {
           <h2>Precio</h2>
           <li>$<?php echo $row['prod_precio']; ?></li>
           <br /><br>
+          <h2>Cantidad Disponible</h2>
+          <li><?php echo $row['prod_cantidad']; ?></li>
+          <br /><br>
           <h2>Estado</h2>
           <li><?php echo $row['disponibilidad'] ?></li>
         </ol>
+        <br>
+        <form action="../functions/addcart.php" method="POST">
+          <input type="hidden" name="producto_id" value="<?php echo $producto_id; ?>">
+          <button type="submit" <?php echo $row['disponibilidad'] == 'Agotado' ? 'disabled' : ''; ?>>Añadir al carrito</button>
+        </form>
       </div>
     </div>
   </div>
