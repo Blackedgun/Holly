@@ -129,6 +129,7 @@ if (empty($_SESSION['usuario'])) {
             <th>Cantidad</th>
             <th>Precio</th>
             <th>Disponibilidad</th>
+            <th>Popular</th>
             <th>Imagen</th>
             <th>Opciones</th>
           </tr>
@@ -148,6 +149,7 @@ if (empty($_SESSION['usuario'])) {
               <td><?php echo $row['prod_cantidad']; ?></td>
               <td><?php echo $row['prod_precio']; ?></td>
               <td><?php echo $row['disponibilidad']; ?></td>
+              <td><?php echo $row['popular']; ?></td>
               <td><img height="50px" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>"></td>
               <td><a href="../editform/forminventario.php?id=<?php echo $row['producto_id']; ?>" class="crud_button">Editar</a></td>
             </tr>

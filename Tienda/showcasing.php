@@ -1,7 +1,18 @@
 <?php
+require_once('../reg.php');
 
-include "../reg.php";
-
+if (isset($_GET['id'])) {
+  $producto_id = $_GET['id'];
+  $sentencia = "SELECT * FROM producto WHERE producto_id = ?";
+  $stmt = $conn->prepare($sentencia);
+  $stmt->bind_param("i", $producto_id);
+  $stmt->execute();
+  $resultado = $stmt->get_result();
+  $row = $resultado->fetch_assoc();
+} else {
+  echo "Producto no encontrado.";
+  exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +23,7 @@ include "../reg.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../img/LogoHolly.png" />
   <title>Holly Store</title>
-  <link rel="stylesheet" href="../css/Tiendacss/Storecamiseta.css" />
+  <link rel="stylesheet" href="../css/Tiendacss/showcase.css" />
   <link rel="stylesheet" href="../css/storemanualslider.css" />
   <link rel="stylesheet" href="../css/normalize.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,75 +39,40 @@ include "../reg.php";
     <nav>
       <ul>
         <li><a href="../Interface.php">Inicio</a></li>
-        <li><a href="../info/informacion.php">Información</a></li>
+        <li><a href="Tienda.php">Tienda</a></li>
         <li><a href="../contact.php">Contactanos</a></li>
       </ul>
     </nav>
-
     <div class="login-button">
       <a href="../login/Formulario.php"><button>Iniciar Sesión</button></a>
     </div>
   </header>
-  <div class="slider-frame">
-    <ul>
-      <li><img src="../img/camisasmodel.jpeg" alt="" /></li>
-    </ul>
-    <div>
-      <p class="texta">Camisetas Holly Dashing</p>
-    </div>
-  </div>
-  <div class="secondline-bottom">
-    <p>Echa un vistazo a todos nuestros descuentos</p>
-  </div>
+
   <div class="main-container">
-    <div class="first_container">
-      <p>Explora</p>
-      <ol>
-        <br /><br />
-        <a href="" style="color: rgb(241, 163, 248);">
-          <li>Camisetas</li>
-        </a><br /><br />
-        <a href="Calzado.php">
-          <li>Calzado</li>
-        </a><br /><br />
-        <a href="Jeans.php">
-          <li>Pantalones</li>
-        </a><br /><br />
-        <a href="Chaquetas.php">
-          <li>Chaquetas</li>
-        </a><br /><br />
-        <a href="Pijamas.php">
-          <li>Pijamas</li>
-        </a><br /><br />
-        <a href="Tienda.php">
-          <li>Tienda</li>
-        </a><br /><br />
-      </ol>
-    </div>
     <div class="container-pop-items">
       <div class="secondline">
-        <p>CAMISETAS/BUSOS</p>
+        <p>DETALLES DE PRODUCTO</p>
       </div>
-      <?php
-      $sentencia = "SELECT * FROM producto WHERE cat_id = 2";
-      $listaProductos = mysqli_query($conn, $sentencia);
-      ?>
-
-      <?php foreach ($listaProductos as $row) { ?>
-        <a href="showcasing.php?id=<?php echo $row['producto_id']; ?>">
-          <div class="picture-det">
-            <img style="height: 140px;" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
-            <ol>
-              <li><?php echo $row['prod_nombre']; ?></li>
-              <br />
-              <li>Precio: $<?php echo $row['prod_precio']; ?></li>
-            </ol>
-          </div>
-        </a>
-      <?php } ?>
+      <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
+      <div style="width: 300px;" class="picture-det">
+        <h4>DESCRIPCIÓN</h4>
+        <br><br>
+        <ol>
+          <h2>Producto</h2>
+          <li><?php echo $row['prod_nombre']; ?></li>
+          <br /><br>
+          <h2>Descripción</h2>
+          <li><?php echo $row['prod_descripcion'] ?></li>
+          <br /><br>
+          <h2>Precio</h2>
+          <li>$<?php echo $row['prod_precio']; ?></li>
+          <br /><br>
+          <h2>Estado</h2>
+          <li><?php echo $row['disponibilidad'] ?></li>
+        </ol>
+      </div>
     </div>
   </div>
-
 
   <div class="secondline-bottom">
     <p>
@@ -105,6 +81,7 @@ include "../reg.php";
     </p>
   </div>
 </body>
+
 <footer class="footer">
   <div class="Brand">
     <img src="../img/LogoHolly.png" alt="Holly Dashing" />
@@ -113,7 +90,7 @@ include "../reg.php";
     <nav>
       <ul>
         <li><a href="../Interface.php">Inicio</a></li>
-        <li><a href="../info/informacion.php">Información</a></li>
+        <li><a href="Tienda.php">Tienda</a></li>
         <li><a href="../contact.php">Contactanos</a></li>
       </ul>
     </nav>

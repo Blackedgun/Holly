@@ -196,15 +196,7 @@ button:hover {
  text-decoration: none;
 }
 
-.container-pop-items .column {
-  margin: auto;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
-}
-
-.container-pop-items .column img {
+.container-pop-items img {
   width: 100%;
   height: auto;
   max-width: 200px;
@@ -214,7 +206,7 @@ button:hover {
   transition: transform 0.5s ease;
 }
 
-.container-pop-items .column img:hover {
+.container-pop-items img:hover {
   transform: scale(1.06);
 }
 

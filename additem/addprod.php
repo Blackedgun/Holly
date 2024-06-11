@@ -54,6 +54,11 @@ if (empty($_SESSION['usuario'])) {
             <option value="Disponible">Disponible</option>
             <option value="Agotado">Agotado</option>
         </select><br><br>
+        <label style="color: black;" for="popular">Es un producto popular?: </label>
+        <select id="popular" name="popular" required>
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+        </select><br><br>
         <label style="color: black;" for="imagen">Imagen:</label>
         <input type="file" id="imagen" name="imagen"><br><br>
         <input class="bottom" type="submit" value="Agregar Producto">

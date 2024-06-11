@@ -32,6 +32,7 @@ if (empty($_SESSION['usuario'])) {
     $descripcion = $_POST["descripcion"];
     $categoria = $_POST["categoria"];
     $disponibilidad = $_POST["disponibilidad"];
+    $pop = $_POST["popular"];
     
     if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
       $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
@@ -46,7 +47,8 @@ if (empty($_SESSION['usuario'])) {
             prod_precio = '$precio', 
             prod_descripcion = '$descripcion',
             cat_id = '$categoria', 
-            disponibilidad = '$disponibilidad'
+            disponibilidad = '$disponibilidad',
+            popular = '$pop'
             $update_image
             WHERE producto_id = '$id'";
     $resultado = mysqli_query($conn, $qli);
@@ -78,6 +80,7 @@ if (empty($_SESSION['usuario'])) {
       $descripcion = $filas["prod_descripcion"];
       $categoria = $filas["cat_id"];
       $disponibilidad = $filas["disponibilidad"];
+      $pop = $filas["popular"];
       $imagen = $filas["prod_image"];
     }
 
@@ -109,6 +112,12 @@ if (empty($_SESSION['usuario'])) {
       <select id="disponibilidad" name="disponibilidad" required>
         <option value="Disponible" <?= $disponibilidad == 'Disponible' ? 'selected' : '' ?>>Disponible</option>
         <option value="Agotado" <?= $disponibilidad == 'Agotado' ? 'selected' : '' ?>>Agotado</option>
+      </select><br><br>
+
+      <label style="color: black;" for="popular">Es un producto popular?: </label>
+      <select id="popular" name="popular" required>
+        <option value="No" <?= $pop == 'No' ? 'selected' : '' ?>>No</option>
+        <option value="Si" <?= $pop == 'Si' ? 'selected' : '' ?>>Si</option>
       </select><br><br>
 
       <label style="color: black;" for="imagen">Imagen:</label>

@@ -83,7 +83,7 @@ include "../reg.php";
       ?>
 
       <?php foreach ($listaProductos as $row) { ?>
-        <a href="Tienda/Jeans.html">
+        <a href="showcasing.php?id=<?php echo $row['producto_id']; ?>">
           <div class="picture-det">
             <img style="height: 140px;" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
             <ol>
