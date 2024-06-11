@@ -17,7 +17,7 @@ $sql = "DELETE FROM postulantes WHERE post_id = $id";
   else{
     echo "<script>
     alert('Los datos no se pudieron eliminar');
-    window.location = 'inventario.php';
+    window.location = '../user/postulados.php';
     </script>". mysqli_error($conn);
    }
 }

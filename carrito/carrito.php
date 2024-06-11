@@ -100,12 +100,12 @@ session_start();
                         <td>
                             <ul style="padding-left: 100px; margin-top: 15px; margin-bottom: 15px;">
                                 <li>
-                                    <input type="radio" name="shipping" value="additional_cost" id="new-check1" checked>
+                                    <input type="radio" name="shipping" value="additional_cost" id="new-check1" checked onchange="updateTotal()">
                                     <label for="new-check1">Valor adicional: $10.000</label>
                                 </li>
                                 <br>
                                 <li>
-                                    <input type="radio" name="shipping" value="store_pickup" id="new-check2">
+                                    <input type="radio" name="shipping" value="store_pickup" id="new-check2" onchange="updateTotal()">
                                     <label for="new-check2">Retiro en tienda (San Andresito de la 38)</label>
                                 </li>
                             </ul>
@@ -113,7 +113,7 @@ session_start();
                     </tr>
                     <tr>
                         <td style="padding-top: 70px;">Total</td>
-                        <td style="padding-left: 150px; padding-top: 70px;">$<?php echo number_format($total + 10000, 2); ?></td>
+                        <td style="padding-left: 150px; padding-top: 70px;" id="total">$<?php echo number_format($total + 10000, 2); ?></td>
                     </tr>
                 </table>
                 <div class="check-button">
@@ -141,6 +141,13 @@ session_start();
             if (quantityInput.value > 1) {
                 quantityInput.value = parseInt(quantityInput.value) - 1;
             }
+        }
+
+        function updateTotal() {
+            const shippingCost = document.querySelector('input[name="shipping"]:checked').value === "additional_cost" ? 10000 : 0;
+            const totalElement = document.getElementById("total");
+            const total = <?php echo $total; ?> + shippingCost;
+            totalElement.textContent = "$" + total.toLocaleString('es-ES', { minimumFractionDigits: 2 });
         }
     </script>
 </body>
