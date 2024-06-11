@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../css/normalize.css" />
   </head>
   <body style="background: url(../../img/pinkdot2.jpg)">
-    <form action="login_usuario.php" class="form-register" method="POST">
+    <form action="recovery.php" class="form-register" method="POST">
       <h4>Recuperación de contraseña</h4>
       <div>
         <input
@@ -18,7 +18,7 @@
           type="email"
           name="email"
           id="email"
-          placeholder="Ingrese su correo"
+          placeholder="Ingrese su correo eléctronico"
           required
         />
       </div>
