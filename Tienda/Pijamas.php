@@ -1,7 +1,5 @@
 <?php
-
 include "../reg.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -71,6 +69,16 @@ include "../reg.php";
         <a href="Tienda.php">
           <li>Tienda</li>
         </a><br /><br />
+        <form class="header__title" method="GET" action="">
+          <input type="text" name="busqueda" placeholder="Buscar...">
+          <br><br><br><br>
+          <h3>Rango de Precios</h3>
+          <br>
+          <input type="range" min="10000" max="200000" value="150000" class="price-catcher" id="priceSlider" name="precio_max">
+          <span id="priceValue">150000</span>
+          <br><br><br>
+          <input type="submit" name="enviar" value="Buscar">
+        </form>
       </ol>
     </div>
     <div class="container-pop-items">
@@ -78,18 +86,30 @@ include "../reg.php";
         <p>PIJAMAS</p>
       </div>
       <?php
-      $sentencia = "SELECT * FROM producto WHERE cat_id = 4";
-      $listaProductos = mysqli_query($conn, $sentencia);
-      ?>
-
-      <?php foreach ($listaProductos as $row) { ?>
+      $inv = "SELECT * FROM producto WHERE cat_id = 4";
+      if (isset($_GET['enviar'])) {
+        $condiciones = [];
+        if (!empty($_GET['busqueda'])) {
+          $busqueda = mysqli_real_escape_string($conn, $_GET['busqueda']);
+          $condiciones[] = "(producto_id LIKE '%$busqueda%' OR prod_nombre LIKE '%$busqueda%')";
+        }
+        if (!empty($_GET['precio_max'])) {
+          $precio_max = (int) $_GET['precio_max'];
+          $condiciones[] = "prod_precio <= $precio_max";
+        }
+        if (!empty($condiciones)) {
+          $inv .= " AND " . implode(" AND ", $condiciones);
+        }
+      }
+      $listaProductos = mysqli_query($conn, $inv);
+      foreach ($listaProductos as $row) { ?>
         <a href="showcasing.php?id=<?php echo $row['producto_id']; ?>">
           <div class="picture-det">
-            <img style="height: 140px;" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
+            <img style="height: 140px;" src="data:image/jpg;base64,<?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
             <ol>
-              <li><?php echo $row['prod_nombre']; ?></li>
+              <li><?php echo htmlspecialchars($row['prod_nombre']); ?></li>
               <br />
-              <li>Precio: $<?php echo $row['prod_precio']; ?></li>
+              <li>Precio: $<?php echo htmlspecialchars($row['prod_precio']); ?></li>
             </ol>
           </div>
         </a>
@@ -98,11 +118,16 @@ include "../reg.php";
   </div>
 
   <div class="secondline-bottom">
-    <p>
-      Te invitamos a que cuides, respetes y mejores tu piel con la mejor
-      delicadeza.
-    </p>
+    <p>Te invitamos a que cuides, respetes y mejores tu piel con la mejor delicadeza.</p>
   </div>
+  <script>
+    const slider = document.getElementById('priceSlider');
+    const priceDisplay = document.getElementById('priceValue');
+    priceDisplay.textContent = slider.value;
+    slider.oninput = function() {
+      priceDisplay.textContent = this.value;
+    };
+  </script>
 </body>
 <footer class="footer">
   <div class="Brand">

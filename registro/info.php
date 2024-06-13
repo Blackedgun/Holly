@@ -29,7 +29,7 @@
     </div>
     <div style="margin-right: 40px; margin-bottom: 60px;" class="login-button">
         <a href="postulante.php" style="padding: 15px 30px; background-color: #ffffff; border: 4px solid #ffffff; color: #000000; cursor: pointer; border-radius: 20px; font-family: cursive; font-size: 25px; text-decoration: none; display: inline-block; text-align: center;">
-            Postulate aquí
+            Postúlate aquí
         </a>
     </div>
 </footer>
