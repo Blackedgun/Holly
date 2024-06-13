@@ -21,6 +21,95 @@ include "reg.php";
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet" />
 </head>
 
+<style>
+  .main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start; 
+  width: 100%; 
+}
+
+.container-pop-items {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 4px solid pink;
+  background-color: #ffffff;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.container-pop-items .picture-det{
+   width: 320px;
+   height: 400px;
+   border: 4px solid #525252;
+   padding: 3px;
+   margin-top: 20px;
+   border-radius: 2vh;
+   text-align: center;
+   background-color: rgb(250, 250, 230);
+}
+
+.container-pop-items .picture-det ol{
+  list-style: none;
+  list-style-type: none;
+  color: #000000;
+}
+
+.container-pop-items .picture-det li{
+  margin-left: auto;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.container-pop-items .picture-det a{
+ text-decoration: none;
+}
+
+.container-pop-items img {
+  width: 310px;
+  height: 230px;
+  overflow: hidden;
+  border-radius: 2vh;
+  transition: transform 0.5s ease;
+}
+
+.container-pop-items img:hover {
+  transform: scale(1.06);
+}
+
+.secondline p {
+  margin: auto;
+  margin-bottom: 10px;
+  font-family: "Passion One";
+  font-style: normal;
+  color: rgb(0, 0, 0);
+  font-size: 50px;
+  width: 100%;
+  padding: 25px;
+  overflow: hidden;
+  text-align: center;
+  text-shadow: 
+    -2px -2px 0 #fff4d1,  
+    2px -2px 0 #fff4d1,  
+    -2px 2px 0 #fff4d1,  
+    2px 2px 0 #fff4d1;
+}
+.secondline{
+  margin: auto;
+  width: 1100px;
+  overflow: hidden;
+  border: 4px solid pink;
+  background-color: pink;
+}
+</style>
+
 <body style="background: url(img/pinkdot2.jpg)">
   <header class="header">
     <div class="Brand">
@@ -66,9 +155,11 @@ include "reg.php";
       <?php foreach ($listaProductos as $row) { ?>
         <a href="Tienda/showcasing.php?id=<?php echo $row['producto_id']; ?>">
           <div class="picture-det">
-            <img style="height: 140px;" src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
+            <img src="data:image/jpg;base64, <?php echo base64_encode($row['prod_image']); ?>" alt="producto" />
             <ol>
               <li><?php echo $row['prod_nombre']; ?></li>
+              <br />
+              <li><?php echo $row['disponibilidad']; ?></li>
               <br />
               <li>Precio: $<?php echo $row['prod_precio']; ?></li>
             </ol>

@@ -145,7 +145,7 @@ button:hover {
   font-style: normal;
   font-size: 55px;
   margin: auto;
-  color: #000000;
+  color: #000000; 
 }
 
 .first_container, .container-pop-items {
