@@ -9,6 +9,7 @@ $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $password = md5($_POST['password']);
 $rol = $_POST['rol'];
+$estado = $_POST['estado'];
 
 // Verificar si el correo o el teléfono ya está registrado
 $verificacion_correo_telefono = mysqli_query($conn, "SELECT * FROM usuario WHERE email = '$correo' OR telefono = '$telefono' OR no_documento = '$docno'");
@@ -22,7 +23,7 @@ if (mysqli_num_rows($verificacion_correo_telefono) > 0) {
     exit();
 }
         
-$query = "INSERT INTO usuario (nombre, apellido, tipo_documento, no_documento, email, telefono, contrasena, rol_id) VALUES ('$nombre', '$apellido', '$doc', '$docno', '$correo', '$telefono', '$password', '$rol')";
+$query = "INSERT INTO usuario (nombre, apellido, tipo_documento, no_documento, email, telefono, contrasena, rol_id, status) VALUES ('$nombre', '$apellido', '$doc', '$docno', '$correo', '$telefono', '$password', '$rol', '$estado')";
         $result = mysqli_query($conn, $query);
 
         if ($result) {

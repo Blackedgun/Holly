@@ -6,6 +6,24 @@ if (empty($_SESSION['usuario'])) {
   header('location: ../Interface.php');
   exit();
 }
+
+$usuario = $_SESSION['usuario'];
+
+
+$sql = "SELECT rol_id FROM usuario WHERE usuario_id = '$usuario'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  if ($row['rol_id'] != 1) {
+    echo "<script language='JavaScript'>
+        alert ('Usted no tiene permitido el acceso a esta vista');
+        location.assign ('../Interface.php');
+        </script>";
+    exit();
+  }
+} 
+
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +147,8 @@ if (empty($_SESSION['usuario'])) {
                         OR usuario.no_documento LIKE '%$busqueda%' 
                         OR usuario.email LIKE '%$busqueda%' 
                         OR usuario.telefono LIKE '%$busqueda%'  
-                        OR rol.interfaz LIKE '%$busqueda%')";
+                        OR rol.interfaz LIKE '%$busqueda%'
+                        OR usuario.status LIKE '%$busqueda%')";
           }
 
           $resultado = mysqli_query($conn, $query);

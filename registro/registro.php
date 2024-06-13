@@ -1,3 +1,31 @@
+<?php
+include "../reg.php";
+
+session_start();
+if (empty($_SESSION['usuario'])) {
+  header('location: ../Interface.php');
+  exit();
+}
+
+$usuario = $_SESSION['usuario'];
+
+
+$sql = "SELECT rol_id FROM usuario WHERE usuario_id = '$usuario'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  if ($row['rol_id'] != 1) {
+    echo "<script language='JavaScript'>
+        alert ('Usted no tiene permitido el acceso a esta vista');
+        location.assign ('../Interface.php');
+        </script>";
+    exit();
+  }
+} 
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -48,6 +76,11 @@
                 echo '<option value="' . $row['rol_id'] . '">' . $row['interfaz'] . '</option>';
             }
             ?>
+        </select><br><br>
+        <label style="color: black;" for="estado">Estado del usuario: </label>
+        <select id="estado" name="estado" required>
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
         </select><br><br>
         <input class="bottom" type="submit" value="Registrar" />
     </form>

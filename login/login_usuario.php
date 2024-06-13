@@ -18,7 +18,7 @@ $password = md5($_POST['contrasena']);
 
 
 // Preparar la consulta para prevenir inyección SQL
-$stmt = $conn->prepare("SELECT * FROM usuario WHERE email = ? AND contrasena = ? AND usuario_id = ?");
+$stmt = $conn->prepare("SELECT * FROM usuario WHERE email = ? AND contrasena = ? AND usuario_id = ? AND status = 'Activo'");
 $stmt->bind_param("sss", $correo, $password, $codigo);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -35,11 +35,11 @@ if ($result->num_rows > 0) {
             header("location: ../user/user.php");
             exit();
         } elseif ($filadelfia['rol_id'] == 2) {
-            header("location: ../user/empleado/useremp.php");
-            exit();
-        } elseif ($filadelfia['rol_id'] == 3) {
             session_destroy();
             header("location: ../pendiente.php");
+            exit();
+        } elseif ($filadelfia['rol_id'] == 3) {
+            header("location: ../user/empleado/useremp.php");
             exit();
         }
     }
@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
     }
 } else {
     echo '<script>
-         alert("El usuario no existe, por favor verifique los datos introducidos");
+         alert("El usuario no existe o a sido desactivado por administración");
          window.location = "Formulario.php";
     </script>';
     exit;

@@ -11,7 +11,7 @@ require '../../PHPMailer-master/src/SMTP.php';
 require_once('../../reg.php');
 
 $email = $_POST['email'];
-$query = "SELECT * FROM usuario WHERE email = '$email' AND status = 1";
+$query = "SELECT * FROM usuario WHERE email = '$email' AND status = 'Activo'";
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 

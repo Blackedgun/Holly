@@ -6,6 +6,24 @@ if (empty($_SESSION['usuario'])) {
   header('location: ../Interface.php');
   exit();
 }
+
+$usuario = $_SESSION['usuario'];
+
+
+$sql = "SELECT rol_id FROM usuario WHERE usuario_id = '$usuario'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  if ($row['rol_id'] != 1) {
+    echo "<script language='JavaScript'>
+        alert ('Usted no tiene permitido el acceso a esta vista');
+        location.assign ('../Interface.php');
+        </script>";
+    exit();
+  }
+} 
+
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +51,7 @@ if (empty($_SESSION['usuario'])) {
     $correo = $_POST["correo"];
     $telefono = $_POST["telefono"];
     $rol = $_POST["rol"];
+    $estado = $_POST["estado"];
 
     $qli = "UPDATE usuario SET 
             nombre = '$nombre', 
@@ -41,7 +60,8 @@ if (empty($_SESSION['usuario'])) {
             no_documento = '$docno', 
             email = '$correo',
             telefono = '$telefono',
-            rol_id = '$rol'
+            rol_id = '$rol',
+            status = '$estado'
             WHERE usuario_id = '$id'";
     $resultado = mysqli_query($conn, $qli);
 
@@ -74,6 +94,7 @@ if (empty($_SESSION['usuario'])) {
       $correo = $filas["email"];
       $telefono = $filas["telefono"];
       $rol = $filas["rol_id"];
+      $estado = $filas["status"];
     }
 
   ?>
@@ -111,7 +132,11 @@ if (empty($_SESSION['usuario'])) {
             }
             ?>
         </select><br><br>
-
+        <label style="color: black;" for="estado">Estado del usuario: </label>
+        <select id="estado" name="estado" required>
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+        </select><br><br>
       <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
       <input class="bottom" type="submit" name="enviar" value="Actualizar usuario">
     </form>
