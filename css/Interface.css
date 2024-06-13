@@ -155,10 +155,8 @@ button:hover {
 }
 
 .container-pop-items img {
-  width: 100%;
-  height: auto;
-  max-width: 310px;
-  max-height: 310px;
+  width: 310px;
+  height: 230px;
   overflow: hidden;
   border-radius: 2vh;
   transition: transform 0.5s ease;
