@@ -134,8 +134,8 @@ if ($result->num_rows > 0) {
         </select><br><br>
         <label style="color: black;" for="estado">Estado del usuario: </label>
         <select id="estado" name="estado" required>
-            <option value="Activo">Activo</option>
-            <option value="Inactivo">Inactivo</option>
+            <option value="Activo" <?php if ($estado == 'Activo') echo 'selected'; ?>>Activo</option>
+            <option value="Inactivo" <?php if ($estado == 'Inactivo') echo 'selected'; ?>>Inactivo</option>
         </select><br><br>
       <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
       <input class="bottom" type="submit" name="enviar" value="Actualizar usuario">
