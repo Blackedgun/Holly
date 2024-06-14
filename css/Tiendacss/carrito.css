@@ -225,20 +225,23 @@ button:hover {
 .secondline p {
   margin: auto;
   margin-bottom: 10px;
-  font-family: "Passion One";
-  font-style: normal;
-  color: rgb(0, 0, 0);
+  font-family: "Passion One", normal;
   font-size: 50px;
   width: 100%;
   padding: 25px;
   overflow: hidden;
   text-align: center;
-  text-shadow: -2px -2px 0 #fff4d1, 2px -2px 0 #fff4d1, -2px 2px 0 #fff4d1,
+  text-shadow: 
+    -2px -2px 0 #fff4d1,  
+    2px -2px 0 #fff4d1,  
+    -2px 2px 0 #fff4d1,  
     2px 2px 0 #fff4d1;
 }
+
 .secondline {
   margin: auto;
-  width: 1100px;
+  width: 100%;
+  max-width: 1100px;
   overflow: hidden;
   border: 4px solid rgb(141, 141, 141);
   background-color: rgb(141, 141, 141);
@@ -425,4 +428,254 @@ footer .social-icon li a:hover {
 
 .update-cart tr{
     border-bottom: none;
+}
+
+
+@media (max-width: 1200px) {
+  .header img {
+    max-width: 150px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .Brand {
+    font-size: 30px;
+  }
+
+  .secondline, .secondline p {
+    font-size: 40px;
+  }
+
+  .secondline-bottom p {
+    font-size: 40px;
+  }
+
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .social-icon {
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  footer p{
+    margin: -150px;
+    margin-bottom: 1px;
+    font-size: 25px;
+  }
+
+  footer nav ul{
+    transform: translate(-77px);
+  }
+
+  footer img{
+    max-width: 300px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+}
+
+
+@media (max-width: 992px) {
+  .header img, .Brand {
+    display: flex;
+    height: 100%;
+    max-height: 250px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .container-pop-items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .secondline p {
+    font-size: 35px;
+  }
+
+  .secondline-bottom p {
+    font-size: 35px;
+  }
+
+  .first_container {
+    margin: 10px;
+    width: 90%;
+  }
+
+  .first_container ol {
+    width: 90%;
+  }
+
+  footer .social-icon {
+    justify-content: center;
+  }
+
+  footer p{
+    font-size: 20px;
+  }
+
+  footer img{
+    display: flex;
+    height: 100%;
+    max-height: 250px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .header img {
+    display: block;
+    max-width: 150px;
+    margin: 0;
+  }
+
+  footer nav ul {
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-80px);
+  }
+
+  nav li {
+    margin-right: 0;
+    padding: 5px;
+  }
+
+  .login-button button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin-top: 15px;
+  }
+
+  .secondline p, .secondline-bottom p {
+    font-size: 30px;
+  }
+
+  .container-pop-items {
+    flex-direction: column;
+  }
+
+  .first_container p {
+    font-size: 22px;
+    padding: 15px;
+  }
+
+  .first_container ol li {
+    font-size: 20px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .footercont {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  footer .social-icon {
+    margin: 20px 0;
+    justify-content: center;
+  }
+
+  footer .social-icon li a {
+    margin: 0 10px;
+  }
+  
+  footer p{
+    font-size: 20px;
+  }
+
+  section .secondline-bottom{
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .secondline p, .secondline-bottom p {
+    font-size: 25px;
+  }
+
+  .footer p{
+    margin: -150px;
+    margin-bottom: 1px;
+  }
+
+  .first_container p {
+    font-size: 20px;
+  }
+
+  .first_container ol li {
+    font-size: 18px;
+  }
+
+  nav li {
+    font-size: 20px;
+  }
+
+  nav ul {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    transform: translate(10px);
+  }
+
+  .login-button button {
+    font-size: 18px;
+    padding: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  footer .social-icon li a {
+    font-size: 1.5em;
+  }
+
+  footer .social-icon{
+     gap: 1px;
+     transform: translate(-15px);
+  }
+
+  footer p{
+    font-size: 18px;
+  }
+
+  footer img{
+    max-width: 230px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transform: translate(15px);
+  }
+
+  section .secondline-bottom p{
+    display: none;
+  }
+
+  section .secondline-bottom{
+    margin-top: -70px;
+    padding: 50px;
+  }
+  
 }

@@ -44,9 +44,11 @@ include "../reg.php";
     </div>
   </div>
 
-  <div class="secondline-bottom">
-    <p>Echa un vistazo a todos nuestros descuentos</p>
-  </div>
+  <section>
+    <div class="secondline-bottom">
+      <p>Echa un vistazo a todos nuestros descuentos</p>
+    </div>
+  </section>
 
   <div class="main-container">
     <div class="first_container">

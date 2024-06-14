@@ -45,9 +45,11 @@ include "../reg.php";
       <p class="texta">Pantalones Holly Dashing</p>
     </div>
   </div>
+  <section>
   <div class="secondline-bottom">
     <p>Echa un vistazo a todos nuestros descuentos</p>
   </div>
+</section>
   <div class="main-container">
     <div class="first_container">
       <p>Explora</p>
@@ -85,7 +87,7 @@ include "../reg.php";
     </div>
     <div class="container-pop-items">
       <div class="secondline">
-        <p>CALZADO</p>
+        <p>PANTALONES</p>
       </div>
       <?php
       $inv = "SELECT * FROM producto WHERE cat_id = 1";

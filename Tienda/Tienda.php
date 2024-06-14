@@ -44,9 +44,11 @@ include "../reg.php";
       <p class="texta">Tienda Holly Dashing</p>
     </div>
   </div>
+  <section>
   <div class="secondline-bottom">
     <p>Echa un vistazo a todos nuestros descuentos</p>
   </div>
+</section>
   <div class="main-container">
     <div class="first_container">
       <p>Explora</p>

@@ -50,9 +50,11 @@ include "reg.php";
       <a class="explore" href="docs/Catálogo de ropa Holly Dashing.pdf"><button>Catálogo</button></a>
     </div>
   </div>
+  <section>
   <div class="secondline-bottom">
     <p>Echa un vistazo a todos nuestros descuentos</p>
   </div>
+</section>
   <div class="main-container">
   <div class="container-pop-items">
       <div class="secondline">
@@ -112,7 +114,7 @@ include "reg.php";
         </div>
         <div class="item">
           <img src="img/camisasmodel.jpeg" />
-          <div class="content" style="width: 700px">
+          <div class="content">
             <p>marcas</p>
             <h2>Camisetas</h2>
             <p>
@@ -133,7 +135,7 @@ include "reg.php";
         </div>
         <div class="item">
           <img src="img/chaquetamodel.jpeg" />
-          <div class="content" style="width: 700px">
+          <div class="content">
             <p>marcas</p>
             <h2>Chaquetas</h2>
             <p>
