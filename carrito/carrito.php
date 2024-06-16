@@ -61,7 +61,7 @@ session_start();
                                 ?>
                                 <tr>
                                     <td><a href="remove_from_cart.php?index=<?php echo $index; ?>"><img src="../img/Eliminar.jpg" style="height: 25px; width: 25px;" alt="Eliminar"></a></td>
-                                    <td><img height="50px" src="data:image/jpg;base64, <?php echo base64_encode($item['prod_image']); ?>"></td>
+                                    <td><img class="product-img" height="50px" src="data:image/jpg;base64, <?php echo base64_encode($item['prod_image']); ?>"></td>
                                     <td><?php echo $item['prod_nombre']; ?></td>
                                     <td>$<?php echo number_format($item['prod_precio'], 2); ?></td>
                                     <td>
@@ -76,7 +76,7 @@ session_start();
                                 <?php
                             }
                         } else {
-                            echo '<tr><td colspan="6">El carrito está vacío.</td></tr>';
+                            echo '<tr><td colspan="6"><p>El carrito está vacío.</p></td></tr>';
                         }
                         ?>
                         <tr>
@@ -93,12 +93,12 @@ session_start();
                 <table>
                     <tr>
                         <td style="padding-bottom: 30px;" rowspan="1">Subtotal</td>
-                        <td style="padding-left: 150px; padding-bottom: 30px;">$<?php echo number_format($total, 2); ?></td>
+                        <td style="padding-left: 50px; padding-bottom: 30px;">$<?php echo number_format($total, 2); ?></td>
                     </tr>
                     <tr>
                         <td rowspan="1">Envío</td>
                         <td>
-                            <ul style="padding-left: 100px; margin-top: 15px; margin-bottom: 15px;">
+                            <ul style="padding-left: 50px; margin-top: 15px; margin-bottom: 15px;">
                                 <li>
                                     <input type="radio" name="shipping" value="additional_cost" id="new-check1" checked onchange="updateTotal()">
                                     <label for="new-check1">Valor adicional: $10.000</label>
@@ -113,7 +113,7 @@ session_start();
                     </tr>
                     <tr>
                         <td style="padding-top: 70px;">Total</td>
-                        <td style="padding-left: 150px; padding-top: 70px;" id="total">$<?php echo number_format($total + 10000, 2); ?></td>
+                        <td style="padding-left: 50px; padding-top: 70px;" id="total">$<?php echo number_format($total + 10000, 2); ?></td>
                     </tr>
                 </table>
                 <div class="check-button">

@@ -148,9 +148,9 @@ button:hover {
 
 .first_container,
 .container-pop-items {
-  flex: 1 1 auto; /* Permite que los elementos se ajusten */
-  max-width: 300px; /* Ancho máximo para los elementos */
-  box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+  flex: 1 1 auto; 
+  max-width: 300px; 
+  box-sizing: border-box; 
 }
 
 .container-pop-items {
@@ -258,14 +258,12 @@ button:hover {
 
 .first_container p {
   font-family: lato;
-  font-optical-sizing: auto;
-  font-weight: 30px;
   font-style: normal;
-  font-size: 28px;
+  font-size: 20px;
   color: #000000;
-  display: flex;
-  padding: 27px 20px;
-  background-color: rgb(141, 141, 141);
+  padding: 10px;
+  background-color: rgb(236, 236, 236);
+  border-radius: 5px;
 }
 
 .first_container table {
@@ -480,6 +478,10 @@ footer .social-icon li a:hover {
     margin-bottom: 10px;
   }
 
+  .secondline{
+    margin: auto;
+  }
+
 }
 
 
@@ -575,9 +577,26 @@ footer .social-icon li a:hover {
     flex-direction: column;
   }
 
+  .first_container{
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .first_container .update_button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-30%);
+  }
+
+  .first_container table{
+    align-items: center;
+  }
+
   .first_container p {
-    font-size: 22px;
-    padding: 15px;
+    font-size: 20px;
+    transform: translate(-2%);
+    width: 400px;
   }
 
   .first_container ol li {
@@ -610,6 +629,73 @@ footer .social-icon li a:hover {
   section .secondline-bottom{
     display: flex;
   }
+
+  .first_container table{
+    max-width: fit-content;
+    height: auto;
+  }
+
+  .first_container table th,td{
+    max-width: 100px;
+    width: 100%;
+  }
+
+  .container-pop-items .picture-det label {
+    margin-left: auto;
+    font-size: 12px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    width: 80px;
+  }
+
+  .container-pop-items .picture-det input {
+    display:flex;
+    flex-direction: row;
+    transform: translate(-200%, 100%);
+  }
+
+  .container-pop-items {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .first_container table th, .first_container table td {
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  .picture-det {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  .picture-det table {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .picture-det ul {
+    padding-left: 0;
+  }
+
+  .picture-det li {
+    font-size: 14px;
+    list-style: none;
+    margin-bottom: 10px;
+  }
+
+  .quantity-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .quantity-button {
+    padding: 5px;
+    margin: 0 5px;
+  }
+  
 }
 
 @media (max-width: 576px) {
@@ -617,13 +703,44 @@ footer .social-icon li a:hover {
     font-size: 25px;
   }
 
+  .secondline{
+    width: 110%;
+  }
+
+  .secondline p{
+    transform: translate(-5%);
+  }
+  
   .footer p{
     margin: -150px;
     margin-bottom: 1px;
   }
 
+  .first_container{
+    width: 100%;
+    max-width: 450px;
+    transform: translate(-20px);
+  }
+
+  .first_container table th,td{
+    max-width: 100px;
+    width: 100%;
+  }
+
+  .first_container table th{
+    font-size: 9px;
+  }
+
+  .first_container table td{
+    font-size: 9px;
+  }
+
   .first_container p {
     font-size: 20px;
+    width: 110%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-5%);
   }
 
   .first_container ol li {
@@ -639,6 +756,14 @@ footer .social-icon li a:hover {
     display: flex;
     flex-direction: column;
     transform: translate(10px);
+  }
+
+  .first_container .update_button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-35%);
+    width: 110%;
   }
 
   .login-button button {
@@ -669,13 +794,42 @@ footer .social-icon li a:hover {
     transform: translate(15px);
   }
 
-  section .secondline-bottom p{
-    display: none;
-  }
-
   section .secondline-bottom{
     margin-top: -70px;
     padding: 50px;
+  }
+
+  .picture-det{
+    margin-right: 40px;
+  }
+
+  .picture-det td{
+    font-size: 15px;
+    transform: translate(-10px);
+  }
+
+  .picture-det li{
+    font-size: 12px;
+    justify-content: start;
+    transform: translate(-10px);
+  }
+
+  .picture-det table {
+    font-size: 12px;
+  }
+
+  .quantity-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .quantity-button {
+    margin: 5px 0;
+  }
+
+  .check-button a {
+    font-size: 14px;
+    padding: 10px;
   }
   
 }
