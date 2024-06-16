@@ -96,7 +96,7 @@ if ($result->num_rows > 0) {
           <br><br>
           <input type="submit" name="enviar" value="Buscar">
           <div class="print">
-            <a style="color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:400px; background-color:crimson" class='footer__title' href="../convert/pdf/postuladopdf.php">PDF</a>
+            <a style="color:#fff; background-color:crimson" class='footer__title' href="../convert/pdf/postuladopdf.php">PDF</a>
           </div><br>
           <div class="print">
             <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../convert/postuladocsv.php">CSV</a>

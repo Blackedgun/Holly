@@ -42,7 +42,7 @@ if ($result->num_rows > 0) {
 </head>
 
 <body style="background: url(../img/pinkdot2.jpg)">
-  <div class="container">
+  <div style="position: relative;" class="container">
     <nav>
       <div class="navbar">
         <div class="logo">

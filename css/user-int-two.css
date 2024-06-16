@@ -18,7 +18,7 @@ body {
 
 .main-container {
   display: flex;
-  width: 100%;
+  width: 1200px;
 }
 
 nav {
@@ -91,9 +91,10 @@ nav i {
 }
 
 .content-container {
-  margin-left: 280px;
+  margin-left: 300px;
   padding: 20px;
-  width: calc(100% - 280px);
+  width: 100%;
+  max-width: 550px;
 }
 
 .somenew {
@@ -104,9 +105,9 @@ nav i {
   color: #e9e2e2;
   border: 5px solid #707070;
   border-radius: 2vh;
-  width: fit-content;
-  max-width: calc(100% - 320px);
-  height: 300px;
+  height: 100%;
+  min-height: 100px;
+  max-height: 300px;
 }
 
 .somenew form input {
@@ -133,7 +134,7 @@ nav i {
   border: 2px solid #707070;
   border-radius: 2vh;
   padding: 20px;
-  width: 230px;
+  width: 550px;
   background: #ffffff;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 18px;
@@ -148,8 +149,9 @@ nav i {
   overflow: hidden;
   height: auto;
   border-radius: 1vh;
-  margin: 20px 0;
-  max-width: calc(100%); /* Ensure it fits within content-container */
+  display: flex;
+  margin: auto;
+  position: absolute;
 }
 
 table {
@@ -201,83 +203,36 @@ tr {
 @media (max-width: 1600px) {
   .container {
     width: 100%;
-    padding: 20px;
+    padding: 13px;
   }
 
   .navbar {
     padding-left: 15px;
   }
 
-  nav{
-    transform: translate(-20px);
-  }
-
-
   .main {
-    margin-left: 260px;
+    margin-left: 220px;
   }
 
   .crud_button {
     width: 100px;
-    height: 35px;
-    font-size: 18px;
+    height: 40px;
+    font-size: 16px;
   }
 
-  .table__container,
-  .table__container_two {
-    max-width: 1100px;
-    padding: 15px;
+  table th,
+  td {
+    width: fit-content;
+    font-size: 14px;
   }
 
   .form-register {
-    width: 90%;
-    padding: 20px;
-  }
-
-  .somenew,
-  .someold {
-    width: 95%;
+    width: 80%;
+    padding: 10px;
   }
 }
 
 @media (max-width: 1400px) {
-  .container {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .navbar {
-    padding-left: 10px;
-  }
-
-  .main {
-    margin-left: 240px; 
-  }
-
-  .crud_button {
-    width: 90px;
-    height: 30px;
-    font-size: 16px;
-  }
-
-  .table__container,
-  .table__container_two {
-    max-width: 1000px;
-    padding: 10px;
-  }
-
-  .form-register {
-    width: 85%;
-    padding: 15px;
-  }
-
-  .somenew,
-  .someold {
-    width: 90%;
-  }
-}
-
-@media (max-width: 1366px) {
   .container {
     width: 100%;
     padding: 13px;
@@ -287,12 +242,8 @@ tr {
     padding-left: 15px;
   }
 
-  nav{
-    transform: translate(-15px);
-  }
-
-  .navbar span{
-    font-size: 14px;
+  .navbar span {
+    font-size: 14.5px;
   }
 
   .main {
@@ -301,21 +252,12 @@ tr {
 
   .crud_button {
     width: 80px;
-    height: 25px;
-    font-size: 14px;
+    height: 35px;
+    font-size: 15px;
   }
 
-  .table__container,
-  .table__container_two {
-    max-width: 900px;
-    padding: 5px;
-  }
-
-  table{
-    max-width: 900px;
-  }
-
-  table th, td{
+  table th,
+  td {
     width: fit-content;
     font-size: 10px;
   }
@@ -325,9 +267,48 @@ tr {
     padding: 10px;
   }
 
-  .somenew,
-  .someold {
-    width: 85%;
+  .content-container{
+    width: 420px;
+  }
+
+  .somenew form a {
+    margin-left: 270px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .container {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .navbar {
+    padding-left: 15px;
+  }
+
+  .navbar span {
+    font-size: 14.5px;
+  }
+
+  .main {
+    margin-left: 220px;
+  }
+
+  .crud_button {
+    width: 80px;
+    height: 35px;
+    font-size: 15px;
+  }
+
+  table th,
+  td {
+    width: fit-content;
+    font-size: 11px;
+  }
+
+  .form-register {
+    width: 80%;
+    padding: 10px;
   }
 }
 
@@ -341,12 +322,8 @@ tr {
     padding-left: 15px;
   }
 
-  nav{
-    transform: translate(-10px);
-  }
-
-  .navbar span{
-    font-size: 14px;
+  .navbar span {
+    font-size: 13px;
   }
 
   .main {
@@ -355,21 +332,12 @@ tr {
 
   .crud_button {
     width: 80px;
-    height: 25px;
-    font-size: 14px;
+    height: 35px;
+    font-size: 15px;
   }
 
-  .table__container,
-  .table__container_two {
-    max-width: 900px;
-    padding: 5px;
-  }
-
-  table{
-    max-width: 900px;
-  }
-
-  table th, td{
+  table th,
+  td {
     width: fit-content;
     font-size: 10px;
   }
@@ -377,10 +345,5 @@ tr {
   .form-register {
     width: 80%;
     padding: 10px;
-  }
-
-  .somenew,
-  .someold {
-    width: 85%;
   }
 }
