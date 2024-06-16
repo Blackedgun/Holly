@@ -39,7 +39,7 @@ include "reg.php";
     </div>
   </header>
   <div class="slider-frame">
-    <ul> 
+    <ul>
       <li><img src="img/Jeans.jpg" alt="" /></li>
       <li><img src="img/Camisas.jpg" alt="" /></li>
       <li><img src="img/Crocs.jpg" alt="" /></li>
@@ -51,15 +51,17 @@ include "reg.php";
     </div>
   </div>
   <section>
-  <div class="secondline-bottom">
-    <p>Echa un vistazo a todos nuestros descuentos</p>
-  </div>
-</section>
+    <div class="secondline-bottom">
+      <p>Echa un vistazo a todos nuestros descuentos</p>
+    </div>
+  </section>
   <div class="main-container">
-  <div class="container-pop-items">
-      <div class="secondline">
-        <p>PRODUCTOS POPULARES</p>
-      </div>
+    <div class="container-pop-items">
+      <section>
+        <div class="secondline">
+          <p>PRODUCTOS POPULARES</p>
+        </div>
+      </section>
       <?php
       $sentencia = "SELECT * FROM producto WHERE popular = 'Si'";
       $listaProductos = mysqli_query($conn, $sentencia);

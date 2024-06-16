@@ -593,13 +593,12 @@ section .secondline-bottom{
     transform: translate(8%);
   }
 
-  section .secondline-bottom p {
-    display: none;
+  section .secondline-bottom p{
+    font-size: 23px;
   }
 
-  section .secondline-bottom {
-    margin-top: -70px;
-    padding: 50px;
+  section .secondline-bottom{
+    height: 80px;
   }
 
   .container-pop-items .picture-det {
@@ -646,4 +645,3 @@ section .secondline-bottom{
   }
 }
   
-
