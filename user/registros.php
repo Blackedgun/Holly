@@ -42,7 +42,7 @@ if ($result->num_rows > 0) {
 </head>
 
 <body style="background: url(../img/pinkdot2.jpg)">
-  <div class="container">
+  <div style="position: relative;" class="container">
     <nav>
       <div class="navbar">
         <div class="logo">
@@ -89,7 +89,7 @@ if ($result->num_rows > 0) {
         </ul>
       </div>
     </nav>
-    <div>
+    <div class="last_container">
       <div class="somenew">
         <form class="header__title" action="" method="GET">
           <input type="text" name="busqueda" placeholder="Buscar...">

@@ -20,7 +20,8 @@ nav {
   position: fixed;
   top: 0;
   width: 280px;
-  height: 260vh;
+  height: 100%;
+  max-height: 100vh;
   background: var(--theme-color,pink);
 }
 
@@ -265,4 +266,191 @@ h4 {
 
 .somenew ol {
   padding: 20px;
+}
+
+@media (max-width: 1600px) {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .navbar {
+    padding-left: 15px;
+  }
+
+  nav{
+    transform: translate(-20px);
+  }
+
+
+  .main {
+    margin-left: 260px;
+  }
+
+  .crud_button {
+    width: 100px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .table__container,
+  .table__container_two {
+    max-width: 1100px;
+    padding: 15px;
+  }
+
+  .form-register {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .somenew,
+  .someold {
+    width: 95%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .navbar {
+    padding-left: 10px;
+  }
+
+  .main {
+    margin-left: 240px; 
+  }
+
+  .crud_button {
+    width: 90px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .table__container,
+  .table__container_two {
+    max-width: 1000px;
+    padding: 10px;
+  }
+
+  .form-register {
+    width: 85%;
+    padding: 15px;
+  }
+
+  .somenew,
+  .someold {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1366px) {
+  .container {
+    width: 100%;
+    padding: 13px;
+  }
+
+  .navbar {
+    padding-left: 15px;
+  }
+
+  nav{
+    transform: translate(-15px);
+  }
+
+  .navbar span{
+    font-size: 14px;
+  }
+
+  .main {
+    margin-left: 220px;
+  }
+
+  .crud_button {
+    width: 80px;
+    height: 25px;
+    font-size: 14px;
+  }
+
+  .table__container,
+  .table__container_two {
+    max-width: 900px;
+    padding: 5px;
+  }
+
+  table{
+    max-width: 900px;
+  }
+
+  table th, td{
+    width: fit-content;
+    font-size: 10px;
+  }
+
+  .form-register {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .somenew,
+  .someold {
+    width: 85%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .navbar {
+    padding-left: 15px;
+  }
+
+  nav{
+    transform: translate(-10px);
+  }
+
+  .navbar span{
+    font-size: 14px;
+  }
+
+  .main {
+    margin-left: 220px;
+  }
+
+  .crud_button {
+    width: 80px;
+    height: 25px;
+    font-size: 14px;
+  }
+
+  .table__container,
+  .table__container_two {
+    max-width: 900px;
+    padding: 5px;
+  }
+
+  table{
+    max-width: 900px;
+  }
+
+  table th, td{
+    width: fit-content;
+    font-size: 10px;
+  }
+
+  .form-register {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .somenew,
+  .someold {
+    width: 85%;
+  }
 }
