@@ -12,11 +12,11 @@
 </head>
 
 <body style="background: url(../img/pinkdot2.jpg)">
-    <form action="login_usuario.php" class="form-register" method="POST">
+    <form action="" class="form-register" method="POST">
         <h4>Como postularse:</h4>
         <div>
-            <div style="height: 190px; width: fit-content; padding: 40px;" class="contain">
-                <p style="color: black; transform: translate(0px, -50px);">Debe contar con un vehículo para realizar envíos a domicilio, no tener ningún tipo de antecedente, subir la hoja de vida en formato PDF y en caso de que salga seleccionado se le contactará mediante la información que registre en el formulario de postulantes.</p>
+            <div style="width: fit-content; padding: 40px;" class="contain">
+                <p style="color: black;">Debe contar con un vehículo para realizar envíos a domicilio, no tener ningún tipo de antecedente, subir la hoja de vida en formato PDF y en caso de que salga seleccionado se le contactará mediante la información que registre en el formulario de postulantes.</p>
             </div>
     </form>
 </body>

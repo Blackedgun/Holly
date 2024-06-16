@@ -28,27 +28,4 @@
   </form>
   <script src="../js/app.js"></script>
 </body>
-<footer class="footer">
-  <div class="Brand">
-    <img src="../img/LogoHolly.png" alt="Holly Dashing" />
-  </div>
-  <div class="footercont">
-    <p>©2024 Holly Dashing | Todos los derechos reservados</p>
-  </div>
-  <ul class="social-icon">
-    <li>
-      <a href="https://x.com/eldiariodedross"><img src="../img/x.png" alt="" /></a>
-    </li>
-    <li>
-      <a href="https://www.facebook.com/Seniorwhis"><img src="../img/facebook.png" alt="" /></a>
-    </li>
-    <li>
-      <a href="https://www.instagram.com/senior_whiiss/"><img src="../img/instagram.png" alt="" /></a>
-    </li>
-    <li>
-      <a href="https://wa.me/3025193306"><img src="../img/whatsapp.png" alt="" /></a>
-    </li>
-  </ul>
-</footer>
-
 </html>

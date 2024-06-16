@@ -360,6 +360,10 @@ footer .social-icon li a:hover {
     margin-bottom: 10px;
   }
 
+  footer .login-button{
+    transform: translate(6%);
+  }
+
 }
 
 section .secondline-bottom{
@@ -426,6 +430,10 @@ section .secondline-bottom{
   .container-pop-items img:hover {
     transform: scale(1.06);
   }
+
+  footer .login-button{
+    transform: translate(6%);
+  }
 }
 
 @media (max-width: 768px) {
@@ -449,6 +457,10 @@ section .secondline-bottom{
     flex-direction: column;
     align-items: center;
     transform: translate(-80px);
+  }
+
+  footer .login-button{
+    transform: translate(6%);
   }
 
   nav li {
@@ -633,3 +645,5 @@ section .secondline-bottom{
     transform: scale(1.06);
   }
 }
+  
+

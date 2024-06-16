@@ -142,15 +142,16 @@ footer {
   .contain {
     border: 5px solid #f3f7f6;
     border-radius: 20px;
-    height: 200px;
-    width: auto;
-    margin: auto;
+    margin-bottom: 30px;
+    max-height: 250px;
+    min-height: 150px;
   }
 
   .contain p{
     text-align: center;
-    margin-top: 50px;
     color: #f3f7f6;
+    font-size: 15px;
+    transform: translateY(-30px);
   }
 
   .register-content{
@@ -170,4 +171,186 @@ footer {
     border-radius: 20px;
     font-family: cursive;
     font-size: 25px;
+  }
+
+  @media (max-width: 1200px) {
+    .form-register {
+      width: 60%;
+      padding: 20px;
+      padding-right: 50px;
+    }
+
+    .form-register input {
+      font-size: 15px;
+    }
+
+    .form-register p{
+      font-size: 15px;
+    }
+  
+    .form-register h4 {
+      font-size: 20px;
+    }
+  
+    .controls {
+      font-size: 16px;
+    }
+  
+    footer {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding: 20px 0;
+      display: flex;
+    }
+  
+    footer .footercont {
+      margin: 20px 0;
+      text-align: center;
+    }
+  
+    footer .login-button {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      transform: translate(10%);
+  
+    }
+  }
+
+  @media (max-width: 992px) {
+    .form-register {
+      width: 60%;
+      padding: 20px;
+      padding-right: 50px;
+    }
+
+    .form-register input {
+      font-size: 15px;
+    }
+
+    .form-register p{
+      font-size: 15px;
+    }
+  
+    .form-register h4 {
+      font-size: 20px;
+    }
+  
+    .controls {
+      font-size: 16px;
+    }
+  
+    footer {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding: 20px 0;
+      display: flex;
+    }
+  
+    footer .footercont {
+      margin: 20px 0;
+      text-align: center;
+    }
+  
+    footer .login-button {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contain{
+      min-height: 200px;
+    }
+
+    .contain p{
+      text-align: center;
+      color: #f3f7f6;
+      font-size: 14px;
+      transform: translateY(-30px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .form-register {
+      width: 80%;
+      padding: 20px;
+      padding-right: 50px;
+    }
+
+    .form-register input {
+      font-size: 15px;
+    }
+
+    .form-register p{
+      font-size: 15px;
+    }
+  
+    .form-register h4 {
+      font-size: 20px;
+    }
+
+    .contain{
+      width: fit-content;
+      height: 100%;
+      min-height: 250px;
+    }
+
+    .contain p{
+      font-size: 13px;
+    }
+  
+    .controls {
+      font-size: 16px;
+    }
+  
+    footer {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding: 20px 0;
+    }
+  
+    footer .footercont {
+      margin: 20px 0;
+      text-align: center;
+    }
+  
+  }
+  
+  @media (max-width: 576px) {
+    .form-register {
+      width: 95%;
+      padding: 20px;
+      padding-right: 50px;
+    }
+  
+    .form-register h4 {
+      font-size: 18px;
+    }
+  
+    .controls {
+      font-size: 14px;
+    }
+  
+    footer {
+      height: auto;
+      padding: 10px 0;
+    }
+  
+    footer .footercont {
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .contain{
+      min-height: 400px;
+      max-height: max-content;
+      min-width: 165px;
+    }
+
+    .contain p{
+      font-size: 11px;
+    }
   }

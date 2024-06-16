@@ -4,6 +4,7 @@
   font-family: lato;
 }
 
+
 .slider-frame {
   width: auto;
   height: auto;
@@ -41,5 +42,11 @@
 
     75% {margin-left: -300%;}
     95% {margin-left: -300%;}
+}
+
+@media (max-width: 768px){
+  iframe{
+    width: 300px;
+  }
 }
 
