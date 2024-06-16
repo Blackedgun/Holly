@@ -57,11 +57,9 @@ include "reg.php";
   </section>
   <div class="main-container">
     <div class="container-pop-items">
-      <section>
         <div class="secondline">
           <p>PRODUCTOS POPULARES</p>
         </div>
-      </section>
       <?php
       $sentencia = "SELECT * FROM producto WHERE popular = 'Si'";
       $listaProductos = mysqli_query($conn, $sentencia);
