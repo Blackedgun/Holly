@@ -19,7 +19,7 @@
   </head>
 
   <body style="background: url(../img/pinkdot2.jpg)">
-    <div style="margin-bottom: 20px; margin-top: 20px; border-radius: 5px;" class="form-register">
+    <div style="margin-bottom: 20px; margin-top: 20px; border-radius: 5px; height: fit-content;" class="form-register">
       <div style="background-color: white; padding-top: 20px;" class="register-content">
         <h4 style="text-align: center; color: black; text-shadow: none">
           Historia de Holly Dashing
@@ -116,7 +116,7 @@
         <br>
         <h4 style="text-align: center; color: black; text-shadow: none; font-size: 30px; text-decoration: underline;">Nuestro Fundador</h4>
         <div class="center">
-        <img style="width: 500px;" src="../img/Me.jpg" alt="myself-img">
+        <img src="../img/Me.jpg" alt="myself-img">
         </div>
       </div>
     </div>
