@@ -1,0 +1,7 @@
+<?php 
+include "../reg.php";
+
+
+
+
+?>

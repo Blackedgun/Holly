@@ -18,30 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Verificar si el producto ya está en el carrito en la base de datos
-    $sentencia_carrito = "SELECT * FROM cart WHERE producto_id = ?";
-    $stmt_carrito = $conn->prepare($sentencia_carrito);
-    $stmt_carrito->bind_param("i", $producto_id);
-    $stmt_carrito->execute();
-    $resultado_carrito = $stmt_carrito->get_result();
-    $producto_en_carrito = $resultado_carrito->fetch_assoc();
-
-    if ($producto_en_carrito) {
-        // Incrementar la cantidad si ya existe
-        $nueva_cantidad = $producto_en_carrito['cantidad'] + 1;
-        $sentencia_actualizar = "UPDATE cart SET cantidad = ? WHERE producto_id = ?";
-        $stmt_actualizar = $conn->prepare($sentencia_actualizar);
-        $stmt_actualizar->bind_param("ii", $nueva_cantidad, $producto_id);
-        $stmt_actualizar->execute();
-    } else {
-        // Agregar un nuevo producto al carrito
-        $sentencia_insertar = "INSERT INTO cart (producto_id, cantidad) VALUES (?, ?)";
-        $stmt_insertar = $conn->prepare($sentencia_insertar);
-        $cantidad = 1; // Cantidad inicial
-        $stmt_insertar->bind_param("ii", $producto_id, $cantidad);
-        $stmt_insertar->execute();
-    }
-
     // Agregar el producto al carrito en la sesión (para mantener compatibilidad)
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
