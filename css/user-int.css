@@ -277,10 +277,6 @@ h4 {
     padding-left: 15px;
   }
 
-  nav{
-    transform: translate(-20px);
-  }
-
 
   .main {
     margin-left: 260px;
@@ -295,7 +291,6 @@ h4 {
   .table__container,
   .table__container_two {
     max-width: 1100px;
-    padding: 15px;
   }
 
   .form-register {
@@ -332,7 +327,6 @@ h4 {
   .table__container,
   .table__container_two {
     max-width: 1000px;
-    padding: 10px;
   }
 
   .form-register {
@@ -357,9 +351,7 @@ h4 {
     padding-left: 15px;
   }
 
-  nav{
-    transform: translate(-15px);
-  }
+
 
   .navbar span{
     font-size: 14px;
@@ -411,9 +403,7 @@ h4 {
     padding-left: 15px;
   }
 
-  nav{
-    transform: translate(-10px);
-  }
+ 
 
   .navbar span{
     font-size: 14px;

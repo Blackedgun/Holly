@@ -117,7 +117,7 @@ session_start();
                     </tr>
                 </table>
                 <div class="check-button">
-                    <a href="checkout.php">Finalizar Compra</a>
+                    <a href="checkout.php">Continuar Compra</a>
                 </div>
             </div>
         </div>
