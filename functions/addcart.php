@@ -19,17 +19,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Agregar el producto al carrito en la sesión (para mantener compatibilidad)
-    if (!isset($_SESSION['cart'])) {
+    if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
 
     // Verificar si el producto ya está en el carrito
     $producto_encontrado = false;
     foreach ($_SESSION['cart'] as &$item) {
-        if ($item['producto_id'] == $producto_id) {
-            $item['cantidad'] += 1;  // Incrementar la cantidad si ya existe
-            $producto_encontrado = true;
-            break;
+        if (is_array($item) && isset($item['producto_id'])) {
+            if ($item['producto_id'] == $producto_id) {
+                $item['cantidad'] += 1;  // Incrementar la cantidad si ya existe
+                $producto_encontrado = true;
+                break;
+            }
         }
     }
 

@@ -58,9 +58,14 @@ session_start();
                             foreach ($_SESSION['cart'] as $index => $item) {
                                 $subtotal = $item['prod_precio'] * $item['cantidad'];
                                 $total += $subtotal;
-                                ?>
+                        ?>
                                 <tr>
-                                    <td><a href="remove_from_cart.php?index=<?php echo $index; ?>"><img src="../img/Eliminar.jpg" style="height: 25px; width: 25px;" alt="Eliminar"></a></td>
+                                    <td>
+                                        <form action="remove_from_cart.php" method="GET">
+                                            <input type="hidden" name="delete_index" value="<?php echo $index; ?>">
+                                            <button style="border: none;" type="submit"><img style="height: 25px; width: 25px;" src="../img/Eliminar.jpg" alt="Eliminar"></button>
+                                        </form>
+                                    </td>
                                     <td><img class="product-img" height="50px" src="data:image/jpg;base64, <?php echo base64_encode($item['prod_image']); ?>"></td>
                                     <td><?php echo $item['prod_nombre']; ?></td>
                                     <td>$<?php echo number_format($item['prod_precio'], 2); ?></td>
@@ -73,7 +78,7 @@ session_start();
                                     </td>
                                     <td>$<?php echo number_format($subtotal, 2); ?></td>
                                 </tr>
-                                <?php
+                        <?php
                             }
                         } else {
                             echo '<tr><td colspan="6"><p>El carrito está vacío.</p></td></tr>';
@@ -147,7 +152,9 @@ session_start();
             const shippingCost = document.querySelector('input[name="shipping"]:checked').value === "additional_cost" ? 10000 : 0;
             const totalElement = document.getElementById("total");
             const total = <?php echo $total; ?> + shippingCost;
-            totalElement.textContent = "$" + total.toLocaleString('es-ES', { minimumFractionDigits: 2 });
+            totalElement.textContent = "$" + total.toLocaleString('es-ES', {
+                minimumFractionDigits: 2
+            });
         }
     </script>
 </body>

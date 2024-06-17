@@ -19,7 +19,7 @@ $sql = "DELETE FROM postulantes WHERE post_id = $id";
     alert('Los datos no se pudieron eliminar');
     window.location = '../user/postulados.php';
     </script>". mysqli_error($conn);
-   }
+   } 
 }
 
 ?>
