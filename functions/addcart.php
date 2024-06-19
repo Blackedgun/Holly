@@ -36,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!$producto_encontrado) {
-        // Agregar un nuevo producto al carrito
         $_SESSION['cart'][] = [
             'producto_id' => $producto_id,
             'prod_nombre' => $producto['prod_nombre'],

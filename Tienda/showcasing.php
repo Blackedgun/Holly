@@ -1,5 +1,6 @@
 <?php
 require_once('../reg.php');
+session_start();
 
 if (isset($_GET['id'])) {
   $producto_id = $_GET['id'];
@@ -42,6 +43,10 @@ if (isset($_GET['id'])) {
       </ul>
     </nav>
     <div class="login-button">
+    <a href="../carrito/carrito.php">
+    <i style="transform: translate(-40px); color: gray;" class="fas fa-shopping-cart fa-2x"></i>
+        <span class="nav-item" style="color: beige;"></span>
+      </a>
       <a href="../login/Formulario.php"><button>Iniciar Sesión</button></a>
     </div>
   </header>

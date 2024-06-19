@@ -1,6 +1,7 @@
 <?php
 
 include "reg.php";
+session_start();
 
 ?>
 
@@ -16,6 +17,7 @@ include "reg.php";
   <link rel="stylesheet" href="css/myslides.css" />
   <link rel="stylesheet" href="css/manualslider.css" />
   <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet" />
@@ -35,6 +37,10 @@ include "reg.php";
     </nav>
 
     <div class="login-button">
+      <a href="carrito/carrito.php">
+        <i style="transform: translate(-40px); color: gray;" class="fas fa-shopping-cart fa-2x"></i>
+        <span class="nav-item" style="color: beige;"></span>
+      </a>
       <a href="login/Formulario.php"><button>Iniciar Sesión</button></a>
     </div>
   </header>
@@ -57,9 +63,9 @@ include "reg.php";
   </section>
   <div class="main-container">
     <div class="container-pop-items">
-        <div class="secondline">
-          <p>PRODUCTOS POPULARES</p>
-        </div>
+      <div class="secondline">
+        <p>PRODUCTOS POPULARES</p>
+      </div>
       <?php
       $sentencia = "SELECT * FROM producto WHERE popular = 'Si'";
       $listaProductos = mysqli_query($conn, $sentencia);
