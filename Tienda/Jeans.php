@@ -36,7 +36,7 @@ session_start();
 
     <div class="login-button">
     <a href="../carrito/carrito.php">
-    <i style="transform: translate(-40px); color: gray;" class="fas fa-shopping-cart fa-2x"></i>
+    <i style="transform: translate(-40px); color: white;" class="fas fa-shopping-cart fa-2x"></i>
         <span class="nav-item" style="color: beige;"></span>
       </a>
       <a href="../login/Formulario.php"><button>Iniciar Sesión</button></a>

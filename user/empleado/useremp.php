@@ -33,13 +33,19 @@ if (empty($_SESSION['usuario'])) {
         </div>
         <ul>
           <li>
-            <a href="useremp.php">
+            <a href="">
               <i style="color: beige;" class="fas fa-chart-bar"></i>
               <span class="nav-item" style="color: beige;">Pedidos</span>
             </a>
           </li>
           <li>
-            <a href="../../docs/Funciones del empleado.pdf">
+            <a href="inventoryemp.php">
+              <i class="fab fa-dochub"></i>
+              <span class="nav-item">Inventario</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
               <i class="fas fa-question-circle"></i>
               <span class="nav-item">Ayuda</span>
             </a>
@@ -66,10 +72,10 @@ if (empty($_SESSION['usuario'])) {
           <br><br>
           <input type="submit" name="enviar" value="Buscar">
           <div class="print">
-            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../convert/pedidocsv.php">CSV</a>
+            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../../convert/pedidocsv.php">CSV</a>
           </div><br>
           <div class="print">
-            <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/pedidoxml.php">XML</a><br><br>
+            <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../../convert/pedidoxml.php">XML</a><br><br>
             <div class="nextbutton">
               <a class="Fetch" href="'checkbillsdeletequotationmarks'">Facturas</a>
             </div>
