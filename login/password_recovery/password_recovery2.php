@@ -38,15 +38,4 @@
     <input class="bottom" type="submit" value="Recuperar contraseña" />
   </form>
 </body>
-<footer class="footer">
-  <div class="Brand">
-    <img src="../../img/LogoHolly.png" alt="Holly Dashing" />
-  </div>
-  <div class="footercont">
-    <p>©2024 Holly Dashing | Todos los derechos reservados</p>
-  </div>
-  <ul class="social-icon">
-  </ul>
-</footer>
-
 </html>

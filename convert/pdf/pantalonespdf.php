@@ -19,11 +19,10 @@ function Header()
     $this->Ln(20);
 
     $this->Cell(20, 10, 'ID', 1, 0, 'C', 0);
-    $this->Cell(47, 10, 'Producto', 1, 0, 'C', 0);
+    $this->Cell(70, 10, 'Producto', 1, 0, 'C', 0);
     $this->Cell(30, 10, 'Cantidad', 1, 0, 'C', 0);
     $this->Cell(30, 10, 'Precio', 1, 0, 'C', 0);
-    $this->Cell(30, 10, utf8_decode('Categoría'), 1, 0, 'C', 0);
-    $this->Cell(35, 10, 'Disponibilidad', 1, 1, 'C', 0);
+    $this->Cell(30, 10, utf8_decode('Categoría'), 1, 1, 'C', 0);
 }
 
 // Page footer
@@ -51,11 +50,10 @@ $pdf->SetFont('Arial','',10);
 
 while($r = $query->fetch_assoc()){
     $pdf->Cell(20, 10, $r['producto_id'], 1, 0, 'C', 0);
-    $pdf->Cell(47, 10, $r['prod_nombre'], 1, 0, 'C', 0);
+    $pdf->Cell(70, 10, utf8_decode($r['prod_nombre']), 1, 0, 'C', 0);
     $pdf->Cell(30, 10, $r['prod_cantidad'], 1, 0, 'C', 0);
     $pdf->Cell(30, 10, $r['prod_precio'], 1, 0, 'C', 0);
-    $pdf->Cell(30, 10, $r['cat_id'], 1, 0, 'C', 0);
-    $pdf->Cell(35, 10, $r['disponibilidad'], 1, 1, 'C', 0);
+    $pdf->Cell(30, 10, $r['cat_id'], 1, 1, 'C', 0);
 
 }
 

@@ -20,7 +20,7 @@ class PDF extends FPDF
 
         $this->Cell(10, 10, 'ID', 1, 0, 'C', 0);
         $this->Cell(35, 10, 'Nombres', 1, 0, 'C', 0);
-        $this->Cell(30, 10, 'Apellidos', 1, 0, 'C', 0);
+        $this->Cell(45, 10, 'Apellidos', 1, 0, 'C', 0);
         $this->Cell(40, 10, 'Documento', 1, 0, 'C', 0);
         $this->Cell(30, 10, '# documento', 1, 0, 'C', 0);
         $this->Cell(50, 10, 'Correo', 1, 0, 'C', 0);
@@ -52,11 +52,11 @@ $pdf->SetFont('Arial','',10);
 
 while($r = $query->fetch_assoc()){
     $pdf->Cell(10, 10, $r['usuario_id'], 1, 0, 'C', 0);
-    $pdf->Cell(35, 10, $r['nombre'], 1, 0, 'C', 0);
-    $pdf->Cell(30, 10, $r['apellido'], 1, 0, 'C', 0);
+    $pdf->Cell(35, 10, utf8_decode($r['nombre']), 1, 0, 'C', 0);
+    $pdf->Cell(45, 10, utf8_decode($r['apellido']), 1, 0, 'C', 0);
     $pdf->Cell(40, 10, utf8_decode($r['tipo_documento']), 1, 0, 'C', 0); 
     $pdf->Cell(30, 10, $r['no_documento'], 1, 0, 'C', 0); // Corrected width
-    $pdf->Cell(50, 10, $r['email'], 1, 0, 'C', 0);
+    $pdf->Cell(50, 10, utf8_decode($r['email']), 1, 0, 'C', 0);
     $pdf->Cell(30, 10, $r['telefono'], 1, 0, 'C', 0);
     $pdf->Cell(30, 10, $r['rol_id'], 1, 1, 'C', 0); // Ensure this line starts a new row
 }

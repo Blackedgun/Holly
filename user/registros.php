@@ -115,8 +115,8 @@ if ($result->num_rows > 0) {
           <h4>Roles</h4>
           <ol>
             <li>1. Administrador</li>
-            <li>2. Empleado</li>
-            <li>3. Pendiente</li>
+            <li>2. Pendiente</li>
+            <li>3. Empleado</li>
           </ol>
         </div>
       </div><br><br>
@@ -132,6 +132,7 @@ if ($result->num_rows > 0) {
             <th>Email</th>
             <th>Teléfono</th>
             <th>Interfaz</th>
+            <th>Estado</th>
             <th>Opciones</th>
           </tr>
           <?php
@@ -164,6 +165,7 @@ if ($result->num_rows > 0) {
               <td><?php echo htmlspecialchars($row['email']); ?></td>
               <td><?php echo htmlspecialchars($row['telefono']); ?></td>
               <td><?php echo htmlspecialchars($row['interfaz']); ?></td>
+              <td><?php echo htmlspecialchars($row['status']); ?></td>
               <td><a href="../editform/formregister.php?id=<?php echo $row['usuario_id']; ?>" class="crud_button">Editar</a></td>
             </tr>
           <?php

@@ -98,7 +98,7 @@ nav i {
 }
 
 .somenew {
-  background: pink;
+  background: var(--theme-color, pink);
   padding: 29px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -162,7 +162,10 @@ th {
   border: 0.5px solid rgb(109, 109, 109);
   padding: 8px;
   text-align: center;
-  color: #000000;
+  color: var(--text-color, #000000);
+  background: var(--theme-color, #ff9fda);
+  font-style: normal;
+  font-size: medium;
 }
 
 td {
@@ -173,25 +176,16 @@ td {
   width: fit-content;
 }
 
-th {
-  background: #ff9fda;
-  font-style: normal;
-  font-size: medium;
-  color: #000000;
-}
-
 tr {
   background-color: #ffffff;
 }
 
 .crud_button {
   display: inline-block;
-  background: pink;
-  padding: var(--boton-padding);
-  color: var(--color-primary);
+  background: var(--theme-color, pink);
+  color: var(--text-color, gray);
   text-decoration: none;
   border-radius: 20px;
-  padding: var(--background-padding);
   width: 120px;
   height: 40px;
   font-size: 30px;

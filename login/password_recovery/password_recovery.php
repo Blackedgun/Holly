@@ -26,17 +26,8 @@
       <br />
       <input class="bottom" type="submit" value="Enviar Solicitud" />
       <div class="contain">
-        <p style="color: black;">Ingrese su correo electrónico y el sistema verificará si está registrado en el sistema para enviar una solicitud de recuperación de contraseña a su correo.</p>
+        <p style="color: black; margin-top: 30px; padding: 20px;">Ingrese su correo electrónico y el sistema verificará si está registrado en el sistema para enviar una solicitud de recuperación de contraseña a su correo.</p>
       </div>
     </form>
   </body>
-  <footer class="footer">
-    <div class="Brand">
-      <img src="../../img/LogoHolly.png" alt="Holly Dashing" />
-    </div>
-    <div class="footercont">
-    </div>
-    <ul class="social-icon">
-    </ul>
-  </footer>
 </html>
