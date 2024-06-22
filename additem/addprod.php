@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
         <input class="controls" type="text" id="nombre" name="nombre" placeholder="Ingrese nombre de producto" required><br><br>
         <input class="controls" type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad" required><br><br>
         <input class="controls" type="number" step="0.01" id="precio" name="precio" placeholder="Ingrese el precio" required><br><br>
-        <input style="height: 100px;" class="controls" type="text" step="0.01" id="desc" name="descripcion" placeholder="Ingrese una descripcion (Max 200 carácteres)" maxlength="200" required><br><br>
+        <textarea style="height: 100px;" class="controls" step="0.01" name="descripcion" id="desc" placeholder="Ingrese una descripcion (Max 200 carácteres)" maxlength="200" required></textarea><br><br>
         <label style="color: black;" for="categoria">Categoría: </label>
         <select id="categoria" name="categoria" required>
             <?php

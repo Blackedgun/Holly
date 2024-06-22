@@ -112,7 +112,7 @@ if ($result->num_rows > 0) {
 
       <input class="controls" type="number" step="0.01" id="precio" name="precio" value="<?php echo $precio?>" placeholder="Ingrese el precio" required><br><br>
 
-      <input style="height: 100px;" class="controls" type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion?>" placeholder="Ingrese una descripcion (Max 200 carácteres)"  maxlength="200" required><br><br>
+      <textarea style="height: 100px;" class="controls" name="descripcion" id="desc" placeholder="Ingrese una descripcion (Max 200 caracteres)" maxlength="200" required><?php echo htmlspecialchars($descripcion); ?></textarea><br><br>
 
       <label style="color: black;" for="categoria">Categoría: </label>
       <select id="categoria" name="categoria" required>

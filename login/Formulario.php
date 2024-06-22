@@ -15,9 +15,6 @@
   <form action="login_usuario.php" class="form-register" method="POST">
     <h4>Iniciar Sesión</h4>
     <div>
-      <input class="controls" type="text" name="codigo" id="codigo" placeholder="Ingrese su código" required />
-    </div>
-    <div>
       <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su correo" required />
     </div>
     <div>
@@ -26,6 +23,5 @@
     <p><a href="password_recovery/password_recovery.php">Olvide mi contraseña</a></p>
     <input class="bottom" type="submit" value="Ingresar" />
   </form>
-  <script src="../js/app.js"></script>
 </body>
 </html>

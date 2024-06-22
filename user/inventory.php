@@ -87,7 +87,7 @@ if ($result->num_rows > 0) {
             </div>
           </li>
         </ul>
-      </div>
+      </div> 
     </nav>
     <div>
       <div class="somenew">
