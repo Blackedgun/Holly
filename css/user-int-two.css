@@ -194,6 +194,22 @@ tr {
   font-size: 20px;
 }
 
+.nextbutton button{
+  padding: 5px;
+  border-radius: 1vh;
+  border: 2px solid rgb(128, 128, 128);
+  overflow: hidden;
+  width: 300px;
+  background-color: #fff;
+  padding: 5px;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: auto;
+  display: inline-block;
+  color: #707070;
+  transform: translateY(-100px);
+}
+
 @media (max-width: 1600px) {
   .container {
     width: 100%;
@@ -303,6 +319,10 @@ tr {
   .form-register {
     width: 80%;
     padding: 10px;
+  }
+
+  .nextbutton button{
+    width: 120px;
   }
 }
 

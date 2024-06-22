@@ -22,12 +22,12 @@ if ($result->num_rows > 0) {
         </script>";
     exit();
   }
-} 
+}
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -39,6 +39,19 @@ if ($result->num_rows > 0) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script>
+    function disableForm() {
+      // Guardar el estado de deshabilitación en localStorage
+      localStorage.setItem('formDisabled', 'true');
+      alert("El formulario ha sido deshabilitado");
+    }
+
+    function enableForm() {
+      // Eliminar el estado de deshabilitación en localStorage
+      localStorage.removeItem('formDisabled');
+      alert("El formulario ha sido habilitado");
+    }
+  </script>
 </head>
 
 <body style="background: url(../img/pinkdot2.jpg)">
@@ -104,6 +117,10 @@ if ($result->num_rows > 0) {
           <div class="print">
             <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../convert/postuladoxml.php">XML</a><br><br>
           </div>
+          <div class="nextbutton">
+            <button onclick="disableForm()">Desactivar Formulario</button>
+            <button onclick="enableForm()">Activar Formulario</button>
+          </div>
         </form>
         <div style="background: none; border: 0px;" class="someold"></div>
       </div><br><br>
@@ -160,17 +177,18 @@ if ($result->num_rows > 0) {
               <td><?php echo htmlspecialchars($row['Barrio']); ?></td>
               <td><?php echo htmlspecialchars($row['Telefono']); ?></td>
               <td>
-                <?php if (!empty($row['Curriculum'])): ?>
+                <?php if (!empty($row['Curriculum'])) : ?>
                   <a href="../curriculums/<?php echo htmlspecialchars($row['Curriculum']); ?>" target="_blank">Ver Curriculum</a>
-                <?php else: ?>
+                <?php else : ?>
                   No disponible
                 <?php endif; ?>
               </td>
-              <td><form action="../deleteform/deletecandidate.php" method="POST">
-                <input type="hidden" name="delete" value="<?php echo $row['post_id']; ?>">
-                <button type="submit" class="crud_button" onclick="return confirm('¿Estás seguro de que quieres eliminar este registro?')">Eliminar</button>
-              </form>
-            </td>
+              <td>
+                <form action="../deleteform/deletecandidate.php" method="POST">
+                  <input type="hidden" name="delete" value="<?php echo $row['post_id']; ?>">
+                  <button type="submit" class="crud_button" onclick="return confirm('¿Estás seguro de que quieres eliminar este registro?')">Eliminar</button>
+                </form>
+              </td>
             </tr>
           <?php
           }

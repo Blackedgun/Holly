@@ -145,7 +145,7 @@ tr {
 }
 
 .table__container {
-  width: 1000px;
+  width: fit-content;
   border: 5px solid rgb(128, 128, 128);
   background: #ffffff;
   overflow: hidden;
@@ -155,7 +155,6 @@ tr {
   margin: auto 400px auto;
   position: absolute;
   transform: translate(60px, 500px);
-  max-width: max-content;
 }
 
 .table__container .Fetch {
@@ -284,7 +283,7 @@ h4 {
 
   .table__container,
   .table__container_two {
-    max-width: 1100px;
+    max-width: 1200px;
   }
 
   .form-register {

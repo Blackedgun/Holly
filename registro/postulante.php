@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head class="Strengthhead">
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,9 +19,13 @@
       return true;
     }
   </script>
+  <script src="../js/disable.js"></script>
 </head>
+
 <body style="background: url(../img/pinkdot2.jpg)">
-  <form action="../functions/reg_postulante.php" class="form-register" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+  <form action="../functions/reg_postulante.php" id="myForm" class="form-register" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <div id="disabledMessage" style="color: black; display: none; font-size: 23px; font-family:'Times New Roman', Times, serif;">Este formulario se encuentra deshabilitado por el momento</div>
+    <br>
     <h4>Envia tus datos</h4>
     <div>
       <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese sus Nombres" required />
@@ -60,7 +65,7 @@
     </div>
     <label style="color: black;" for="curriculum">Hoja de Vida (Max 4MB):</label>
     <input type="file" id="curriculum" name="curriculum" required><br><br>
-    <input class="bottom" type="submit" value="Postularse ahora"/>
+    <input class="bottom" type="submit" value="Postularse ahora" />
   </form>
 </body>
 </html>
