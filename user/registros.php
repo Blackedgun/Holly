@@ -83,7 +83,7 @@ if ($result->num_rows > 0) {
           <li>
             <div class="color-picker-container">
               <label style="color: var(--text-color, black);" for="colorPicker">Color de interfaz:</label>
-              <input type="color" id="colorPicker" name="colorPicker">
+              <input style="margin-left: 10px; border: 1px solid white;" type="color" id="colorPicker" name="colorPicker">
             </div>
           </li>
         </ul>
