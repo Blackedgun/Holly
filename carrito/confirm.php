@@ -68,7 +68,24 @@ session_start();
                     <br />
                     <select style="padding: 8px; font-size: 15px" name="localidad" id="localidad" required>
                         <option value="Antonio Nariño">Antonio Nariño</option>
-                        <!-- Otras opciones de localidades aquí -->
+                        <option value="Barrios Unidos">Barrios Unidos</option>
+                        <option value="Bosa">Bosa</option>
+                        <option value="Chapinero">Chapinero</option>
+                        <option value="Ciudad Bolívar">Ciudad Bolívar</option>
+                        <option value="Engativá">Engativá</option>
+                        <option value="Fontibón">Fontibón</option>
+                        <option value="Kennedy">Kennedy</option>
+                        <option value="La Candelaria">La Candelaria</option>
+                        <option value="Los Mártires">Los Mártires</option>
+                        <option value="Puente Aranda">Puente Aranda</option>
+                        <option value="Rafael Uribe Uribe">Rafael Uribe Uribe</option>
+                        <option value="San Cristóbal">San Cristóbal</option>
+                        <option value="Santa Fe">Santa Fe</option>
+                        <option value="Suba">Suba</option>
+                        <option value="Teusaquillo">Teusaquillo</option>
+                        <option value="Tunjuelito">Tunjuelito</option>
+                        <option value="Usaquén">Usaquén</option>
+                        <option value="Usme">Usme</option>
                     </select>
                     <br />
                     <label for="barrio">Barrio *</label>
@@ -88,10 +105,10 @@ session_start();
                 <br /><br />
                 <table>
                     <?php
-                    $subtotal = $total; // Aquí deberías tener el subtotal calculado correctamente
-                    $envio = 10000; // Esto debería ser el valor del envío seleccionado dinámicamente
+                    $subtotal = $total; 
+                    $envio = 10000; 
 
-                    // Mostrar el subtotal y envío
+                    
                     ?>
                     <tr>
                         <td style="padding-bottom: 30px" rowspan="1">Subtotal</td>
@@ -111,7 +128,7 @@ session_start();
                     </tr>
                 </table>
                 <br /><br />
-                <!-- Aquí deberías incluir la selección de método de pago -->
+                <!-- Incluir la selección de método de pago -->
                 <div class="container">
                     <label>
                         <input name="payment" type="radio" name="initial" id="initialRadio" onchange="showSecondaryRadios()">
@@ -184,41 +201,34 @@ session_start();
     <script src="../js/new-inputs.js"></script>
 </body>
 
-  <footer class="footer">
+<footer class="footer">
     <div class="Brand">
-      <img src="../img/LogoHolly.png" alt="Holly Dashing" />
+        <img src="../img/LogoHolly.png" alt="Holly Dashing" />
     </div>
     <div class="footercont">
-      <nav>
-        <ul>
-          <li><a href="../Interface.php">Inicio</a></li>
-          <li><a href="../Tienda/Tienda.php">Tienda</a></li>
-          <li><a href="../contact.php">Contactanos</a></li>
-        </ul>
-      </nav>
-      <p>©2024 Holly Dashing | Todos los derechos reservados</p>
+        <nav>
+            <ul>
+                <li><a href="../Interface.php">Inicio</a></li>
+                <li><a href="../Tienda/Tienda.php">Tienda</a></li>
+                <li><a href="../contact.php">Contactanos</a></li>
+            </ul>
+        </nav>
+        <p>©2024 Holly Dashing | Todos los derechos reservados</p>
     </div>
     <ul class="social-icon">
-      <li>
-        <a href="https://x.com/eldiariodedross"
-          ><img src="../img/x.png" alt=""
-        /></a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/Seniorwhis"
-          ><img src="../img/facebook.png" alt=""
-        /></a>
-      </li>
-      <li>
-        <a href="https://www.instagram.com/senior_whiiss/"
-          ><img src="../img/instagram.png" alt=""
-        /></a>
-      </li>
-      <li>
-        <a href="https://wa.me/3025193306"
-          ><img src="../img/whatsapp.png" alt=""
-        /></a>
-      </li>
+        <li>
+            <a href="https://x.com/eldiariodedross"><img src="../img/x.png" alt="" /></a>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/Seniorwhis"><img src="../img/facebook.png" alt="" /></a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/senior_whiiss/"><img src="../img/instagram.png" alt="" /></a>
+        </li>
+        <li>
+            <a href="https://wa.me/3025193306"><img src="../img/whatsapp.png" alt="" /></a>
+        </li>
     </ul>
-  </footer>
+</footer>
+
 </html>

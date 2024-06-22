@@ -122,7 +122,7 @@ session_start();
                     </tr>
                 </table>
                 <div class="check-button">
-                    <a href="confirm.php">Continuar Compra</a>
+                    <a style="border: 2px solid black;" href="confirm.php">Continuar Compra</a>
                 </div>
             </div>
         </div>
