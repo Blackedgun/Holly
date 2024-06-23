@@ -1,6 +1,6 @@
 <?php
 require_once('../reg.php');
-session_start();
+require_once('../functions/addcart.php');
 ?>
 
 <!DOCTYPE html>
@@ -96,37 +96,54 @@ session_start();
                     <label for="order_notes">Notas sobre el pedido (opcional)</label>
                     <textarea name="order_notes" class="input-text" id="order_notes" placeholder="Notas sobre tu pedido, por ejemplo detalles para realizar la entrega." rows="2" cols="5"></textarea>
                     <br />
-                    <label style="color: black" for="checkout">Comprobante de pago (Solo si vas a pagar por Nequi o Daviplata)</label>
-                    <input type="file" id="checkout" name="checkout" /><br />
+                    <label style="color: black" for="comprobante">Comprobante de pago (Solo si vas a pagar por Nequi o Daviplata)</label>
+                    <input type="file" id="comprobante" name="comprobante" /><br />
                 </form>
             </div>
             <div class="picture-det">
                 <h4>Detalles del pedido</h4>
                 <br /><br />
-                <table>
-                    <?php
-                    $subtotal = $total; 
-                    $envio = 10000; 
+                <?php
+                $total = 0;
+                if ((isset($_SESSION['cart']) && !empty($_SESSION['cart']))) {
+                    foreach ($_SESSION['cart'] as $index => $item) {
+                        $subtotal = $item['prod_precio'] * $item['cantidad'];
+                        $total += $subtotal;
+                    } ?>
+                    <table>
+                        <?php
+                        $subtotal = $total;
 
-                    
-                    ?>
-                    <tr>
-                        <td style="padding-bottom: 30px" rowspan="1">Subtotal</td>
-                        <td style="padding-left: 50px; padding-bottom: 30px">$<?php echo number_format($subtotal, 2); ?></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="1">Envío</td>
-                        <td>
-                            <ul style="padding-left: 50px; margin-top: 15px; margin-bottom: 15px;">
-                                <li><label for="new-check1">Valor adicional: $10.000</label></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-top: 70px">Total</td>
-                        <td style="padding-left: 50px; padding-top: 70px">$<?php echo number_format($total + $envio, 2); ?></td>
-                    </tr>
-                </table>
+                        ?>
+                        <tr>
+                            <td style="padding-bottom: 30px" rowspan="1">Subtotal</td>
+                            <td style="padding-left: 50px; padding-bottom: 30px">$<?php echo number_format($subtotal, 2); ?></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="1">Envío</td>
+                            <td>
+                                <ul style="padding-left: 50px; margin-top: 15px; margin-bottom: 15px;">
+                                    <li>
+                                        <input type="radio" name="shipping" value="additional_cost" id="new-check1" checked onchange="updateTotal()">
+                                        <label for="new-check1">Valor adicional: $10.000</label>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <input type="radio" name="shipping" value="store_pickup" id="new-check2" onchange="updateTotal()">
+                                        <label for="new-check2">Retiro en tienda (San Andresito de la 38)</label>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 70px">Total</td>
+                            <td style="padding-left: 50px; padding-top: 70px;" id="total">$<?php echo number_format($total + 10000, 2); ?></td>
+                        </tr>
+                    </table>
+                <?php
+                } else {
+                    echo '<tr><td colspan="6"><p>Algo salio mal.</p></td></tr>';
+                } ?>
                 <br /><br />
                 <!-- Incluir la selección de método de pago -->
                 <div class="container">
@@ -144,7 +161,7 @@ session_start();
                             <input type="radio" name="secondary" id="secondaryRadio2" onchange="showImages('imageSet2')">
                             Pagar con Daviplata
                         </label>
-                        <h1 style="font-size: 15px;">(No seleccione ninguna opción a menos de estar seguro que desea pagar con Nequi o Daviplata)</h1>
+                        <h1 style="font-size: 15px;"></h1>
                     </div>
 
                     <div id="imageSet1" class="imageSet collapsible">
@@ -199,6 +216,16 @@ session_start();
         <p>Te invitamos a que cuides, respetes y mejores tu piel con la mejor delicadeza.</p>
     </div>
     <script src="../js/new-inputs.js"></script>
+    <script>
+        function updateTotal() {
+            const shippingCost = document.querySelector('input[name="shipping"]:checked').value === "additional_cost" ? 10000 : 0;
+            const totalElement = document.getElementById("total");
+            const total = <?php echo $total; ?> + shippingCost;
+            totalElement.textContent = "$" + total.toLocaleString('es-ES', {
+                minimumFractionDigits: 2
+            });
+        }
+    </script>
 </body>
 
 <footer class="footer">

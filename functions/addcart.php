@@ -5,7 +5,6 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $producto_id = $_POST['producto_id'];
 
-    // Obtener los detalles del producto desde la base de datos
     $sentencia = "SELECT * FROM producto WHERE producto_id = ?";
     $stmt = $conn->prepare($sentencia);
     $stmt->bind_param("i", $producto_id);
@@ -18,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Agregar el producto al carrito en la sesión (para mantener compatibilidad)
     if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
@@ -28,7 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_SESSION['cart'] as &$item) {
         if (is_array($item) && isset($item['producto_id'])) {
             if ($item['producto_id'] == $producto_id) {
-                $item['cantidad'] += 1;  // Incrementar la cantidad si ya existe
+                if ($item['cantidad'] < $producto['prod_cantidad']) {
+                    $item['cantidad'] += 1;
+                } else {
+                    echo "<script>alert('No hay suficiente cantidad de producto disponible.');</script>";
+                }
                 $producto_encontrado = true;
                 break;
             }
@@ -36,13 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!$producto_encontrado) {
-        $_SESSION['cart'][] = [
+        $product = [
             'producto_id' => $producto_id,
             'prod_nombre' => $producto['prod_nombre'],
             'prod_precio' => $producto['prod_precio'],
             'prod_image' => $producto['prod_image'],
-            'cantidad' => 1
+            'cantidad' => 1,
+            'max_cantidad' => $producto['prod_cantidad']
         ];
+        $_SESSION['cart'][] = $product;
     }
 
     header("Location: ../carrito/carrito.php");

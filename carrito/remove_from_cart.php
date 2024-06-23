@@ -3,19 +3,21 @@
 require_once('../reg.php');
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['delete_index'])) {
-  $delete_index = $_GET['delete_index'];
+switch($_POST['btnAction']){
+  case 'Eliminar':
+    if($_POST['id']){
+      $producto_id = ($_POST['id']);
 
-  // Verificar si el índice está en el carrito
-  if (isset($_SESSION['cart'][$delete_index])) {
-    // Eliminar el producto del carrito en la sesión
-    unset($_SESSION['cart'][$delete_index]);
-
-    // Redireccionar de vuelta al carrito después de eliminar
-    header("Location: ../carrito/carrito.php");
-    exit();
-  } else {
-    echo "Producto no encontrado en el carrito.";
-    exit();
-  }
+      foreach($_SESSION['cart'] as $index => $item){
+        if($item['producto_id']== $producto_id){
+          unset($_SESSION['cart'][$index]);
+          $_SESSION['cart']=array_values($_SESSION["cart"]);
+          header('location: carrito.php');
+        }
+      }
+    }
+    else{
+      echo 'ID incorrecto';
+    }
+    break;
 }
