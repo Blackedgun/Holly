@@ -16,13 +16,10 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   if ($row['rol_id'] != 1) {
-    echo "<script language='JavaScript'>
-        alert ('Usted no tiene permitido el acceso a esta vista');
-        location.assign ('../Interface.php');
-        </script>";
+    header('location: ../alert.php');
     exit();
   }
-} 
+}  
 
 ?>
 
