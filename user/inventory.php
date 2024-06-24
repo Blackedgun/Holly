@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
     header('location: ../alert.php');
     exit();
   }
-} 
+}
 
 ?>
 
@@ -62,7 +62,7 @@ if ($result->num_rows > 0) {
           <li>
             <a href="registros.php">
               <i class="fas fa-user"></i>
-              <span  class="nav-item">Registros</span>
+              <span class="nav-item">Registros</span>
             </a>
           </li>
           <li>
@@ -84,7 +84,7 @@ if ($result->num_rows > 0) {
             </div>
           </li>
         </ul>
-      </div> 
+      </div>
     </nav>
     <div>
       <div class="somenew">
@@ -148,6 +148,12 @@ if ($result->num_rows > 0) {
             <th>Opciones</th>
           </tr>
           <?php
+          $updateDisponibilidad = "UPDATE producto 
+          SET disponibilidad = CASE 
+              WHEN prod_cantidad = 0 THEN 'Agotado' 
+              ELSE 'Disponible' 
+          END";
+          mysqli_query($conn, $updateDisponibilidad);
           $inv = "SELECT producto.*, categoria.categoria AS categoria FROM producto LEFT JOIN categoria ON producto.cat_id = categoria.cat_id";
           if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];

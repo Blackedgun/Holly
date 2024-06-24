@@ -340,6 +340,12 @@ button:hover {
     margin-bottom: 30px;
   }
 
+  .check-button a.disabled {
+    pointer-events: none;
+    color: grey;
+    border-color: grey;
+}
+
   .input-text{
     box-sizing: border-box;
     width: 100%;

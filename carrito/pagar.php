@@ -20,7 +20,6 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
     $uploadFile = $uploadDir . basename($_FILES['comprobante']['name']);
 
     if ($_POST) {
-        $envio = 10000;
         $total = 0;
         $SID = session_id();
 
@@ -47,18 +46,24 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
                 if ($sentencia->execute()) {
                     $pedidoId = $pdo->lastInsertId();
 
-                    $detalleSentencia = $pdo->prepare("INSERT INTO detalle (producto_id, pedido_id, precio_unit, cantidad, metodo_pago, modo_envio) VALUES (:producto_id, :pedido_id, :precio_unit, :cantidad, 'Código QR', 'Envío');");
+                    $facturaSentencia = $pdo->prepare("INSERT INTO factura (descripcion, condiciones, fecha) VALUES ('Gracias por haber comprado en Holly Dashing esperamos vuelva pronto!', '(Esta factura se anulará automáticamente ante cualquier queja o reclamo en caso de que el comprobante de pago no coincida con el total a pagar o el archivo cargado sea incorrecto)', current_timestamp());");
+                    $facturaSentencia->execute();
+                    $facturaId = $pdo->lastInsertId();
+
+                    $detalleSentencia = $pdo->prepare("INSERT INTO detalle (factura_id, producto_id, pedido_id, precio_unit, cantidad, metodo_pago, modo_envio) VALUES (:factura_id, :producto_id, :pedido_id, :precio_unit, :cantidad, 'Código QR', 'Envío');");
+                    $updateProductQuantitySentencia = $pdo->prepare("UPDATE producto SET prod_cantidad = prod_cantidad - :cantidad WHERE producto_id = :producto_id");
+
                     foreach ($_SESSION['cart'] as $index => $item) {
+                        $detalleSentencia->bindParam(":factura_id", $facturaId);
                         $detalleSentencia->bindParam(":producto_id", $item['producto_id']);
                         $detalleSentencia->bindParam(":pedido_id", $pedidoId);
                         $detalleSentencia->bindParam(":precio_unit", $item['prod_precio']);
                         $detalleSentencia->bindParam(":cantidad", $item['cantidad']);
                         $detalleSentencia->execute();
-                        $detalleId = $pdo->lastInsertId();
 
-                        $facturaSentencia = $pdo->prepare("INSERT INTO factura (detalle_id, descripcion, condiciones, fecha) VALUES (:detalle_id, 'Gracias por haber comprado en Holly Dashing esperamos vuelva pronto!', '(Esta factura se anulará automáticamente ante cualquier queja o reclamo en caso de que el comprobante de pago no coincida con el total a pagar o el archivo cargado sea incorrecto)', current_timestamp());");
-                        $facturaSentencia->bindParam(":detalle_id", $detalleId);
-                        $facturaSentencia->execute();
+                        $updateProductQuantitySentencia->bindParam(":producto_id", $item['producto_id']);
+                        $updateProductQuantitySentencia->bindParam(":cantidad", $item['cantidad']);
+                        $updateProductQuantitySentencia->execute();
                     }
 
                     echo '<script>

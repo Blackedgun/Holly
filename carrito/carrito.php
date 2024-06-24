@@ -1,6 +1,8 @@
 <?php
 require_once('../reg.php');
 session_start();
+
+$cartIsEmpty = empty($_SESSION['cart']) || count($_SESSION['cart']) === 0;
 ?>
 
 <!DOCTYPE html>
@@ -37,8 +39,21 @@ session_start();
                 quantityInput.value = currentQuantity - 1;
             }
         }
-    </script>
 
+        function disableContinueButton() {
+            var continueLink = document.getElementById('continue-link');
+            continueLink.style.pointerEvents = 'none'; 
+            continueLink.style.color = 'grey'; 
+            continueLink.style.borderColor = 'grey'; 
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var isEmpty = <?php echo json_encode($cartIsEmpty); ?>;
+            if (isEmpty) {
+                disableContinueButton();
+            }
+        });
+    </script>
 </head>
 
 <body style="background: url(../img/pinkdot2.jpg)">
@@ -124,7 +139,7 @@ session_start();
                     </tr>
                 </table>
                 <div class="check-button">
-                    <a style="border: 2px solid black;" href="confirm.php">Continuar Compra</a>
+                    <a id="continue-link" style="border: 2px solid black;" href="confirm.php">Continuar Compra</a>
                 </div>
             </div>
         </div>

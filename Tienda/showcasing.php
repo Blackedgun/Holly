@@ -10,6 +10,12 @@ if (isset($_GET['id'])) {
   $stmt->execute();
   $resultado = $stmt->get_result();
   $row = $resultado->fetch_assoc();
+
+  if ($row['prod_cantidad'] == 0) {
+    $row['disponibilidad'] = 'Agotado';
+  } elseif ($row['prod_cantidad'] > 0) {
+    $row['disponibilidad'] = 'Disponible';
+  }
 } else {
   echo "Producto no encontrado.";
   exit();
@@ -18,6 +24,7 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,6 +38,7 @@ if (isset($_GET['id'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet" />
 </head>
+
 <body style="background: url(../img/pinkdot2.jpg)">
   <header class="header">
     <div class="Brand">
@@ -44,8 +52,8 @@ if (isset($_GET['id'])) {
       </ul>
     </nav>
     <div class="login-button">
-    <a href="../carrito/carrito.php">
-    <i style="transform: translate(-40px); color: white;" class="fas fa-shopping-cart fa-2x"></i>
+      <a href="../carrito/carrito.php">
+        <i style="transform: translate(-40px); color: white;" class="fas fa-shopping-cart fa-2x"></i>
         <span class="nav-item" style="color: beige;"></span>
       </a>
       <a href="../login/Formulario.php"><button>Iniciar Sesión</button></a>
