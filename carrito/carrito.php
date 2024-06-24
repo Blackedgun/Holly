@@ -115,7 +115,7 @@ session_start();
                 </form>
             </div>
             <div style="width: 300px;" class="picture-det">
-                <h4>Total del carrito</h4>
+                <h4>Subtotal del carrito</h4>
                 <br><br>
                 <table>
                     <tr>

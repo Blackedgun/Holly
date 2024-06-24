@@ -19,7 +19,7 @@ require_once('../functions/addcart.php');
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet" />
     <script>
         function validateForm() {
-            var checkout = document.getElementById("checkout").value;
+            var checkout = document.getElementById("comprobante").value;
             if (checkout == "") {
                 alert("Por favor cargue el comprobante para continuar");
                 return false;
@@ -52,7 +52,7 @@ require_once('../functions/addcart.php');
                 <p>CHECKOUT</p>
             </div>
             <div class="first_container">
-                <form action="process_checkout.php" method="POST" onsubmit="return validateForm()">
+                <form action="pagar.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm() ">
                     <h4>DETALLES DE FACTURACIÓN</h4>
                     <br />
                     <label for="nombre">Nombres *</label>
@@ -98,12 +98,12 @@ require_once('../functions/addcart.php');
                     <br />
                     <label style="color: black" for="comprobante">Comprobante de pago (Solo si vas a pagar por Nequi o Daviplata)</label>
                     <input type="file" id="comprobante" name="comprobante" /><br />
-                </form>
             </div>
             <div class="picture-det">
                 <h4>Detalles del pedido</h4>
                 <br /><br />
                 <?php
+                $envio = 10000;
                 $total = 0;
                 if ((isset($_SESSION['cart']) && !empty($_SESSION['cart']))) {
                     foreach ($_SESSION['cart'] as $index => $item) {
@@ -137,7 +137,7 @@ require_once('../functions/addcart.php');
                         </tr>
                         <tr>
                             <td style="padding-top: 70px">Total</td>
-                            <td style="padding-left: 50px; padding-top: 70px;" id="total">$<?php echo number_format($total + 10000, 2); ?></td>
+                            <td style="padding-left: 50px; padding-top: 70px;" id="total">$<?php echo number_format($total + $envio, 2); ?></td>
                         </tr>
                     </table>
                 <?php
@@ -186,7 +186,7 @@ require_once('../functions/addcart.php');
                             <li>Pago en cuotas</li>
                             <li>Protección al comprador</li>
                         </ul>
-                        <label><input type="checkbox" name="terms" required>Acepto los términos y condiciones de Mercado Pago</label>
+                        <label><input type="checkbox" name="terms">Acepto los términos y condiciones de Mercado Pago</label>
                     </div>
                 </div>
 
@@ -204,9 +204,10 @@ require_once('../functions/addcart.php');
                             <li>Soporte global</li>
                         </ul>
                     </div>
-                </div>
-                <div class="check-button">
-                    <input type="submit" value="Finalizar Compra" />
+                    <div class="check-button">
+                        <input type="submit" value="Finalizar Compra" />
+                    </div>
+                </form>
                 </div>
             </div>
         </div>
