@@ -154,9 +154,9 @@ $detallesResultado = $detallesStmt->get_result();
                 <br><br>
             <?php } ?>
 
-            <label style="color: black; font-size: 20px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"" for="usuario">Empleado que entrega: </label>
+            <label style="color: black; font-size: 20px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"" for=" usuario">Empleado que entrega: </label>
             <select id="usuario" name="usuario" required>
-                <?php 
+                <?php
                 $query = "SELECT usuario_id, nombre FROM usuario WHERE usuario_id > 5";
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -171,6 +171,10 @@ $detallesResultado = $detallesStmt->get_result();
                 <option value="Pendiente" <?= $pedido['estado'] == 'Pendiente' ? 'selected' : '' ?>>Pendiente</option>
                 <option value="Entregado" <?= $pedido['estado'] == 'Entregado' ? 'selected' : '' ?>>Entregado</option>
             </select><br><br>
+            <div style="background: white; width: fit-content; padding: 1px 20px 5px; border-radius: 20px; margin: auto;">
+                <h2 style="color: black; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Factura:</h2>
+                <a style="padding: 2px; text-decoration: none;color:#fff; height:fit-content; font-size:1.1rem; width:60px; margin-left:28px; background-color:crimson" class='footer__title' href="../facturas/factura_<?php echo htmlspecialchars($pedido['pedido_id']); ?>.pdf" target="_blank">PDF</a>
+            </div><br>
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($pedido['pedido_id']); ?>">
             <input class="bottom" type="submit" name="enviar" value="Actualizar estado">
         </form>

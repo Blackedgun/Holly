@@ -150,7 +150,7 @@ if ($result->num_rows > 0) {
           <?php
           $updateDisponibilidad = "UPDATE producto 
           SET disponibilidad = CASE 
-              WHEN prod_cantidad = 0 THEN 'Agotado' 
+              WHEN prod_cantidad <= 0 THEN 'Agotado' 
               ELSE 'Disponible' 
           END";
           mysqli_query($conn, $updateDisponibilidad);

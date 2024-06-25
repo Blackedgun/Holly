@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
   $resultado = $stmt->get_result();
   $row = $resultado->fetch_assoc();
 
-  if ($row['prod_cantidad'] == 0) {
+  if ($row['prod_cantidad'] <= 0) {
     $row['disponibilidad'] = 'Agotado';
   } elseif ($row['prod_cantidad'] > 0) {
     $row['disponibilidad'] = 'Disponible';
