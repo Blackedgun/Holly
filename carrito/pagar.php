@@ -38,7 +38,7 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 }
 
-                $sentencia = $pdo->prepare("INSERT INTO pedidos (claveTransaccion, fecha_ped, total_amount, estado, cliente_id) VALUES (:claveTransaccion, current_timestamp(), :Total, 'Pendiente', :cliente);");
+                $sentencia = $pdo->prepare("INSERT INTO pedidos (claveTransaccion, fecha_ped, total_amount, estado, cliente_id, usuario_id) VALUES (:claveTransaccion, current_timestamp(), :Total, 'Pendiente', :cliente, '11');");
                 $sentencia->bindParam(":claveTransaccion", $SID);
                 $sentencia->bindParam(":Total", $total);
                 $sentencia->bindParam(":cliente", $clientSecret);

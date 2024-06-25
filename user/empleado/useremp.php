@@ -76,9 +76,6 @@ if (empty($_SESSION['usuario'])) {
           </div><br>
           <div class="print">
             <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../../convert/pedidoxml.php">XML</a><br><br>
-            <div class="nextbutton">
-              <a class="Fetch" href="'checkbillsdeletequotationmarks'">Facturas</a>
-            </div>
           </div>
         </form>
         <div style="background: none; border: 0px;" class="someold"></div>
@@ -117,7 +114,7 @@ if (empty($_SESSION['usuario'])) {
               <td><?php echo $row['total_amount']; ?></td>
               <td><?php echo $row['estado']; ?></td>
               <td><?php echo $row['nombre_cli']; ?></td>
-              <td><a href="'direccionURLborrarcomillas'?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Consultar</a></td>
+              <td><a href="consultpedemp.php?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Consultar</a></td>
             </tr>
           <?php
           }
