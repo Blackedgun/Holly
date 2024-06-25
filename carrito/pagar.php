@@ -170,7 +170,7 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
                     } catch (Exception $e) {
 
                         echo '<script>
-                                alert("No se procesó el envío la factura a su correo mas sin embargo el pago fue exitoso, comuniquese a 3025193306 o a Strengthware@outlook.es para recibir su factura por correo o mensaje");
+                                alert("Ha ocurrido un error en el envío de la factura a su correo mas sin embargo la compra fue exitosa, comuniquese a 3025193306 o a Strengthware@outlook.es para recibir su factura por correo o mensaje");
                                 window.location = "../interface.php";
                               </script>';
                     }
