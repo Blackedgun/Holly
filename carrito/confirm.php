@@ -1,7 +1,16 @@
 <?php
 require_once('../reg.php');
 require_once('../functions/addcart.php');
+
+if(!isset($_SESSION['cart'])){
+    header('location: ../alert2.php');
+    exit();
+}
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">

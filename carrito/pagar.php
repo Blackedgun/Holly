@@ -1,4 +1,5 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -9,12 +10,11 @@ require '../PHPMailer-master/src/SMTP.php';
 require_once('../reg.php');
 session_start();
 
-// Verificar si el carrito existe y es un array
+
 if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// Recibir datos del formulario de confirmación de compra
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
@@ -24,35 +24,34 @@ $barrio = $_POST['barrio'];
 $telefono = $_POST['telefono'];
 $notas = $_POST['order_notes'];
 
-// Procesar el archivo de comprobante
+// Procesar comprobante
 if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_ERR_OK) {
     $uploadDir = '../comprobantes/';
     $uploadFile = $uploadDir . basename($_FILES['comprobante']['name']);
 
-    // Si se recibe correctamente el archivo, se procede con el registro del cliente y el pedido
+
     if ($_POST) {
         $total = 0;
         $SID = session_id();
 
         if (move_uploaded_file($_FILES['comprobante']['tmp_name'], $uploadFile)) {
-            // Insertar datos del cliente en la base de datos
+
             $sentencia = "INSERT INTO cliente (nombre_cli, apellido_cli, correo_cli, direccion_cli, localidad, barrio, telefono, notas, comprobante) VALUES ('$nombre', '$apellido', '$correo', '$direccion', '$localidad', '$barrio', '$telefono', '$notas', '$uploadFile');";
             $result = $conn->query($sentencia);
             $clientSecret = $conn->insert_id;
 
             if ($result) {
-                // Calcular el total de la compra
+                // Total de la compra
                 foreach ($_SESSION['cart'] as $index => $item) {
                     $total += $item['prod_precio'] * $item['cantidad'];
                 }
 
-                // Iniciar conexión PDO si no está inicializada
                 if (!isset($pdo)) {
                     $pdo = new PDO('mysql:host=localhost;dbname=holly', 'root', '');
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 }
 
-                // Insertar datos del pedido en la base de datos
+
                 $sentencia = $pdo->prepare("INSERT INTO pedidos (claveTransaccion, fecha_ped, total_amount, estado, cliente_id, usuario_id) VALUES (:claveTransaccion, current_timestamp(), :Total, 'Pendiente', :cliente, '6');");
                 $sentencia->bindParam(":claveTransaccion", $SID);
                 $sentencia->bindParam(":Total", $total);
@@ -61,7 +60,7 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
                 if ($sentencia->execute()) {
                     $pedidoId = $pdo->lastInsertId();
 
-                    // Insertar detalles del pedido en la base de datos
+
                     $detalleSentencia = $pdo->prepare("INSERT INTO detalle (producto_id, pedido_id, precio_unit, cantidad, metodo_pago, modo_envio) VALUES (:producto_id, :pedido_id, :precio_unit, :cantidad, 'Código QR', 'Envío');");
                     $updateProductQuantitySentencia = $pdo->prepare("UPDATE producto SET prod_cantidad = prod_cantidad - :cantidad WHERE producto_id = :producto_id");
 
@@ -77,7 +76,7 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
                         $updateProductQuantitySentencia->execute();
                     }
 
-                    // Obtener datos del pedido para la factura
+                    // Join para traer datos de F. keys de pedidos
                     $pedidoSql = "SELECT p.pedido_id, p.total_amount, c.nombre_cli, c.correo_cli, p.fecha_ped
                                   FROM pedidos p
                                   JOIN cliente c ON p.cliente_id = c.cliente_id
@@ -87,12 +86,12 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
                     $pedidoStmt->execute();
                     $pedido = $pedidoStmt->fetch(PDO::FETCH_ASSOC);
 
-                    // Crear el objeto FPDF para la factura
+                    // Crear PDF para la factura
                     require('../convert/pdf/fpdf.php');
                     $pdf = new FPDF();
                     $pdf->AddPage();
 
-                    // Cabecera de la factura
+                    // Header
                     $pdf->Image('../img/LogoHolly.png', 10, 10, 30);
                     $pdf->SetFont('Arial', 'B', 16);
                     $pdf->Cell(0, 10, 'Factura Holly Dashing', 0, 1, 'C');
@@ -103,7 +102,7 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
                     $pdf->Cell(0, 8, '', 0, 1, 'C');
                     $pdf->SetFont('Arial', '', 12);
 
-                    // Cuerpo de la factura
+                    // Body
                     $pdf->Ln(10);
                     $pdf->Cell(0, 10, 'Pedido ID: ' . $pedido['pedido_id'], 0, 1,  'C');
                     $pdf->Cell(0, 10, 'Cliente: ' . $pedido['nombre_cli'], 0, 1,  'C');
@@ -121,21 +120,22 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
                         $pdf->Ln(5);
                     }
 
-                    // Total de la factura
+                    // Total
                     $pdf->Cell(0, 10, 'Total: $' . $pedido['total_amount'], 0, 1,  'C');
 
-                    // Pie de página de la factura
+                    // Footer
                     $pdf->Cell(0, 10, '', 0, 1, 'C');
                     $pdf->SetFont('Arial', 'B', 16);
-                    $pdf->Cell (0, 10, utf8_decode('(Esta factura se anulará automáticamente ante cualquier queja'), 0, 1, 'C');
+                    $pdf->Cell(0, 10, utf8_decode('(Esta factura se anulará automáticamente ante cualquier queja'), 0, 1, 'C');
                     $pdf->Cell(0, 10, utf8_decode('o reclamo en caso de que el comprobante de pago no coincida con el'), 0, 1, 'C');
-                    $pdf->Cell(0, 10, utf8_decode('total a pagar o el archivo cargado sea incorrecto)'), 0, 1, 'C');
+                    $pdf->Cell(0, 10, utf8_decode('total a pagar, la información del comprador no sea la correcta)'), 0, 1, 'C');
+                    $pdf->Cell(0, 10, utf8_decode('o el archivo cargado sea incorrecto)'), 0, 1, 'C');
 
                     // Guardar el PDF en el servidor
                     $pdfFileName = '../facturas/factura_' . $pedidoId . '.pdf';
                     $pdf->Output($pdfFileName, 'F');
 
-                    // Preparar el envío del correo electrónico con la factura adjunta
+                    // PHP Mailer Section
                     try {
                         $mail = new PHPMailer(true);
                         $mail->isSMTP();
@@ -144,50 +144,52 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
                         $mail->Username   = 'Strengthware@outlook.es';
                         $mail->Password   = 'Kmirasapo123456$$$';
                         $mail->Port       = 587;
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Habilita TLS encryption
+                        $mail->Timeout = 15;
+                        $mail->SMTPDebug = 0; // Desactiva la depuración para producción
+                        $mail->SMTPKeepAlive = true; // Mantén la conexión SMTP abierta
                         $mail->setFrom('Strengthware@outlook.es', 'Holly Dashing Enterprise');
                         $mail->addAddress($pedido['correo_cli'], $pedido['nombre_cli']);
                         $mail->isHTML(true);
                         $mail->CharSet = 'UTF-8';
                         $mail->Subject = 'Factura de su compra en Holly Dashing';
                         $mail->Body    = 'Hola ' . $pedido['nombre_cli'] . ',<br><br>'
-                                        . 'Gracias por su compra en Holly Dashing. Adjuntamos la factura correspondiente a su pedido.<br><br>'
-                                        . 'Atentamente,<br>'
-                                        . 'Holly Dashing Enterprise<br><br>'
-                                        . '<a href="http://localhost/Holly/facturas/factura_' . $pedidoId . '.pdf">Descargar Factura</a>';
-                        $mail->addAttachment($pdfFileName); // Adjuntar el PDF de la factura
+                            . 'Gracias por su compra en Holly Dashing. Adjuntamos la factura correspondiente a su pedido.<br><br>'
+                            . 'Atentamente,<br>'
+                            . 'Holly Dashing Enterprise<br><br>'
+                            . '<a href="http://localhost/Holly/facturas/factura_' . $pedidoId . '.pdf">Descargar Factura</a>';
+                        $mail->addAttachment($pdfFileName); // Adjuntar la factura mediante el output
 
-                        // Enviar correo electrónico
                         $mail->send();
 
-                        // Limpiar carrito y redirigir después de enviar la factura
                         unset($_SESSION['cart']);
                         echo '<script>
                                 alert("Compra Exitosa (Se ha enviado la factura a tu correo electrónico).");
                                 window.location = "../interface.php";
                               </script>';
                     } catch (Exception $e) {
-                        // Manejo de errores al enviar el correo
+
                         echo '<script>
-                                alert("Ha ocurrido un error al enviar la factura por correo electrónico.");
+                                alert("No se procesó el envío la factura a su correo mas sin embargo el pago fue exitoso, comuniquese a 3025193306 o a Strengthware@outlook.es para recibir su factura por correo o mensaje");
                                 window.location = "../interface.php";
                               </script>';
                     }
                 } else {
-                    // Error al agregar detalles del pedido
+
                     echo '<script>
                             alert("Algo salió mal al agregar detalles del pedido.");
                             window.location = "confirm.php";
                           </script>';
                 }
             } else {
-                // Error al registrar el cliente
+
                 echo '<script>
                         alert("Algo salió mal con el registro del cliente.");
                         window.location = "confirm.php";
                       </script>';
             }
         } else {
-            // Error al subir el archivo de comprobante
+
             echo '<script>
                     alert("Error al subir el archivo de comprobante.");
                     window.location = "confirm.php";
@@ -195,11 +197,10 @@ if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] === UPLOAD_
         }
     }
 } else {
-    // Si no se seleccionó un archivo de comprobante
+
     echo '<script>
             alert("Por favor seleccione un documento para continuar.");
             window.location = "confirm.php";
           </script>';
 }
 exit();
-?>

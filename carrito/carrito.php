@@ -131,7 +131,7 @@ $cartIsEmpty = empty($_SESSION['cart']) || count($_SESSION['cart']) === 0;
             </div>
             <div style="width: 300px;" class="picture-det">
                 <h4>Subtotal del carrito</h4>
-                <br><br>
+                <br><br> 
                 <table>
                     <tr>
                         <td style="padding-bottom: 30px;" rowspan="1">Subtotal</td>

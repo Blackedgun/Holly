@@ -42,7 +42,7 @@ class PDF extends FPDF
 
 require ('../../reg.php');
 
-$quiet = "SELECT * FROM usuario";
+$quiet = "SELECT * FROM usuario WHERE usuario_id != 6";
 $query = $conn->query($quiet);
 
 $pdf = new PDF('L', 'mm', 'A4'); // Set orientation to Landscape

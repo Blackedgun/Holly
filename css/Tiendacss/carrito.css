@@ -667,6 +667,11 @@ footer .social-icon li a:hover {
     width: 80px;
   }
 
+  .container-pop-items .picture-det table td {
+    padding-left: 0;
+    font-size: 10px;
+  }
+
   .container-pop-items .picture-det input {
     display:flex;
     flex-direction: row;

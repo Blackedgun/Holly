@@ -146,11 +146,13 @@ $detallesResultado = $detallesStmt->get_result();
 
             <h4 style="text-align: center;">Detalles del pedido</h4>
             <?php while ($detalle = $detallesResultado->fetch_assoc()) { ?>
+                <div style="background: white; width: fit-content; padding: 30px; height: fit-content; border: 1px solid black; margin: auto;">
                 <h3 style="text-align: center; color: black;">Producto: <?php echo htmlspecialchars($detalle['prod_nombre']); ?></h3>
                 <h3 style="text-align: center; color: black;">Precio Unitario: <?php echo htmlspecialchars($detalle['precio_unit']); ?></h3>
                 <h3 style="text-align: center; color: black;">Cantidad: <?php echo htmlspecialchars($detalle['cantidad']); ?></h3>
                 <h3 style="text-align: center; color: black;">Método de Pago: <?php echo htmlspecialchars($detalle['metodo_pago']); ?></h3>
                 <h3 style="text-align: center; color: black;">Tipo de Entrega: <?php echo htmlspecialchars($detalle['modo_envio']); ?></h3>
+                </div>
                 <br><br>
             <?php } ?>
 
