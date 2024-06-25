@@ -1,0 +1,7 @@
+SELECT p.prod_nombre, t.talla_nombre, pt.cantidad
+FROM producto p
+JOIN producto_talla pt ON p.producto_id = pt.producto_id
+JOIN talla t ON pt.talla_id = t.talla_id
+WHERE p.producto_id = 1;
+
+Formula de Join para las tallas

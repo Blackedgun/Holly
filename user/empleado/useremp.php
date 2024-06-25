@@ -114,6 +114,7 @@ if (empty($_SESSION['usuario'])) {
               <td><?php echo $row['total_amount']; ?></td>
               <td><?php echo $row['estado']; ?></td>
               <td><?php echo $row['nombre_cli']; ?></td>
+              <td><?php echo $row['nombre']; ?></td>
               <td><a href="consultpedemp.php?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Consultar</a></td>
             </tr>
           <?php

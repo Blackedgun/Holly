@@ -134,7 +134,7 @@ if ($result->num_rows > 0) {
           </tr>
           <?php
           // Consultar usuarios
-          $query = "SELECT usuario.*, rol.interfaz AS interfaz FROM usuario LEFT JOIN rol ON usuario.rol_id = rol.rol_id WHERE usuario.usuario_id > 5";
+          $query = "SELECT usuario.*, rol.interfaz AS interfaz FROM usuario LEFT JOIN rol ON usuario.rol_id = rol.rol_id WHERE usuario.usuario_id > 5 AND usuario.usuario_id != 6";
 
           if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];

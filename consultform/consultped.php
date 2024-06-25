@@ -66,16 +66,17 @@ $detallesResultado = $detallesStmt->get_result();
     <?php
     if (isset($_POST['enviar'])) {
         $estado = $_POST["estado"];
+        $user = $_POST["usuario"];
         $id = $_POST["id"];
 
-        $qli = "UPDATE pedidos SET estado = ? WHERE pedido_id = ?";
+        $qli = "UPDATE pedidos SET estado = ?, usuario_id = ? WHERE pedido_id = ?";
         $stmt = $conn->prepare($qli);
-        $stmt->bind_param("si", $estado, $id);
+        $stmt->bind_param("sii", $estado, $user, $id);
         $resultado = $stmt->execute();
 
         if ($resultado) {
             echo "<script language='JavaScript'>
-        alert('Se cambió el estado del pedido');
+        alert('El estado del pedido ha cambiado');
         location.assign('../user/user.php');
         </script>";
         } else {
@@ -95,6 +96,7 @@ $detallesResultado = $detallesStmt->get_result();
         $pedidoStmt->execute();
         $pedidoResultado = $pedidoStmt->get_result();
         $pedido = $pedidoResultado->fetch_assoc();
+        //$user = $pedidoResultado->fetch_assoc();
 
         $clienteSql = "SELECT * FROM cliente WHERE cliente_id = ?";
         $clienteStmt = $conn->prepare($clienteSql);
@@ -134,7 +136,9 @@ $detallesResultado = $detallesStmt->get_result();
                         text-decoration: none;
                         height: fit-content;
                         text-align: center;
-                        font-size: 20px;" href="../comprobantes/<?php echo htmlspecialchars($cliente['comprobante']); ?>" target="_blank"><h3 style="background: white; width: 50%; text-align: center; margin: auto;  border-radius: 20px; padding: 10px;">Ver comprobante de pago</h3></a>
+                        font-size: 20px;" href="../comprobantes/<?php echo htmlspecialchars($cliente['comprobante']); ?>" target="_blank">
+                    <h3 style="background: white; width: 50%; text-align: center; margin: auto;  border-radius: 20px; padding: 10px;">Ver comprobante de pago</h3>
+                </a>
             <?php else : ?>
                 No disponible
             <?php endif; ?>
@@ -149,6 +153,18 @@ $detallesResultado = $detallesStmt->get_result();
                 <h3 style="text-align: center; color: black;">Tipo de Entrega: <?php echo htmlspecialchars($detalle['modo_envio']); ?></h3>
                 <br><br>
             <?php } ?>
+
+            <label style="color: black; font-size: 20px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"" for="usuario">Empleado que entrega: </label>
+            <select id="usuario" name="usuario" required>
+                <?php 
+                $query = "SELECT usuario_id, nombre FROM usuario WHERE usuario_id > 5";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $selected = ($row['usuario_id'] == $pedido['usuario_id']) ? 'selected' : '';
+                    echo '<option value="' . $row['usuario_id'] . '" ' . $selected . '>' . $row['nombre'] . '</option>';
+                }
+                ?>
+            </select><br><br>
 
             <label style="color: black; font-size: 20px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" for="estado">Estado del pedido: </label>
             <select id="estado" name="estado" required>

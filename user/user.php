@@ -109,20 +109,24 @@ if ($result->num_rows > 0) {
             <th>Total</th>
             <th>Estado</th>
             <th>Cliente</th>
+            <th>Domiciliario</th>
             <th>Opciones</th>
           </tr>
           <?php
           // Consultar pedidos
-          $query = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli 
-                    FROM pedidos 
-                    LEFT JOIN cliente ON pedidos.cliente_id = cliente.cliente_id";
+          $query = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli, usuario.nombre 
+          FROM pedidos 
+          LEFT JOIN cliente ON pedidos.cliente_id = cliente.cliente_id
+          LEFT JOIN usuario ON pedidos.usuario_id = usuario.usuario_id";
+
 
           if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];
             $query .= " WHERE pedidos.pedido_id LIKE '%$busqueda%' 
                         OR pedidos.fecha_ped LIKE '%$busqueda%' 
                         OR pedidos.total_amount LIKE '%$busqueda%' 
-                        OR pedidos.estado LIKE '%$busqueda%' 
+                        OR pedidos.estado LIKE '%$busqueda%'
+                        OR usuario.nombre LIKE '%$busqueda%' 
                         OR cliente.nombre_cli LIKE '%$busqueda%'";
           }
           $resultado = mysqli_query($conn, $query);
@@ -134,6 +138,7 @@ if ($result->num_rows > 0) {
               <td><?php echo $row['total_amount']; ?></td>
               <td><?php echo $row['estado']; ?></td>
               <td><?php echo $row['nombre_cli']; ?></td>
+              <td><?php echo $row['nombre']; ?></td>
               <td><a href="../consultform/consultped.php?id=<?php echo $row['pedido_id']; ?>" class="crud_button">Consultar</a></td>
             </tr>
           <?php
