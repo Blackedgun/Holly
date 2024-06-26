@@ -89,13 +89,15 @@ if (empty($_SESSION['usuario'])) {
             <th>Total</th>
             <th>Estado</th>
             <th>Cliente</th>
+            <th>Domiciliario</th>
             <th>Opciones</th>
           </tr>
           <?php
           // Consultar pedidos
-          $query = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli 
+          $query = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli, usuario.nombre 
                     FROM pedidos 
-                    LEFT JOIN cliente ON pedidos.cliente_id = cliente.cliente_id";
+                    LEFT JOIN cliente ON pedidos.cliente_id = cliente.cliente_id
+                    LEFT JOIN usuario ON pedidos.usuario_id = usuario.usuario_id";
 
           if (isset($_GET['enviar']) && !empty($_GET['busqueda'])) {
             $busqueda = $_GET['busqueda'];
@@ -103,7 +105,8 @@ if (empty($_SESSION['usuario'])) {
                         OR pedidos.fecha_ped LIKE '%$busqueda%' 
                         OR pedidos.total_amount LIKE '%$busqueda%' 
                         OR pedidos.estado LIKE '%$busqueda%' 
-                        OR cliente.nombre_cli LIKE '%$busqueda%'";
+                        OR cliente.nombre_cli LIKE '%$busqueda%'
+                        OR usuario.nombre LIKE '%$busqueda%'";
           }
           $resultado = mysqli_query($conn, $query);
           while ($row = mysqli_fetch_array($resultado)) {

@@ -1,4 +1,24 @@
 <?php
+include '../../reg.php';
+
+session_start();
+if (empty($_SESSION['usuario'])) {
+  header('location: ../Interface.php');
+  exit();
+}
+
+$usuario = $_SESSION['usuario'];
+
+$sql = "SELECT rol_id FROM usuario WHERE usuario_id = '$usuario'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  if ($row['rol_id'] != 1) {
+    header('location: ../../alert.php');
+    exit();
+  }
+}
 
 require('fpdf.php');
 
