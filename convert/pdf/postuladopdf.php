@@ -3,7 +3,7 @@ include '../../reg.php';
 
 session_start();
 if (empty($_SESSION['usuario'])) {
-  header('location: ../Interface.php');
+  header('location: ../../Interface.php');
   exit();
 }
 
@@ -19,7 +19,6 @@ if ($result->num_rows > 0) {
     exit();
   }
 }
-
 
 require('fpdf.php');
 

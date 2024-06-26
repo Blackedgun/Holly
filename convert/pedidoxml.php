@@ -1,4 +1,5 @@
 <?php
+
 include '../reg.php';
 
 session_start();
@@ -7,20 +8,10 @@ if (empty($_SESSION['usuario'])) {
   exit();
 }
 
-$usuario = $_SESSION['usuario'];
-
-$sql = "SELECT rol_id FROM usuario WHERE usuario_id = '$usuario'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  $row = $result->fetch_assoc();
-  if ($row['rol_id'] != 1) {
-    header('location: ../alert.php');
-    exit();
-  }
-}
-
-$hor = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli FROM pedidos INNER JOIN cliente ON pedidos.cliente_id = cliente.cliente_id";
+$hor = "SELECT pedidos.pedido_id, pedidos.fecha_ped, pedidos.total_amount, pedidos.estado, cliente.nombre_cli, usuario.nombre 
+                    FROM pedidos 
+                    LEFT JOIN cliente ON pedidos.cliente_id = cliente.cliente_id
+                    LEFT JOIN usuario ON pedidos.usuario_id = usuario.usuario_id";
 
 $query = $conn->query($hor);
 
@@ -36,6 +27,7 @@ while ($r = $query->fetch_object()) {
         $contact->addAttribute('Total', $r->total_amount);
         $contact->addAttribute('Estado', $r->estado);
         $contact->addAttribute('Cliente', $r->nombre_cli); 
+        $contact->addAttribute('Usuario', $r->nombre);
 
  }
 }

@@ -7,19 +7,6 @@ if (empty($_SESSION['usuario'])) {
   exit();
 }
 
-$usuario = $_SESSION['usuario'];
-
-$sql = "SELECT rol_id FROM usuario WHERE usuario_id = '$usuario'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  $row = $result->fetch_assoc();
-  if ($row['rol_id'] != 1) {
-    header('location: ../alert.php');
-    exit();
-  }
-}
-
 ob_start(); // Iniciar almacenamiento en búfer de salida
 
 $invXML = "SELECT producto.*, categoria.categoria AS categoria FROM producto LEFT JOIN categoria ON producto.cat_id = categoria.cat_id";
@@ -55,5 +42,5 @@ header('Content-Disposition: attachment; filename="Inventario.xml"');
 
 echo $dom->saveXML();
 
-ob_end_flush();
+ob_end_flush(); // Enviar el contenido del búfer de salida y desactivar el almacenamiento en búfer de salida
 ?>

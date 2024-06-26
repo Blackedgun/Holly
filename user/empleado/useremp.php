@@ -72,9 +72,6 @@ if (empty($_SESSION['usuario'])) {
           <br><br>
           <input type="submit" name="enviar" value="Buscar">
           <div class="print">
-            <a style="color: #707070; background-color: lawngreen;" class='print_button' href="../../convert/pedidocsv.php">CSV</a>
-          </div><br>
-          <div class="print">
             <a style="color: #ffffff; background-color:forestgreen;" class='print_button' href="../../convert/pedidoxml.php">XML</a><br><br>
           </div>
         </form>
