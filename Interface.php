@@ -153,7 +153,7 @@ session_start();
       </div>
     </div>
     <!-- button arrows -->
-    <div class="arrows">
+    <div style="display: none;" class="arrows">
       <button id="prev">
         < <button id="next">>
       </button>
